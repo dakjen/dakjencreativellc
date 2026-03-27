@@ -97,6 +97,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .sidebar{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .sidebar .side-card{position:static}
 .pull{font-size:1.2rem;font-style:italic;color:var(--n);line-height:1.65;border-left:3px solid var(--m);padding-left:1.5rem;max-width:560px;margin:2rem 0}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.06);margin:1.5rem 0 3rem}
+.svc-card{background:#111;padding:2rem 1.8rem}
+.svc-card-num{font-family:'Syne',system-ui,sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--m);margin-bottom:.7rem}
+.svc-card-title{font-family:'Syne',system-ui,sans-serif;font-size:1rem;font-weight:600;color:#f5f2ee;margin-bottom:.8rem;line-height:1.3}
+.svc-card p{font-size:.88rem;line-height:1.85;color:rgba(245,242,238,.55);margin:0}
+.what-we-do-intro{background:var(--n);padding:2.5rem;margin-bottom:1px;border-left:4px solid var(--m)}
+.what-we-do-intro p{font-size:1.05rem;line-height:1.9;color:rgba(245,242,238,.75);margin-bottom:.8rem}
+.what-we-do-intro p:last-child{margin-bottom:0}
 .cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin:1.5rem 0}
 .cs-cell{padding:1.4rem 1.2rem}
 .cs-cell strong{display:block;font-size:1.8rem;font-weight:normal;color:var(--m);margin-bottom:.3rem}
@@ -312,24 +320,40 @@ footer { background: #000; }
 <div style="background:#0c1c2c">
 <div class="two-col">
     <h3>What We Do</h3>
-    <p>DJC Marketing runs the full lease-up marketing cycle for affordable housing developments — from the moment you're ready to announce to the day you hit stabilization. We are not a general marketing agency. We know how affordable housing is financed, what income-qualifying means, how lottery and waitlist processes work, and what regulators and investors need to see. That specificity is what makes our campaigns convert.</p>
-    <p>We handle every piece of the marketing operation so your property management team can focus on operations — not outreach.</p>
+    <div class="what-we-do-intro">
+      <p>DJC Marketing runs the full lease-up marketing cycle for affordable housing developments — from the moment you're ready to announce to the day you hit stabilization.</p>
+      <p>We are not a general marketing agency. We know how affordable housing is financed, what income-qualifying means, how lottery and waitlist processes work, and what regulators and investors need to see. That specificity is what makes our campaigns convert.</p>
+      <p>We handle every piece of the marketing operation so your property management team can focus on operations — not outreach.</p>
+    </div>
 
     <h3>What's Included</h3>
-    <p><strong>Pre-Leasing & Strategy</strong><br>
-    Before a single ad runs, we build your campaign strategy around your unit mix, income tiers, target applicant profile, and timeline. We create a pre-leasing plan that builds interest and a waitlist before doors open — so you launch with momentum, not from zero.</p>
-
-    <p><strong>Digital Campaign Management</strong><br>
-    We build and manage your full digital presence: apartment listings on Apartments.com, Zillow, Craigslist, and AffordableHousing.com; targeted Facebook and Instagram paid ad campaigns; Google Display ads; and organic social content on the channels your applicants actually use. Every ad is geo-targeted, income-aware, and optimized weekly based on performance data.</p>
-
-    <p><strong>Traditional Media</strong><br>
-    For developments that need broader reach — billboards, construction-site banners, radio spots, newspaper ads, and community publication placements. We handle placement, production, and coordination so you don't have to manage vendors.</p>
-
-    <p><strong>Community Outreach</strong><br>
-    We go where your applicants are. That means partnerships with local churches, community organizations, workforce agencies, and social services — not just paid media. We attend job fairs, host information sessions, and build the ground-level trust that turns awareness into completed applications.</p>
-
-    <p><strong>Applicant Communication</strong><br>
-    We manage all inbound inquiry volume — answering questions, distributing applications, tracking submissions, and keeping prospective residents informed throughout the process. Your property management team stays in the loop without being buried in calls.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-card-num">01 — Pre-Leasing & Strategy</div>
+        <div class="svc-card-title">Build momentum before day one.</div>
+        <p>Before a single ad runs, we build your campaign strategy around your unit mix, income tiers, target applicant profile, and timeline. We create a pre-leasing plan that builds interest and a waitlist before doors open — so you launch with momentum, not from zero.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-num">02 — Digital Campaign Management</div>
+        <div class="svc-card-title">Listings, paid ads, and organic — fully managed.</div>
+        <p>Apartment listings on Apartments.com, Zillow, Craigslist, and AffordableHousing.com. Targeted Facebook and Instagram paid ads. Google Display. Organic social. Every ad is geo-targeted, income-aware, and optimized weekly based on performance data.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-num">03 — Traditional Media</div>
+        <div class="svc-card-title">Physical presence where it counts.</div>
+        <p>Billboards, construction-site banners, radio spots, newspaper ads, and community publication placements. We handle placement, production, and vendor coordination — you don't manage any of it.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-num">04 — Community Outreach</div>
+        <div class="svc-card-title">Trust built on the ground, not just online.</div>
+        <p>Partnerships with local churches, community organizations, workforce agencies, and social services. We attend job fairs, host information sessions, and build the ground-level trust that turns awareness into completed applications.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-num">05 — Applicant Communication</div>
+        <div class="svc-card-title">Every inquiry handled, nothing dropped.</div>
+        <p>We manage all inbound inquiry volume — answering questions, distributing applications, tracking submissions, and keeping prospective residents informed. Your property management team stays in the loop without being buried in calls.</p>
+      </div>
+    </div>
 
     <div class="pull">"We understand how these deals are structured — and we market accordingly."</div>
 
