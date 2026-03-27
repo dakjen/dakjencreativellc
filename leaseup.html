@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lease-Up Marketing | DakJen Creative LLC</title>
+
+<link href='https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap' rel='stylesheet'>
+<style>
+:root{--n:#1e3b57;--m:#c07481;--w:#f5f2ee;--bg:#e8e3db;--g:#3a3a3a;--ink:#000000;--border:rgba(0,0,0,0.15)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Fraunces',Georgia,serif,system-ui,sans-serif;background:var(--w);color:var(--n);overflow-x:hidden}
+h1,h2,h3,h4,.logo,.nav-cta,.btn-primary,.btn-secondary,.btn-cta-w,.btn-cta-o,.btn-ew,.section-label,.ey,.eyebrow,.svc-num,.svc-name,.wc-num,.wc-title,.stat-num,.hstat-num,.pc-num,.proof-h2,.dak-h2,.close-h2,.truth-h2,.tier-section h2,.services-header h2,.pkg-title,.pkg-row-title,.cred-org,.ft-brand,.ft-col h4,.svc-title{font-family:'Syne',system-ui,sans-serif;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;background:var(--w);border-bottom:1px solid rgba(0,0,0,0.15);position:sticky;top:0;z-index:100}
+.logo{font-size:.95rem;font-weight:bold;letter-spacing:.05em;color:var(--n);text-decoration:none}
+.logo span{color:var(--m)}
+.nl{display:flex;gap:2rem;list-style:none}
+.nl a{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;transition:color .2s}
+.nl a:hover,.nl a.active{color:var(--m)}
+.ncta{background:#000;color:var(--w);padding:.55rem 1.4rem;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;border:none;font-family:'Syne',system-ui,sans-serif;text-decoration:none;display:inline-block;transition:background .2s}
+.ncta:hover{background:var(--m)}
+.pp{background:var(--bg);border:1.5px dashed rgba(30,59,87,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2rem;text-align:center;width:100%}
+.pp.dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15)}
+.pp-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);line-height:1.5}
+.pp.dark .pp-label{color:rgba(255,255,255,.4)}
+.pp-sub{font-size:.67rem;color:rgba(100,100,100,.55);font-style:italic}
+.pp.dark .pp-sub{color:rgba(255,255,255,.22)}
+.cam{width:28px;height:28px}
+.page-hero{background:#000;padding:6.5rem 2.5rem 5rem;position:relative;overflow:hidden}
+.hero-accent{position:absolute;top:0;right:0;width:38%;height:100%;border-left:1px solid rgba(192,116,129,.08);background:rgba(192,116,129,.02)}
+.hero-inner{position:relative;z-index:1;max-width:800px}
+.ey{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,116,129,.55);margin-bottom:1.8rem;display:block}
+.page-hero h1{font-family:'Syne',system-ui,sans-serif;font-size:3.8rem;font-weight:normal;line-height:1.1;color:var(--w);margin-bottom:1.8rem}
+.page-hero h1 em{color:var(--m);font-style:italic}
+.hero-p{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.5);max-width:580px;margin-bottom:2.5rem}
+.hero-p strong{color:rgba(255,255,255,.75);font-weight:normal}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-w{background:var(--w);color:var(--n);padding:.85rem 2.2rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',system-ui,sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-w:hover{background:var(--m);color:var(--w)}
+.btn-o{background:transparent;color:rgba(255,255,255,.5);padding:.85rem 2.2rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;font-family:'Syne',system-ui,sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-o:hover{color:var(--m);border-color:var(--m)}
+.stat-bar{background:var(--n);padding:3rem 2.5rem;display:flex;gap:0;flex-wrap:wrap}
+.stat-item{padding:1.5rem 3rem;border-right:1px solid rgba(255,255,255,.07);flex:1;min-width:180px}
+.stat-item:first-child{padding-left:0}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:2.6rem;font-weight:normal;color:var(--m);line-height:1;margin-bottom:.3rem}
+.stat-label{font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.5}
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:5rem;padding:6rem 2.5rem;align-items:start}
+.body h3{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin:2.5rem 0 1rem}
+.body h3:first-child{margin-top:0}
+.body p{font-size:.95rem;line-height:1.92;color:var(--g);margin-bottom:1.1rem;max-width:640px}
+.body p strong{color:#000;font-weight:normal}
+.divider{height:1px;background:var(--border);margin:2.5rem 0;max-width:640px}
+.pull{font-size:1.2rem;font-style:italic;color:var(--n);line-height:1.65;border-left:3px solid var(--m);padding-left:1.5rem;max-width:560px;margin:2rem 0}
+.pkg-stack{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0}
+.pkg-row{padding:1.6rem 1.8rem}
+.pkg-row.white{background:var(--w)}
+.pkg-row.tinted{background:var(--bg)}
+.pkg-row.dark{background:var(--n)}
+.pkg-row-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-bottom:.4rem}
+.pkg-row.dark .pkg-row-label{color:rgba(192,116,129,.65)}
+.pkg-row-title{font-size:1.05rem;color:#000;margin-bottom:.5rem;font-weight:normal}
+.pkg-row.dark .pkg-row-title{color:var(--w)}
+.pkg-row p{font-size:.83rem;color:var(--g);line-height:1.65}
+.pkg-row.dark p{color:rgba(255,255,255,.52)}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.addon{border:1px solid var(--border);padding:1.5rem}
+.addon-title{font-size:.88rem;font-weight:normal;color:#000;margin-bottom:.5rem}
+.addon p{font-size:.82rem;color:var(--g);line-height:1.65}
+.pp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+.sidebar{display:flex;flex-direction:column;gap:1.5rem;align-self:start;position:sticky;top:6rem}
+.side-card{background:var(--bg);padding:1.8rem}
+.side-card h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-bottom:1rem}
+.side-card p{font-size:.82rem;color:var(--g);line-height:1.75;margin-bottom:.8rem}
+.side-card .cta{background:#000;color:var(--w);padding:.75rem 1.5rem;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',system-ui,sans-serif;width:100%;text-align:center;display:block;text-decoration:none;margin-top:.5rem;transition:background .2s}
+.side-card .cta:hover{background:var(--m)}
+.side-card.dark{background:var(--n)}
+.side-card.dark h4{color:rgba(192,116,129,.7)}
+.side-card.dark p{color:rgba(255,255,255,.55)}
+.phase-band{background:var(--bg);padding:4rem 2.5rem;border-top:1px solid rgba(0,0,0,0.15);border-bottom:1px solid rgba(0,0,0,0.15)}
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+.phase{padding:1.5rem;border-left:3px solid var(--m)}
+.phase h4{font-size:.75rem;font-weight:bold;color:#000;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
+.phase p{font-size:.85rem;color:var(--g);line-height:1.7}
+.team-section{background:var(--n);padding:4rem 2.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);margin-top:2rem}
+.team-member{background:var(--n);padding:1.8rem 1.5rem}
+.tm-name{font-size:.82rem;color:var(--w);margin-bottom:.3rem;font-weight:normal}
+.tm-role{font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.5}
+.section-dark{background:#000;padding:5rem 2.5rem}
+.section-dark .ey{color:rgba(192,116,129,.5)}
+.section-dark h2{font-family:'Syne',system-ui,sans-serif;font-size:2rem;font-weight:normal;color:var(--w);margin-bottom:1.5rem;line-height:1.25}
+.section-dark p{font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.5);max-width:600px;margin-bottom:1.2rem}
+footer{background:var(--n);padding:3rem 2.5rem}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
+.ft-col h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(192,116,129,.6);margin-bottom:1.2rem}
+.ft-col a{display:block;font-size:.78rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.55rem;transition:color .2s}
+.ft-col a:hover{color:var(--m)}
+.ft-col p{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7}
+.ft-brand{font-size:.88rem;font-weight:bold;letter-spacing:.04em;color:var(--w);margin-bottom:.5rem;display:block}
+.ft-brand span{color:var(--m)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.67rem;color:rgba(255,255,255,.28)}
+.footer-bottom a{font-size:.67rem;color:rgba(255,255,255,.28);text-decoration:none}
+.footer-bottom a:hover{color:var(--m)}
+
+/* ── GLOBAL COLOR OVERRIDES ── */
+body { background: #0c1c2c; color: #f5f2ee; }
+nav { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.logo { color: #f5f2ee; }
+.nl a { color: rgba(255,255,255,.5); }
+.nl a:hover, .nl a.active { color: #f5f2ee; }
+.intro { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.intro-left h1 { color: #f5f2ee; }
+.intro-left h1 em { color: var(--m); }
+.intro-left p { color: rgba(245,242,238,.6); }
+.btn-secondary { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.2); }
+.btn-secondary:hover { color: var(--m); border-color: var(--m); }
+.intro-right { background: #000; }
+.intro-stat { border-bottom-color: rgba(255,255,255,.07); }
+.intro-stat span { color: rgba(255,255,255,.45); }
+.services-header { background: #111; }
+.services-header h2 { color: rgba(255,255,255,.5); }
+.services-header p { color: rgba(255,255,255,.35); }
+.svc { background: #0c1c2c; border-bottom-color: rgba(255,255,255,.07); }
+.svc:hover { background: var(--n); padding-left: 3.5rem; }
+.svc-name { color: #f5f2ee; }
+.svc-desc { color: rgba(245,242,238,.55); }
+.svc-tag { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.45); }
+.svc-arrow { color: rgba(255,255,255,.2); }
+.svc:hover .svc-arrow { color: var(--m); }
+.svc:hover .svc-name { color: #fff; }
+.pp { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+.pp-label { color: rgba(255,255,255,.4); }
+.pp-sub { color: rgba(255,255,255,.2); }
+.work { background: #111; }
+.work h2 { color: #f5f2ee; }
+.work-card { background: #111; }
+.work-card.alt { background: #1a1a1a; }
+.wc-title { color: #f5f2ee; }
+.wc-desc { color: rgba(255,255,255,.42); }
+.about-strip { background: #0c1c2c; }
+.about-left { background: var(--n); border-right-color: rgba(255,255,255,.07); }
+.about-left h2 { color: #f5f2ee; }
+.about-left p { color: rgba(245,242,238,.6); }
+.about-left .section-label { color: var(--m); }
+.about-right { background: #111; }
+.cred { border-bottom-color: rgba(255,255,255,.07); }
+.cred-org { color: #f5f2ee; }
+.cred-role { color: rgba(255,255,255,.45); }
+.ew-strip { background: #000; }
+.cta-strip { background: var(--n); }
+.cta-strip h2 { color: #f5f2ee; }
+footer { background: #000; }
+/* inner pages */
+.page-hero { background: #000; }
+.two-col { background: #0c1c2c; }
+.body p { color: rgba(245,242,238,.7); }
+.body h3 { color: var(--m); }
+.body p strong { color: #f5f2ee; }
+.sidebar .side-card { background: #111; border: 1px solid rgba(255,255,255,.07); }
+.sidebar .side-card h4 { color: var(--m); }
+.sidebar .side-card p { color: rgba(255,255,255,.5); }
+.sidebar .side-card .cta { background: var(--m); color: #fff; }
+.sidebar .side-card .cta:hover { background: var(--n); }
+.sidebar .side-card.dark { background: var(--n); }
+.divider { background: rgba(255,255,255,.08); }
+.pull { color: #f5f2ee; border-left-color: var(--m); }
+.truth { background: #0c1c2c; }
+.truth-h2 { color: #f5f2ee; }
+.truth-aside-label { color: var(--m); }
+.truth-aside p { color: rgba(255,255,255,.5); }
+.truth-p { color: rgba(245,242,238,.65); }
+.truth-p strong { color: #f5f2ee; }
+.truth-pull { color: #f5f2ee; }
+.services-section { background: #0c1c2c; }
+.tier-section { background: #0c1c2c; }
+.tier-section h2 { color: #f5f2ee; }
+.tier-label { color: var(--m); }
+.tier-intro { color: rgba(245,242,238,.6); }
+.pkg { background: #111; border-color: rgba(255,255,255,.07); }
+.pkg.feat { background: var(--n); }
+.pkg-name { color: var(--m); }
+.pkg-title { color: #f5f2ee; }
+.pkg ul li { color: rgba(255,255,255,.5); border-bottom-color: rgba(255,255,255,.07); }
+.pkg-note { color: rgba(255,255,255,.3); }
+.addon { background: #111; border-color: rgba(255,255,255,.07); }
+.addon-title { color: #f5f2ee; }
+.addon p { color: rgba(255,255,255,.5); }
+.pkg-stack { background: rgba(255,255,255,.05); }
+.pkg-row.white { background: #111; }
+.pkg-row.tinted { background: #1a1a1a; }
+.pkg-row-title { color: #f5f2ee; }
+.pkg-row p { color: rgba(255,255,255,.5); }
+.cs-grid { background: rgba(255,255,255,.05); }
+.cs-cell { background: #111; }
+.cs-cell strong { color: var(--m); }
+.cs-cell span { color: rgba(255,255,255,.5); }
+.stat-bar { background: var(--n); }
+.stat-label { color: rgba(255,255,255,.45); }
+.phase-band { background: #111; border-color: rgba(255,255,255,.07); }
+.phase-band h2 { color: #f5f2ee; }
+.phase { border-left-color: var(--m); }
+.phase h4 { color: #f5f2ee; }
+.phase p { color: rgba(255,255,255,.5); }
+.team-section { background: #000; }
+.team-section h2 { color: #f5f2ee; }
+.tm-name { color: #f5f2ee; }
+.tm-role { color: rgba(255,255,255,.4); }
+.vanguard-band { background: var(--n); }
+.section-dark { background: #000; }
+.section-dark h2 { color: #f5f2ee; }
+.section-dark p { color: rgba(255,255,255,.5); }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="dakjencreative_homepage_v5.html" class="logo">DakJen <span>Creative</span></a>
+  <ul class="nl">
+    <li><a href="fractional.html">Creative Consulting</a></li>
+    <li><a href="notable.html">Notable</a></li>
+    <li><a href="leaseup.html" class="active">Lease-Up</a></li>
+    <li><a href="index.html#dakotah">Meet Dakotah</a></li>
+  </ul>
+  <a href="index.html#contact" class="ncta">Book a Call</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <span class="ey">DJC Marketing — Lease-Up Marketing</span>
+    <h1>Delayed lease-up is<br>delayed <em>revenue.</em></h1>
+    <p class="hero-p">That is where we come in. <strong>We build campaigns that move developments from launch to full occupancy</strong> — reaching income-qualified applicants by design, not by volume, with the insider knowledge to back it up.</p>
+    <div class="btns">
+      <a href="index.html#contact" class="btn-w">Get a Custom Quote</a>
+      <a href="#results" class="btn-o">See the Results →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <div class="stat-num">400+</div>
+    <div class="stat-label">Inquiries in the first<br>48 hours — 9410 Hough</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">36.2%</div>
+    <div class="stat-label">Applicant qualification rate<br>vs. 15–30% industry avg</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">+13.7pts</div>
+    <div class="stat-label">Above industry<br>benchmark</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">&gt;20%</div>
+    <div class="stat-label">Re-apply rate from<br>applicant follow-up</div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="body">
+    <h3>What We Do</h3>
+    <p>DJC Marketing is a results-driven lease-up marketing firm with 5 years of deep roots in housing development and community engagement. We understand how developments are financed, how timelines work, and exactly what's at stake when units sit empty. That knowledge — combined with a creative, high-impact approach — is what gets results traditional marketing agencies can't deliver.</p>
+    <p>We help affordable housing projects reach full occupancy by generating qualified leads, managing the applicant process, and maintaining clear communication between owners, property managers, and prospective residents. With on-the-ground outreach, targeted marketing, and proactive coordination, we keep leasing momentum strong and stakeholders aligned.</p>
+
+    <div class="pull">"DJC Marketing doesn't just market units — we move developments forward."</div>
+
+    <h3>The Problem We Solve</h3>
+    <p>Low application conversion rates. Slow leasing velocity. Limited property management staff capacity. Poor community awareness. Lack of transparency and reporting to stakeholders. Reputation and investor confidence at risk. <strong>These are the things we were built to fix.</strong></p>
+
+    <div class="divider"></div>
+
+    <div class="pp" style="height:220px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label" style="color:var(--g)">Development property or community</div>
+      <div class="pp-sub" style="color:#aaa">9410 Hough or similar affordable housing development</div>
+    </div>
+    <h3>Packages</h3>
+    <div class="pkg-stack">
+      <div class="pkg-row white">
+        <div class="pkg-row-label">Package 01</div>
+        <div class="pkg-row-title">Online & Social Campaign</div>
+        <p>Promote your property with strategic apartment listings, organic social content, and targeted paid ads. Reach qualified leads quickly and efficiently — drive application volume from day one.</p>
+      </div>
+      <div class="pkg-row tinted">
+        <div class="pkg-row-label">Package 02</div>
+        <div class="pkg-row-title">Total Marketing Package</div>
+        <p>Everything in Online & Social, plus traditional media — billboards, job site banners, radio spots, newspaper ads, and podcast placements — while keeping property teams and prospective residents informed.</p>
+      </div>
+      <div class="pkg-row dark">
+        <div class="pkg-row-label">Package 03 — Full Boat</div>
+        <div class="pkg-row-title">All Channels + Community Engagement</div>
+        <p>The complete package. Everything in Total Marketing plus direct community engagement initiatives that build authentic local presence and trust. Ideal for developments that want to be seen as a community asset, not just a building.</p>
+      </div>
+    </div>
+
+    <h3>Add-Ons</h3>
+    <div class="addon-grid">
+      <div class="addon">
+        <div class="addon-title">Application Support</div>
+        <p>A full re-review of initially rejected applications via our application success manager. We contact applicants, help them correct errors, and guide them through the process — maximizing your completed application pool and giving qualified candidates a fair shot. At 9410 Hough, this yielded a greater than 20% re-apply rate.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-title">Model Unit Staging</div>
+        <p>We design, procure, deliver, stage, and decorate a tour-ready model unit — with professional photography included. We also offer a 50% donation perk: furniture can be donated to our affiliated nonprofit after lease-up and distributed to residents, giving the owner a charitable contribution benefit while supporting the community.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 id="results">Case Study — 9410 Hough, Cleveland OH</h3>
+    <p>116-unit affordable housing development. Full-scale 6-month campaign across social media ads, billboards, community engagement, and radio. Model unit staged and photographed. Application support provided.</p>
+
+    <div class="pp-grid">
+      <div class="pp" style="height:200px">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">9410 Hough building exterior</div>
+        <div class="pp-sub">Development property photo</div>
+      </div>
+      <div class="pp" style="height:200px">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">Model unit — staged bedroom</div>
+        <div class="pp-sub">Staged unit photo from 9410 Hough</div>
+      </div>
+      <div class="pp" style="height:200px">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">Model unit — living space</div>
+        <div class="pp-sub">Staged unit photo — wide shot</div>
+      </div>
+      <div class="pp" style="height:200px">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">Campaign asset or ad creative</div>
+        <div class="pp-sub">Social ad, billboard, or community outreach material</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="side-card">
+      <h4>Engagement Structure</h4>
+      <p>Campaigns run in two phases. Phase 1 covers preparation and pre-launch. Phase 2 is the full-scale push with ongoing follow-up and gap targeting.</p>
+    </div>
+    <div class="side-card">
+      <h4>Pricing</h4>
+      <p>Every quote is custom — pricing scales with unit count, package selection, and add-ons. Contact us to discuss your property.</p>
+      <a href="index.html#contact" class="cta">Get a Custom Quote →</a>
+    </div>
+    <div class="side-card dark">
+      <h4>Ready to Fill Your Building?</h4>
+      <p>Tell us about your development and we'll map out the right package for your timeline and budget.</p>
+      <a href="index.html#contact" class="cta" style="background:var(--m)">Let's Talk →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PHASES -->
+<div class="phase-band">
+  <span class="ey" style="color:var(--m)">How We Work</span>
+  <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:#000">A structured approach that builds momentum and sustains it.</h2>
+  <div class="phase-grid">
+    <div class="phase">
+      <h4>Phase 1 — Preparation & Pre-Launch</h4>
+      <p>We spend the first month preparing listings, building creative assets, lining up media placements, and staging the model unit. We soft-launch to gauge early interest before the full push begins.</p>
+    </div>
+    <div class="phase">
+      <h4>Phase 2 — Full-Scale Push & Follow-Up</h4>
+      <p>Full campaign across all selected channels. Applicant support kicks in — tracking, follow-up outreach, document support. We monitor qualification rates and adjust targeting to maintain velocity through stabilization.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-section">
+  <span class="ey" style="color:rgba(192,116,129,.55)">The Team</span>
+  <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:var(--w);margin-bottom:.5rem">Every engagement is led by Dakotah — backed by a full team.</h2>
+  <p style="font-size:.85rem;color:rgba(255,255,255,.42);max-width:600px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder & Project Lead, supported by specialists across digital, communications, and coordination.</p>
+  <div class="team-grid">
+    <div class="team-member">
+      <div class="pp dark" style="height:140px;margin-bottom:1rem">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-sub" style="color:rgba(255,255,255,0.18)">Team headshot</div>
+      </div>
+      <div class="tm-name">Dakotah Jennifer</div>
+      <div class="tm-role">Founder & Project Lead</div>
+    </div>
+    <div class="team-member">
+      <div class="pp dark" style="height:140px;margin-bottom:1rem">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-sub" style="color:rgba(255,255,255,0.18)">Team headshot</div>
+      </div>
+      <div class="tm-name">Olivia Blumenshine</div>
+      <div class="tm-role">Digital Marketing & Ads Coordinator</div>
+    </div>
+    <div class="team-member">
+      <div class="pp dark" style="height:140px;margin-bottom:1rem">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-sub" style="color:rgba(255,255,255,0.18)">Team headshot</div>
+      </div>
+      <div class="tm-name">Jarea Fang</div>
+      <div class="tm-role">Marketing Coordinator</div>
+    </div>
+    <div class="team-member">
+      <div class="pp dark" style="height:140px;margin-bottom:1rem">
+        <svg class="cam" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-sub" style="color:rgba(255,255,255,0.18)">Team headshot</div>
+      </div>
+      <div class="tm-name">Brittni Hardie</div>
+      <div class="tm-role">Communications Manager</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-dark">
+  <span class="ey">Ready to Fill Your Building?</span>
+  <h2>Tell us about your development.<br>We'll tell you exactly what we'd build.</h2>
+  <p>Every quote is custom. Every strategy is built around your property, your timeline, and your market. Let's talk.</p>
+  <div class="btns" style="margin-top:2rem">
+    <a href="index.html#contact" class="btn-w">Get a Custom Quote</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="ft-col">
+      <span class="ft-brand">DakJen <span>Creative</span></span>
+      <p>A multidisciplinary brand studio and creative ecosystem based in New York City, with an office in Baltimore. Strategy, storytelling, and execution — all under one roof.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <a href="fractional.html">Creative Consulting</a>
+      <a href="notable.html">Notable</a>
+      <a href="leaseup.html">Lease-Up Marketing</a>
+      <a href="index.html#dakotah">Meet Dakotah</a>
+    </div>
+    <div class="ft-col">
+      <h4>Other Brands</h4>
+      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="https://elitewiseescapes.com" target="_blank">Elitewise Escapes →</a>
+      <a href="https://badjr.com" target="_blank">Badjr →</a>
+      <a href="https://thewrenclub.com" target="_blank">The Wren Club →</a>
+      <a href="https://designdomainllc.com" target="_blank">Design Domain →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DakJen Creative LLC · New York, NY · All Rights Reserved</p>
+    <a href="mailto:hello@dakjencreative.com">hello@dakjencreative.com</a>
+  </div>
+</footer>
+</body>
+</html>

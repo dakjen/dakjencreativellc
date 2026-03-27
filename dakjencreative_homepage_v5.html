@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DakJen Creative LLC</title>
+<link href='https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap' rel='stylesheet'>
+<style>
+:root {
+  --n: #1e3b57;
+  --m: #c07481;
+  --w: #f5f2ee;
+  --bg: #ede9e3;
+  --g: #555;
+  --border: rgba(0,0,0,0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family:'Fraunces',Georgia,serif; background: #f5f2ee; color: #111; line-height: 1.6; }
+h1,h2,h3,h4,.logo,.nav-cta,.btn-primary,.btn-secondary,.btn-cta-w,.btn-cta-o,.btn-ew,.section-label,.ey,.eyebrow,.svc-num,.svc-name,.wc-num,.wc-title,.hstat-num,.services-header h2,.truth-h2,.close-h2,.dak-h2,.about-left h2,.intro-left h1,.cred-org,.ft-brand,.ft-col h4{font-family:'Syne',system-ui,sans-serif;}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: #f5f2ee; z-index: 100;
+}
+.logo { font-size: .95rem; font-weight: 600; letter-spacing: .04em; color: #111; }
+.logo span { color: var(--m); }
+.nl { display: flex; gap: 2rem; list-style: none; }
+.nl a { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--g); transition: color .2s; }
+.nl a:hover, .nl a.active { color: #111; }
+.nav-cta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  background: #000; color: var(--w);
+  padding: .5rem 1.3rem; border: none; cursor: pointer;
+  font-family: 'Syne', sans-serif; transition: background .2s;
+}
+.nav-cta:hover { background: var(--m); }
+
+/* INTRO */
+.intro {
+  padding: 5.5rem 3rem 5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--w);
+}
+.intro-left h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #111;
+  margin-bottom: 1.5rem;
+  letter-spacing: -.03em;
+}
+.intro-left h1 em { color: var(--m); font-style: normal; }
+.intro-left p {
+  font-size: .96rem;
+  line-height: 1.85;
+  color: var(--g);
+  max-width: 460px;
+  margin-bottom: 2rem;
+}
+.intro-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  background: var(--bg);
+  padding: 2.5rem;
+  margin: -1rem 0;
+}
+.intro-stat {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  display: flex; align-items: baseline; gap: 1.2rem;
+}
+.intro-stat:last-child { border-bottom: none; }
+.intro-stat strong { font-size: 2rem; font-weight: 500; color: var(--m); line-height: 1; flex-shrink: 0; }
+.intro-stat span { font-size: .8rem; color: var(--g); line-height: 1.5; }
+
+.btn-primary {
+  display: inline-block;
+  background: #000; color: var(--w);
+  padding: .8rem 2rem;
+  font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  border: none; cursor: pointer; font-family: 'Syne', sans-serif;
+  transition: background .2s;
+}
+.btn-primary:hover { background: var(--m); }
+.btn-secondary {
+  display: inline-block;
+  background: transparent; color: #111;
+  padding: .8rem 2rem;
+  font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid rgba(0,0,0,0.18); cursor: pointer; font-family: 'Syne', sans-serif;
+  transition: all .2s;
+}
+.btn-secondary:hover { border-color: var(--m); color: var(--m); }
+
+/* SERVICES */
+.services-header {
+  padding: 2.5rem 3rem;
+  display: flex; align-items: baseline; justify-content: space-between;
+  background: var(--n);
+}
+.services-header h2 { font-size: .75rem; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; }
+.services-header p { font-size: .8rem; color: rgba(255,255,255,.35); max-width: 340px; text-align: right; }
+
+.svc {
+  display: grid;
+  grid-template-columns: 56px 1fr 1fr 72px;
+  gap: 2.5rem;
+  padding: 2.2rem 3rem;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: all .22s;
+  cursor: pointer;
+  background: var(--bg);
+}
+.svc:hover { background: var(--bg); padding-left: 3.5rem; }
+.svc:hover .svc-arrow { color: var(--m); }
+.svc:hover .svc-name { color: var(--n); }
+.svc-num { font-size: .65rem; letter-spacing: .12em; color: var(--m); text-transform: uppercase; padding-top: .25rem; font-weight: 500; }
+.svc-name { font-size: 1.05rem; font-weight: 500; color: #111; margin-bottom: .45rem; transition: color .2s; }
+.svc-desc { font-size: .82rem; color: var(--g); line-height: 1.72; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: .3rem; align-self: center; }
+.svc-tag { font-size: .63rem; padding: .22rem .65rem; border: 1px solid rgba(0,0,0,0.12); color: var(--g); letter-spacing: .03em; }
+.svc-arrow { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: #ccc; text-align: right; transition: color .22s; align-self: center; }
+
+/* PHOTO PLACEHOLDER */
+.pp {
+  background: var(--bg);
+  border: 1.5px dashed rgba(0,0,0,0.14);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: .5rem; padding: 2rem; text-align: center; width: 100%;
+}
+.pp-label { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--g); }
+.pp-sub { font-size: .65rem; color: #aaa; font-style: italic; }
+.pp.dark { background: #1a1a1a; border-color: rgba(255,255,255,.08); }
+.pp.dark .pp-label { color: rgba(255,255,255,.35); }
+.pp.dark .pp-sub { color: rgba(255,255,255,.18); }
+
+/* WORK / PROOF */
+.work { background: var(--n); padding: 5rem 3rem; }
+.section-label {
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--m); margin-bottom: 1rem; display: block;
+}
+.work .section-label { color: rgba(192,116,129,.65); }
+.work h2 { font-size: 1.6rem; font-weight: 500; color: var(--w); margin-bottom: 3rem; letter-spacing: -.02em; }
+.work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,.06); }
+.work-card { background: var(--n); padding: 2.2rem 2rem; }
+.work-card.alt { background: #162d44; }
+.work-card .wc-label { font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(192,116,129,.6); margin-bottom: 1.2rem; }
+.work-card .wc-num { font-size: 3.2rem; font-weight: 300; color: var(--m); line-height: 1; margin-bottom: .4rem; letter-spacing: -.02em; }
+.work-card .wc-title { font-size: .85rem; font-weight: 500; color: var(--w); margin-bottom: .5rem; }
+.work-card .wc-desc { font-size: .78rem; color: rgba(255,255,255,.42); line-height: 1.7; }
+
+/* ABOUT STRIP */
+.about-strip {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.about-left { padding: 5rem 3rem; border-right: 1px solid var(--border); background: var(--bg); }
+.about-left .section-label { margin-bottom: 1.5rem; }
+.about-left h2 { font-size: 1.6rem; font-weight: 500; color: #111; margin-bottom: 1.2rem; letter-spacing: -.02em; line-height: 1.3; }
+.about-left p { font-size: .88rem; color: var(--g); line-height: 1.88; margin-bottom: 1rem; max-width: 420px; }
+.about-right { padding: 5rem 3rem; background: #111; }
+.cred { padding: .95rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.cred:last-child { border-bottom: none; }
+.cred-org { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #fff; margin-bottom: .22rem; }
+.cred-role { font-size: .8rem; color: rgba(255,255,255,.5); }
+
+/* ELITEWISE */
+.ew-strip {
+  padding: 4.5rem 3rem;
+  background: #000;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.ew-left .section-label { color: rgba(192,116,129,.55); }
+.ew-left h3 { font-size: 1.6rem; font-weight: 400; color: var(--w); margin-bottom: 1rem; letter-spacing: -.02em; line-height: 1.25; }
+.ew-left p { font-size: .86rem; color: rgba(255,255,255,.42); line-height: 1.82; margin-bottom: 1.8rem; max-width: 380px; }
+.btn-ew {
+  display: inline-block; background: var(--m); color: var(--w);
+  padding: .75rem 1.8rem; font-size: .72rem; letter-spacing: .08em;
+  text-transform: uppercase; font-family: 'Syne', sans-serif; transition: all .2s;
+}
+.btn-ew:hover { background: var(--w); color: #000; }
+
+/* CTA */
+.cta-strip {
+  padding: 5rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 2rem;
+  background: var(--n);
+}
+.cta-strip h2 { font-size: 1.9rem; font-weight: 500; color: #fff; max-width: 460px; letter-spacing: -.02em; line-height: 1.2; }
+.cta-strip h2 em { font-style: normal; opacity: .7; }
+.cta-btns { display: flex; gap: 1rem; }
+.btn-cta-w {
+  display: inline-block; background: var(--w); color: var(--m);
+  padding: .85rem 2.2rem; font-size: .75rem; letter-spacing: .08em;
+  text-transform: uppercase; font-family: 'Syne', sans-serif;
+  font-weight: 600; transition: all .2s; border: none; cursor: pointer;
+}
+.btn-cta-w:hover { background: #000; color: var(--w); }
+.btn-cta-o {
+  display: inline-block; background: transparent; color: rgba(255,255,255,.7);
+  padding: .85rem 2.2rem; font-size: .75rem; letter-spacing: .08em;
+  text-transform: uppercase; font-family: 'Syne', sans-serif;
+  border: 1px solid rgba(255,255,255,.3); transition: all .2s; cursor: pointer;
+}
+.btn-cta-o:hover { color: var(--w); border-color: var(--w); }
+
+/* FOOTER */
+footer { background: #111; padding: 3.5rem 3rem; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 2rem; }
+.ft-brand { font-size: .9rem; font-weight: 600; color: var(--w); margin-bottom: .5rem; }
+.ft-brand span { color: var(--m); }
+.ft-tagline { font-size: .8rem; color: rgba(255,255,255,.32); line-height: 1.75; margin-bottom: 1rem; }
+.ft-location { font-size: .75rem; color: rgba(255,255,255,.22); line-height: 1.7; }
+.ft-col h4 { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(192,116,129,.5); margin-bottom: 1.1rem; }
+.ft-col a { display: block; font-size: .8rem; color: rgba(255,255,255,.36); margin-bottom: .5rem; transition: color .2s; }
+.ft-col a:hover { color: var(--m); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .68rem; color: rgba(255,255,255,.2); }
+.footer-bottom a { font-size: .68rem; color: rgba(255,255,255,.2); }
+.footer-bottom a:hover { color: var(--m); }
+
+/* ── GLOBAL COLOR OVERRIDES ── */
+body { background: #0c1c2c; color: #f5f2ee; }
+nav { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.logo { color: #f5f2ee; }
+.nl a { color: rgba(255,255,255,.5); }
+.nl a:hover, .nl a.active { color: #f5f2ee; }
+.intro { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.intro-left h1 { color: #f5f2ee; }
+.intro-left h1 em { color: var(--m); }
+.intro-left p { color: rgba(245,242,238,.6); }
+.btn-secondary { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.2); }
+.btn-secondary:hover { color: var(--m); border-color: var(--m); }
+.intro-right { background: #000; }
+.intro-stat { border-bottom-color: rgba(255,255,255,.07); }
+.intro-stat span { color: rgba(255,255,255,.45); }
+.services-header { background: #111; }
+.services-header h2 { color: rgba(255,255,255,.5); }
+.services-header p { color: rgba(255,255,255,.35); }
+.svc { background: #0c1c2c; border-bottom-color: rgba(255,255,255,.07); }
+.svc:hover { background: var(--n); padding-left: 3.5rem; }
+.svc-name { color: #f5f2ee; }
+.svc-desc { color: rgba(245,242,238,.55); }
+.svc-tag { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.45); }
+.svc-arrow { color: rgba(255,255,255,.2); }
+.svc:hover .svc-arrow { color: var(--m); }
+.svc:hover .svc-name { color: #fff; }
+.pp { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+.pp-label { color: rgba(255,255,255,.4); }
+.pp-sub { color: rgba(255,255,255,.2); }
+.work { background: #111; }
+.work h2 { color: #f5f2ee; }
+.work-card { background: #111; }
+.work-card.alt { background: #1a1a1a; }
+.wc-title { color: #f5f2ee; }
+.wc-desc { color: rgba(255,255,255,.42); }
+.about-strip { background: #0c1c2c; }
+.about-left { background: var(--n); border-right-color: rgba(255,255,255,.07); }
+.about-left h2 { color: #f5f2ee; }
+.about-left p { color: rgba(245,242,238,.6); }
+.about-left .section-label { color: var(--m); }
+.about-right { background: #111; }
+.cred { border-bottom-color: rgba(255,255,255,.07); }
+.cred-org { color: #f5f2ee; }
+.cred-role { color: rgba(255,255,255,.45); }
+.ew-strip { background: #000; }
+.cta-strip { background: var(--n); }
+.cta-strip h2 { color: #f5f2ee; }
+footer { background: #000; }
+/* inner pages */
+.page-hero { background: #000; }
+.two-col { background: #0c1c2c; }
+.body p { color: rgba(245,242,238,.7); }
+.body h3 { color: var(--m); }
+.body p strong { color: #f5f2ee; }
+.sidebar .side-card { background: #111; border: 1px solid rgba(255,255,255,.07); }
+.sidebar .side-card h4 { color: var(--m); }
+.sidebar .side-card p { color: rgba(255,255,255,.5); }
+.sidebar .side-card .cta { background: var(--m); color: #fff; }
+.sidebar .side-card .cta:hover { background: var(--n); }
+.sidebar .side-card.dark { background: var(--n); }
+.divider { background: rgba(255,255,255,.08); }
+.pull { color: #f5f2ee; border-left-color: var(--m); }
+.truth { background: #0c1c2c; }
+.truth-h2 { color: #f5f2ee; }
+.truth-aside-label { color: var(--m); }
+.truth-aside p { color: rgba(255,255,255,.5); }
+.truth-p { color: rgba(245,242,238,.65); }
+.truth-p strong { color: #f5f2ee; }
+.truth-pull { color: #f5f2ee; }
+.services-section { background: #0c1c2c; }
+.tier-section { background: #0c1c2c; }
+.tier-section h2 { color: #f5f2ee; }
+.tier-label { color: var(--m); }
+.tier-intro { color: rgba(245,242,238,.6); }
+.pkg { background: #111; border-color: rgba(255,255,255,.07); }
+.pkg.feat { background: var(--n); }
+.pkg-name { color: var(--m); }
+.pkg-title { color: #f5f2ee; }
+.pkg ul li { color: rgba(255,255,255,.5); border-bottom-color: rgba(255,255,255,.07); }
+.pkg-note { color: rgba(255,255,255,.3); }
+.addon { background: #111; border-color: rgba(255,255,255,.07); }
+.addon-title { color: #f5f2ee; }
+.addon p { color: rgba(255,255,255,.5); }
+.pkg-stack { background: rgba(255,255,255,.05); }
+.pkg-row.white { background: #111; }
+.pkg-row.tinted { background: #1a1a1a; }
+.pkg-row-title { color: #f5f2ee; }
+.pkg-row p { color: rgba(255,255,255,.5); }
+.cs-grid { background: rgba(255,255,255,.05); }
+.cs-cell { background: #111; }
+.cs-cell strong { color: var(--m); }
+.cs-cell span { color: rgba(255,255,255,.5); }
+.stat-bar { background: var(--n); }
+.stat-label { color: rgba(255,255,255,.45); }
+.phase-band { background: #111; border-color: rgba(255,255,255,.07); }
+.phase-band h2 { color: #f5f2ee; }
+.phase { border-left-color: var(--m); }
+.phase h4 { color: #f5f2ee; }
+.phase p { color: rgba(255,255,255,.5); }
+.team-section { background: #000; }
+.team-section h2 { color: #f5f2ee; }
+.tm-name { color: #f5f2ee; }
+.tm-role { color: rgba(255,255,255,.4); }
+.vanguard-band { background: var(--n); }
+.section-dark { background: #000; }
+.section-dark h2 { color: #f5f2ee; }
+.section-dark p { color: rgba(255,255,255,.5); }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DakJen <span>Creative</span></div>
+  <ul class="nl">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta">Book a Call</button>
+</nav>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-left">
+    <h1>We make your brand<br>work as hard as<br><em>you do.</em></h1>
+    <p>DakJen Creative is a brand strategy and marketing studio based in New York City. We work with founders, executives, and real estate developers who need smart, creative, and results-driven work — fast.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="#services" class="btn-primary">See Our Services</a>
+      <a href="#contact" class="btn-secondary">Book a Call</a>
+    </div>
+  </div>
+  <div class="intro-right">
+    <div class="pp" style="height:180px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label" style="color:var(--g)">Dakotah Jennifer — headshot</div>
+      <div class="pp-sub" style="color:#aaa">Professional portrait, vertical preferred</div>
+    </div>
+    <div class="intro-stat">
+      <strong>237%</strong>
+      <span>LinkedIn network growth — proven client result</span>
+    </div>
+    <div class="intro-stat">
+      <strong>400+</strong>
+      <span>Inquiries in 48 hours — 9410 Hough lease-up campaign</span>
+    </div>
+    <div class="intro-stat">
+      <strong>36.2%</strong>
+      <span>Applicant qualification rate — 13.7pts above industry avg</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <h2>What We Do</h2>
+    <p>Every engagement is custom. We scope to your goals, your timeline, and your audience.</p>
+  </div>
+
+  <a href="fractional.html" class="svc">
+    <div class="svc-num">01</div>
+    <div>
+      <div class="svc-name">Creative Consulting</div>
+      <div class="svc-desc">Your dedicated creative lead — overseeing campaigns, content strategy, collateral, and brand direction. We step in as your in-house brand department without the full-time overhead.</div>
+    </div>
+    <div class="svc-tags">
+      <span class="svc-tag">Brand Strategy</span>
+      <span class="svc-tag">Creative Direction</span>
+      <span class="svc-tag">Content</span>
+      <span class="svc-tag">Retainer</span>
+    </div>
+    <div class="svc-arrow">Explore →</div>
+  </a>
+
+  <a href="fractional.html" class="svc">
+    <div class="svc-num">02</div>
+    <div>
+      <div class="svc-name">Fractional Brand Management</div>
+      <div class="svc-desc">All the firepower of a senior brand manager on a flexible retainer. We manage your brand presence, campaigns, and messaging across channels — consistently and on your pace.</div>
+    </div>
+    <div class="svc-tags">
+      <span class="svc-tag">Fractional</span>
+      <span class="svc-tag">Brand Management</span>
+      <span class="svc-tag">Campaigns</span>
+      <span class="svc-tag">Flexible</span>
+    </div>
+    <div class="svc-arrow">Explore →</div>
+  </a>
+
+  <a href="leaseup.html" class="svc">
+    <div class="svc-num">03</div>
+    <div>
+      <div class="svc-name">Lease-Up Marketing</div>
+      <div class="svc-desc">Full-scale campaigns built to fill buildings. Social, traditional media, community engagement, and application support — reaching income-qualified applicants by design, not by volume.</div>
+    </div>
+    <div class="svc-tags">
+      <span class="svc-tag">Affordable Housing</span>
+      <span class="svc-tag">Multi-Channel</span>
+      <span class="svc-tag">App Support</span>
+      <span class="svc-tag">Community Outreach</span>
+    </div>
+    <div class="svc-arrow">Explore →</div>
+  </a>
+
+  <a href="notable.html" class="svc">
+    <div class="svc-num">04</div>
+    <div>
+      <div class="svc-name">Notable</div>
+      <div class="svc-desc">Brand tools and platform strategy for women founders ready to be recognized for the work they're already doing. Qualifications packages, websites, decks, LinkedIn content, and revenue stream development.</div>
+    </div>
+    <div class="svc-tags">
+      <span class="svc-tag">Women Founders</span>
+      <span class="svc-tag">Brand Packages</span>
+      <span class="svc-tag">Platform Strategy</span>
+      <span class="svc-tag">Revenue Streams</span>
+    </div>
+    <div class="svc-arrow">Explore →</div>
+  </a>
+</section>
+
+<!-- PHOTO STRIP -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+  <div class="pp" style="height:260px">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <div class="pp-label">Dakotah in action</div>
+    <div class="pp-sub">Speaking, working, or brand event</div>
+  </div>
+  <div class="pp" style="height:260px">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <div class="pp-label">Client work sample</div>
+    <div class="pp-sub">Campaign, deck, or website</div>
+  </div>
+  <div class="pp" style="height:260px">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <div class="pp-label">9410 Hough — model unit</div>
+    <div class="pp-sub">Staged unit or development exterior</div>
+  </div>
+</div>
+
+<!-- WORK / PROOF -->
+<section class="work" id="work">
+  <span class="section-label">The Work</span>
+  <h2>Results that speak for themselves.</h2>
+  <div class="work-grid">
+    <div class="work-card alt">
+      <div class="wc-label">Proven Client Growth · 5-Year Engagement</div>
+      <div class="wc-num">237%</div>
+      <div class="wc-title">LinkedIn network growth</div>
+      <div class="wc-desc">28× surge in comment engagement. 336 posts published vs. 33 in all prior years. 6,557 website visitors to a thought leader site built and maintained from scratch.</div>
+    </div>
+    <div class="work-card">
+      <div class="wc-label">9410 Hough · Cleveland, OH</div>
+      <div class="wc-num">400+</div>
+      <div class="wc-title">Inquiries in the first 48 hours</div>
+      <div class="wc-desc">116-unit affordable housing development. Full-scale campaign across social, billboards, radio, and community engagement. Model unit staged and photographed.</div>
+    </div>
+    <div class="work-card alt">
+      <div class="wc-label">DJC Marketing · Benchmark</div>
+      <div class="wc-num">36.2%</div>
+      <div class="wc-title">Applicant qualification rate</div>
+      <div class="wc-desc">13.7 points above the industry average of 15–30%. Greater than 20% re-apply rate from follow-up outreach. Every lead intentional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-left">
+    <span class="section-label">About</span>
+    <h2>Led by Dakotah Jennifer — creative executive, strategist, and founder.</h2>
+    <p>DakJen Creative is a New York City-based brand strategy and marketing studio with an office in Baltimore. We work across creative consulting, fractional brand management, lease-up marketing, and the Notable platform for women founders.</p>
+    <p>We lead with intuition, move with intention, and stay until the work is done.</p>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem">
+      <a href="#contact" class="btn-primary">Work With Us</a>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="pp dark" style="height:200px;margin-bottom:2rem">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label">Dakotah Jennifer — headshot</div>
+      <div class="pp-sub">Professional portrait</div>
+    </div>
+    <div class="cred"><div class="cred-org">DakJen Creative LLC</div><div class="cred-role">Founder & CEO</div></div>
+    <div class="cred"><div class="cred-org">Northern Real Estate Urban Ventures</div><div class="cred-role">Chief Creative Officer</div></div>
+    <div class="cred"><div class="cred-org">Columbia University</div><div class="cred-role">MFA, Creative Writing</div></div>
+    <div class="cred"><div class="cred-org">Washington University in St. Louis</div><div class="cred-role">BA, English Literature — Magna Cum Laude</div></div>
+    <div class="cred"><div class="cred-org">DENT Program · Speaker, 2022</div><div class="cred-role">WFL Collective · Board Member</div></div>
+  </div>
+</section>
+
+<!-- ELITEWISE -->
+<div class="ew-strip">
+  <div class="ew-left">
+    <span class="section-label">Also From DakJen Creative</span>
+    <h3>Luxury travel, without the markup.</h3>
+    <p>Elitewise Escapes is our curated travel concierge — researching, planning, and executing extraordinary experiences while maximizing your credit card points. You tell us where you want to go. We handle everything else.</p>
+    <a href="https://elitewiseescapes.com" target="_blank" class="btn-ew">Visit Elitewise Escapes →</a>
+  </div>
+  <div>
+    <div class="pp dark" style="height:260px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label">Luxury travel destination</div>
+      <div class="pp-sub">Resort, suite, or travel scene</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip" id="contact">
+  <h2>Ready to get to work?<br><em>Let's talk.</em></h2>
+  <div class="cta-btns">
+    <a href="/cdn-cgi/l/email-protection#cea6aba2a2a18eaaafa5a4aba0adbcabafbaa7b8abe0ada1a3" class="btn-primary">Book a Clarity Call</a>
+    <a href="/cdn-cgi/l/email-protection#99f1fcf5f5f6d9fdf8f2f3fcf7faebfcf8edf0effcb7faf6f4" class="btn-secondary"><span class="__cf_email__" data-cfemail="bdd5d8d1d1d2fdd9dcd6d7d8d3decfd8dcc9d4cbd893ded2d0">[email&#160;protected]</span></a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="ft-brand">DakJen <span>Creative</span></div>
+      <div class="ft-tagline">Brand strategy and marketing studio.<br>Strategy, storytelling, and execution — all under one roof.</div>
+      <div class="ft-location">New York, NY · Baltimore, MD<br>dakjencreative.com</div>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <a href="fractional.html">Creative Consulting</a>
+      <a href="fractional.html">Fractional Brand Management</a>
+      <a href="leaseup.html">Lease-Up Marketing</a>
+      <a href="notable.html">Notable</a>
+      <a href="#about">Meet Dakotah</a>
+    </div>
+    <div class="ft-col">
+      <h4>Other Brands</h4>
+      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="https://elitewiseescapes.com" target="_blank">Elitewise Escapes →</a>
+      <a href="https://badjr.com" target="_blank">Badjr →</a>
+      <a href="https://thewrenclub.com" target="_blank">The Wren Club →</a>
+      <a href="https://designdomainllc.com" target="_blank">Design Domain →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DakJen Creative LLC · All Rights Reserved</p>
+    <a href="mailto:hello@dakjencreative.com">hello@dakjencreative.com</a>
+  </div>
+</footer>
+</body>
+</html>

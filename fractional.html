@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Consulting | DakJen Creative LLC</title>
+
+<link href='https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap' rel='stylesheet'>
+<style>
+:root{--n:#1e3b57;--m:#c07481;--w:#f5f2ee;--bg:#e8e3db;--g:#3a3a3a;--ink:#000000;--border:rgba(0,0,0,0.15)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Fraunces',Georgia,serif,system-ui,sans-serif;background:var(--w);color:var(--n);overflow-x:hidden}
+h1,h2,h3,h4,.logo,.nav-cta,.btn-primary,.btn-secondary,.btn-cta-w,.btn-cta-o,.btn-ew,.section-label,.ey,.eyebrow,.svc-num,.svc-name,.wc-num,.wc-title,.stat-num,.hstat-num,.pc-num,.proof-h2,.dak-h2,.close-h2,.truth-h2,.tier-section h2,.services-header h2,.pkg-title,.pkg-row-title,.cred-org,.ft-brand,.ft-col h4,.svc-title{font-family:'Syne',system-ui,sans-serif;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;background:var(--w);border-bottom:1px solid rgba(0,0,0,0.15);position:sticky;top:0;z-index:100}
+.logo{font-size:.95rem;font-weight:bold;letter-spacing:.05em;color:var(--n);text-decoration:none}
+.logo span{color:var(--m)}
+.nl{display:flex;gap:2rem;list-style:none}
+.nl a{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;transition:color .2s}
+.nl a:hover,.nl a.active{color:var(--m)}
+.ncta{background:#000;color:var(--w);padding:.55rem 1.4rem;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;border:none;font-family:'Syne',system-ui,sans-serif;text-decoration:none;display:inline-block;transition:background .2s}
+.ncta:hover{background:var(--m)}
+.pp{background:var(--bg);border:1.5px dashed rgba(30,59,87,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2rem;text-align:center;width:100%}
+.pp.dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15)}
+.pp-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);line-height:1.5}
+.pp.dark .pp-label{color:rgba(255,255,255,.4)}
+.pp-sub{font-size:.67rem;color:rgba(100,100,100,.55);font-style:italic}
+.pp.dark .pp-sub{color:rgba(255,255,255,.22)}
+.page-hero{background:#000;padding:6.5rem 2.5rem 5rem;position:relative;overflow:hidden}
+.hero-accent{position:absolute;top:0;right:0;width:38%;height:100%;border-left:1px solid rgba(192,116,129,.08);background:rgba(192,116,129,.02)}
+.hero-inner{position:relative;z-index:1;max-width:800px}
+.ey{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,116,129,.55);margin-bottom:1.8rem;display:block}
+.page-hero h1{font-family:'Syne',system-ui,sans-serif;font-size:3.8rem;font-weight:normal;line-height:1.1;color:var(--w);margin-bottom:1.8rem}
+.page-hero h1 em{color:var(--m);font-style:italic}
+.page-hero .hero-p{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.5);max-width:580px;margin-bottom:2.5rem}
+.page-hero .hero-p strong{color:rgba(255,255,255,.75);font-weight:normal}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-w{background:var(--w);color:var(--n);padding:.85rem 2.2rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',system-ui,sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-w:hover{background:var(--m);color:var(--w)}
+.btn-o{background:transparent;color:rgba(255,255,255,.5);padding:.85rem 2.2rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;font-family:'Syne',system-ui,sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-o:hover{color:var(--m);border-color:var(--m)}
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:5rem;padding:6rem 2.5rem;align-items:start}
+.body h3{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin:2.5rem 0 1rem}
+.body h3:first-child{margin-top:0}
+.body p{font-size:.95rem;line-height:1.92;color:var(--g);margin-bottom:1.1rem;max-width:640px}
+.body p strong{color:#000;font-weight:normal}
+.divider{height:1px;background:var(--border);margin:2.5rem 0;max-width:640px}
+.pull{font-size:1.2rem;font-style:italic;color:var(--n);line-height:1.65;border-left:3px solid var(--m);padding-left:1.5rem;max-width:560px;margin:2rem 0}
+.sidebar{display:flex;flex-direction:column;gap:1.5rem;align-self:start;position:sticky;top:6rem}
+.side-card{background:var(--bg);padding:1.8rem}
+.side-card h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-bottom:1rem}
+.side-card p{font-size:.82rem;color:var(--g);line-height:1.75;margin-bottom:.8rem}
+.side-card .cta{background:#000;color:var(--w);padding:.75rem 1.5rem;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',system-ui,sans-serif;width:100%;text-align:center;display:block;text-decoration:none;margin-top:.5rem;transition:background .2s}
+.side-card .cta:hover{background:var(--m)}
+.side-card.dark{background:var(--n)}
+.side-card.dark h4{color:rgba(192,116,129,.7)}
+.side-card.dark p{color:rgba(255,255,255,.55)}
+.cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin:1.5rem 0}
+.cs-cell{background:var(--bg);padding:1.4rem 1.2rem}
+.cs-cell strong{display:block;font-size:1.8rem;font-weight:normal;color:var(--m);margin-bottom:.3rem}
+.cs-cell span{font-size:.75rem;color:var(--g);line-height:1.5}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.section-dark{background:#000;padding:5rem 2.5rem}
+.section-dark .ey{color:rgba(192,116,129,.5)}
+.section-dark h2{font-family:'Syne',system-ui,sans-serif;font-size:2rem;font-weight:normal;color:var(--w);margin-bottom:1.5rem;line-height:1.25}
+.section-dark p{font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.5);max-width:600px;margin-bottom:1.2rem}
+footer{background:var(--n);padding:3rem 2.5rem}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
+.ft-col h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(192,116,129,.6);margin-bottom:1.2rem}
+.ft-col a{display:block;font-size:.78rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.55rem;transition:color .2s}
+.ft-col a:hover{color:var(--m)}
+.ft-col p{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7}
+.ft-brand{font-size:.88rem;font-weight:bold;letter-spacing:.04em;color:var(--w);margin-bottom:.5rem;display:block}
+.ft-brand span{color:var(--m)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.67rem;color:rgba(255,255,255,.28)}
+.footer-bottom a{font-size:.67rem;color:rgba(255,255,255,.28);text-decoration:none}
+.footer-bottom a:hover{color:var(--m)}
+
+/* ── GLOBAL COLOR OVERRIDES ── */
+body { background: #0c1c2c; color: #f5f2ee; }
+nav { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.logo { color: #f5f2ee; }
+.nl a { color: rgba(255,255,255,.5); }
+.nl a:hover, .nl a.active { color: #f5f2ee; }
+.intro { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
+.intro-left h1 { color: #f5f2ee; }
+.intro-left h1 em { color: var(--m); }
+.intro-left p { color: rgba(245,242,238,.6); }
+.btn-secondary { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.2); }
+.btn-secondary:hover { color: var(--m); border-color: var(--m); }
+.intro-right { background: #000; }
+.intro-stat { border-bottom-color: rgba(255,255,255,.07); }
+.intro-stat span { color: rgba(255,255,255,.45); }
+.services-header { background: #111; }
+.services-header h2 { color: rgba(255,255,255,.5); }
+.services-header p { color: rgba(255,255,255,.35); }
+.svc { background: #0c1c2c; border-bottom-color: rgba(255,255,255,.07); }
+.svc:hover { background: var(--n); padding-left: 3.5rem; }
+.svc-name { color: #f5f2ee; }
+.svc-desc { color: rgba(245,242,238,.55); }
+.svc-tag { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.45); }
+.svc-arrow { color: rgba(255,255,255,.2); }
+.svc:hover .svc-arrow { color: var(--m); }
+.svc:hover .svc-name { color: #fff; }
+.pp { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+.pp-label { color: rgba(255,255,255,.4); }
+.pp-sub { color: rgba(255,255,255,.2); }
+.work { background: #111; }
+.work h2 { color: #f5f2ee; }
+.work-card { background: #111; }
+.work-card.alt { background: #1a1a1a; }
+.wc-title { color: #f5f2ee; }
+.wc-desc { color: rgba(255,255,255,.42); }
+.about-strip { background: #0c1c2c; }
+.about-left { background: var(--n); border-right-color: rgba(255,255,255,.07); }
+.about-left h2 { color: #f5f2ee; }
+.about-left p { color: rgba(245,242,238,.6); }
+.about-left .section-label { color: var(--m); }
+.about-right { background: #111; }
+.cred { border-bottom-color: rgba(255,255,255,.07); }
+.cred-org { color: #f5f2ee; }
+.cred-role { color: rgba(255,255,255,.45); }
+.ew-strip { background: #000; }
+.cta-strip { background: var(--n); }
+.cta-strip h2 { color: #f5f2ee; }
+footer { background: #000; }
+/* inner pages */
+.page-hero { background: #000; }
+.two-col { background: #0c1c2c; }
+.body p { color: rgba(245,242,238,.7); }
+.body h3 { color: var(--m); }
+.body p strong { color: #f5f2ee; }
+.sidebar .side-card { background: #111; border: 1px solid rgba(255,255,255,.07); }
+.sidebar .side-card h4 { color: var(--m); }
+.sidebar .side-card p { color: rgba(255,255,255,.5); }
+.sidebar .side-card .cta { background: var(--m); color: #fff; }
+.sidebar .side-card .cta:hover { background: var(--n); }
+.sidebar .side-card.dark { background: var(--n); }
+.divider { background: rgba(255,255,255,.08); }
+.pull { color: #f5f2ee; border-left-color: var(--m); }
+.truth { background: #0c1c2c; }
+.truth-h2 { color: #f5f2ee; }
+.truth-aside-label { color: var(--m); }
+.truth-aside p { color: rgba(255,255,255,.5); }
+.truth-p { color: rgba(245,242,238,.65); }
+.truth-p strong { color: #f5f2ee; }
+.truth-pull { color: #f5f2ee; }
+.services-section { background: #0c1c2c; }
+.tier-section { background: #0c1c2c; }
+.tier-section h2 { color: #f5f2ee; }
+.tier-label { color: var(--m); }
+.tier-intro { color: rgba(245,242,238,.6); }
+.pkg { background: #111; border-color: rgba(255,255,255,.07); }
+.pkg.feat { background: var(--n); }
+.pkg-name { color: var(--m); }
+.pkg-title { color: #f5f2ee; }
+.pkg ul li { color: rgba(255,255,255,.5); border-bottom-color: rgba(255,255,255,.07); }
+.pkg-note { color: rgba(255,255,255,.3); }
+.addon { background: #111; border-color: rgba(255,255,255,.07); }
+.addon-title { color: #f5f2ee; }
+.addon p { color: rgba(255,255,255,.5); }
+.pkg-stack { background: rgba(255,255,255,.05); }
+.pkg-row.white { background: #111; }
+.pkg-row.tinted { background: #1a1a1a; }
+.pkg-row-title { color: #f5f2ee; }
+.pkg-row p { color: rgba(255,255,255,.5); }
+.cs-grid { background: rgba(255,255,255,.05); }
+.cs-cell { background: #111; }
+.cs-cell strong { color: var(--m); }
+.cs-cell span { color: rgba(255,255,255,.5); }
+.stat-bar { background: var(--n); }
+.stat-label { color: rgba(255,255,255,.45); }
+.phase-band { background: #111; border-color: rgba(255,255,255,.07); }
+.phase-band h2 { color: #f5f2ee; }
+.phase { border-left-color: var(--m); }
+.phase h4 { color: #f5f2ee; }
+.phase p { color: rgba(255,255,255,.5); }
+.team-section { background: #000; }
+.team-section h2 { color: #f5f2ee; }
+.tm-name { color: #f5f2ee; }
+.tm-role { color: rgba(255,255,255,.4); }
+.vanguard-band { background: var(--n); }
+.section-dark { background: #000; }
+.section-dark h2 { color: #f5f2ee; }
+.section-dark p { color: rgba(255,255,255,.5); }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="dakjencreative_homepage_v5.html" class="logo">DakJen <span>Creative</span></a>
+  <ul class="nl">
+    <li><a href="fractional.html" class="active">Creative Consulting</a></li>
+    <li><a href="notable.html">Notable</a></li>
+    <li><a href="leaseup.html">Lease-Up</a></li>
+    <li><a href="index.html#dakotah">Meet Dakotah</a></li>
+  </ul>
+  <a href="index.html#contact" class="ncta">Book a Call</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <span class="ey">Creative Consulting — Fractional Branding Manager</span>
+    <h1>Creative direction that is <em>sharp, intuitive,</em> and built to move.</h1>
+    <p class="hero-p">We bring the creative intelligence to see the opportunity, the strategic thinking to build a real plan, and the execution to make it happen. <strong>Your dedicated brand lead — without the full-time hire.</strong></p>
+    <div class="btns">
+      <a href="index.html#contact" class="btn-w">Work With Us</a>
+      <a href="#results" class="btn-o">See the Results →</a>
+    </div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="body">
+    <h3>What It Is</h3>
+    <p>Running a company means your brand is usually the last thing that gets attention — and the first thing a potential client, partner, or investor notices. We step in so you don't have to choose.</p>
+    <p>DakJen Creative's Creative Consulting service is your dedicated brand department — overseeing campaigns, refining positioning, managing content strategy, producing collateral, and making sure every touchpoint is aligned, credible, and unmistakably you. <strong>The creative intelligence of an in-house team, without the overhead.</strong></p>
+
+    <h3>Who It's For</h3>
+    <p>We work with founders, executives, and mission-driven organizations who think clearly, move fast, and need a creative partner who can keep up. Small business owners scaling past $500K, executives building a personal brand alongside their company, organizations doing important work that deserves to be seen clearly.</p>
+    <p>We also work with founders who are just getting started — <strong>if the work is sharp and the vision is clear.</strong> If you're building something that matters, we want to be part of it from day one.</p>
+
+    <h3>What's Included</h3>
+    <p>Every engagement is scoped to your needs. Typically this includes monthly brand strategy sessions, campaign oversight and creative direction, social media content planning and management, brand voice development and messaging refinement, collateral production — decks, one-pagers, digital assets — vendor and creative team coordination, and quarterly brand audits.</p>
+
+    <div class="divider"></div>
+
+    <h3>The Entry Point — Brand Audit</h3>
+    <p>Not sure if a retainer is right yet? Start with a Brand Audit. We assess your brand, messaging, digital presence, and positioning — then deliver a written report with clear recommendations. It's the lowest-risk way to see how we think before committing to an ongoing engagement.</p>
+
+    <div class="pull">"We lead with intuition and follow through with execution. Sharp thinking, real work, real results."</div>
+
+    <div class="divider"></div>
+
+    <h3 id="results">Proven Results</h3>
+    <div class="pp" style="height:180px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label" style="color:var(--g)">Client campaign or platform asset</div>
+      <div class="pp-sub" style="color:#aaa">LinkedIn screenshot, website, or content piece</div>
+    </div>
+    <p>Over a five-year engagement, DakJen Creative rebuilt a client's digital presence from scratch — turning a dormant profile into a fully functioning thought leadership platform that compounded press coverage, podcast placements, and capital relationships over time.</p>
+
+    <div class="cs-grid">
+      <div class="cs-cell"><strong>237%</strong><span>LinkedIn network growth over the engagement</span></div>
+      <div class="cs-cell"><strong>28×</strong><span>Increase in comment engagement year over year</span></div>
+      <div class="cs-cell"><strong>336</strong><span>Posts published vs. 33 in all prior years combined</span></div>
+      <div class="cs-cell"><strong>6,557</strong><span>Website visitors to the thought leader site we built</span></div>
+    </div>
+
+    <p><strong>The brand caught up to the work.</strong> That's what this service does.</p>
+
+    <div class="pp-grid">
+      <div class="pp" style="height:200px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">Client brand deliverable</div>
+        <div class="pp-sub">Website, deck slide, or campaign asset</div>
+      </div>
+      <div class="pp" style="height:200px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <div class="pp-label">LinkedIn platform growth</div>
+        <div class="pp-sub">Chart or before/after screenshot</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="side-card">
+      <h4>Engagement Structure</h4>
+      <p>Monthly retainer. Minimum 3-month commitment. Scope defined at onboarding. Custom pricing based on your business size, content volume, and goals.</p>
+    </div>
+    <div class="side-card">
+      <h4>Brand Audit</h4>
+      <p>The low-risk entry point. A focused assessment of your brand, messaging, and digital presence — delivered as a written report with clear, actionable recommendations.</p>
+      <a href="index.html#contact" class="cta">Book a Brand Audit →</a>
+    </div>
+    <div class="side-card dark">
+      <h4>Ready to Get Started?</h4>
+      <p>Book a free 30-minute Brand Clarity Call. We'll tell you exactly what we'd build and why.</p>
+      <a href="index.html#contact" class="cta" style="background:var(--m)">Book a Clarity Call →</a>
+    </div>
+    <div class="pp" style="height:220px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label">Dakotah at work or speaking</div>
+      <div class="pp-sub">Action or event photo — candid preferred</div>
+    </div>
+    <div class="pp" style="height:180px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(30,59,87,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pp-label" style="color:var(--g)">Client before & after</div>
+      <div class="pp-sub" style="color:#aaa">LinkedIn profile or brand comparison</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-dark">
+  <span class="ey">Your Brand Should Work as Hard as You Do</span>
+  <h2>Intuitive. Creative. Sharp.<br><em>That's how we work.</em></h2>
+  <p>We bring creative intelligence to every engagement — identifying the opportunity, building the strategy, and executing until the results are real.</p>
+  <div class="btns" style="margin-top:2rem">
+    <a href="index.html#contact" class="btn-w">Work With Us</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="ft-col">
+      <span class="ft-brand">DakJen <span>Creative</span></span>
+      <p>A multidisciplinary brand studio and creative ecosystem based in New York City, with an office in Baltimore. Strategy, storytelling, and execution — all under one roof.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <a href="fractional.html">Creative Consulting</a>
+      <a href="notable.html">Notable</a>
+      <a href="leaseup.html">Lease-Up Marketing</a>
+      <a href="index.html#dakotah">Meet Dakotah</a>
+    </div>
+    <div class="ft-col">
+      <h4>Other Brands</h4>
+      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="https://elitewiseescapes.com" target="_blank">Elitewise Escapes →</a>
+      <a href="https://badjr.com" target="_blank">Badjr →</a>
+      <a href="https://thewrenclub.com" target="_blank">The Wren Club →</a>
+      <a href="https://designdomainllc.com" target="_blank">Design Domain →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DakJen Creative LLC · New York, NY · All Rights Reserved</p>
+    <a href="mailto:hello@dakjencreative.com">hello@dakjencreative.com</a>
+  </div>
+</footer>
+</body>
+</html>
