@@ -88,12 +88,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .stat-item:last-child{border-right:none}
 .stat-num{font-size:2.6rem;font-weight:normal;color:var(--m);line-height:1;margin-bottom:.3rem}
 .stat-label{font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.5}
-.two-col{display:grid;grid-template-columns:2fr 1fr;gap:5rem;padding:6rem 2.5rem;align-items:start}
+.two-col{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
 .body h3{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin:2.5rem 0 1rem}
 .body h3:first-child{margin-top:0}
-.body p{font-size:.95rem;line-height:1.92;color:var(--g);margin-bottom:1.1rem;max-width:640px}
+.body p{font-size:.95rem;line-height:1.92;color:var(--g);margin-bottom:1.1rem}
 .body p strong{color:#000;font-weight:normal}
-.divider{height:1px;background:var(--border);margin:2.5rem 0;max-width:640px}
+.divider{height:1px;background:var(--border);margin:2.5rem 0}
+.sidebar{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.sidebar .side-card{position:static}
 .pull{font-size:1.2rem;font-style:italic;color:var(--n);line-height:1.65;border-left:3px solid var(--m);padding-left:1.5rem;max-width:560px;margin:2rem 0}
 .cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin:1.5rem 0}
 .cs-cell{padding:1.4rem 1.2rem}
@@ -115,7 +117,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .addon-title{font-size:.88rem;font-weight:normal;color:#000;margin-bottom:.5rem}
 .addon p{font-size:.82rem;color:var(--g);line-height:1.65}
 .pp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
-.sidebar{display:flex;flex-direction:column;gap:1.5rem;align-self:start;position:sticky;top:6rem}
+.sidebar-old{display:flex;flex-direction:column;gap:1.5rem}
 .side-card{background:var(--bg);padding:1.8rem}
 .side-card h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-bottom:1rem}
 .side-card p{font-size:.82rem;color:var(--g);line-height:1.75;margin-bottom:.8rem}
@@ -201,7 +203,7 @@ nav { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
 footer { background: #000; }
 /* inner pages */
 .page-hero { background: #000; }
-.two-col { background: #0c1c2c; }
+.two-col { background: transparent; }
 .body p { color: rgba(245,242,238,.7); }
 .body h3 { color: var(--m); }
 .body p strong { color: #f5f2ee; }
@@ -307,8 +309,8 @@ footer { background: #000; }
   </div>
 </div>
 
+<div style="background:#0c1c2c">
 <div class="two-col">
-  <div class="body">
     <h3>What We Do</h3>
     <p>DJC Marketing runs the full lease-up marketing cycle for affordable housing developments — from the moment you're ready to announce to the day you hit stabilization. We are not a general marketing agency. We know how affordable housing is financed, what income-qualifying means, how lottery and waitlist processes work, and what regulators and investors need to see. That specificity is what makes our campaigns convert.</p>
     <p>We handle every piece of the marketing operation so your property management team can focus on operations — not outreach.</p>
@@ -431,7 +433,6 @@ footer { background: #000; }
         <img src="9410-hough-staged-unit-detail.jpg" alt="9410 Hough staged unit interior detail" style="width:100%;height:220px;object-fit:cover;display:block;">
       </div>
     </div>
-  </div>
 
   <div class="sidebar">
     <div class="side-card">
@@ -450,6 +451,7 @@ footer { background: #000; }
       <a href="https://marketing.dakjencreative.com" target="_blank" class="cta" style="margin-top:.5rem;background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6)">Visit DJC Marketing →</a>
     </div>
   </div>
+</div>
 </div>
 
 <!-- PHASES -->
