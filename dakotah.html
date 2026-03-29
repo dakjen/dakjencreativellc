@@ -134,6 +134,26 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
 .footer-bottom p{font-size:.67rem;color:rgba(255,255,255,.28)}
 .footer-bottom a{font-size:.67rem;color:rgba(255,255,255,.28);text-decoration:none}
 .footer-bottom a:hover{color:var(--m)}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nl { display: none; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+  .bio-section { grid-template-columns: 1fr; }
+  .bio-photo img { min-height: 340px; }
+  .bio-text { padding: 3rem 1.5rem; }
+  .cred-grid { grid-template-columns: 1fr; }
+  .ventures-grid { grid-template-columns: 1fr; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .photo-strip img { height: 300px; }
+  div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+  .cta-section { padding: 3rem 1.5rem; }
+  .btns { flex-direction: column; }
+}
 </style>
 </head>
 <body>

@@ -421,6 +421,31 @@ footer { background: #000; }
 .section-dark h2 { color: #f5f2ee; }
 .section-dark p { color: rgba(255,255,255,.5); }
 
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nl { display: none; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+  .intro { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+  .intro-left h1 { font-size: 2rem; }
+  .intro-right { margin: 0; padding: 1.5rem; }
+  .services-header { flex-direction: column; gap: .5rem; padding: 1.5rem; }
+  .svc { grid-template-columns: 40px 1fr; gap: 1rem; padding: 1.5rem; }
+  .svc-tags, .svc-arrow { display: none; }
+  .work { padding: 3rem 1.5rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .about-strip { grid-template-columns: 1fr; }
+  .about-left, .about-right { padding: 3rem 1.5rem; }
+  .ew-strip { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+  .cta-strip { padding: 3rem 1.5rem; flex-direction: column; }
+  .cta-btns { flex-direction: column; }
+  div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  div[style*="repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+}
+
 </style>
 </head>
 <body>

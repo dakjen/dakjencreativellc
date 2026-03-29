@@ -270,6 +270,31 @@ footer { background: #000; }
 .section-dark h2 { color: #f5f2ee; }
 .section-dark p { color: rgba(255,255,255,.5); }
 
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nl { display: none; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+  .two-col { padding: 3rem 1.5rem; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2,1fr); }
+  .phase-grid { grid-template-columns: 1fr; }
+  .cs-grid { grid-template-columns: 1fr; }
+  .addon-grid { grid-template-columns: 1fr; }
+  .stat-bar { flex-direction: column; padding: 2rem 1.5rem; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 1rem 0; }
+  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+  .phase-band { padding: 3rem 1.5rem; }
+  .team-section { padding: 3rem 1.5rem; }
+  .section-dark { padding: 3rem 1.5rem; }
+  .sidebar { grid-template-columns: 1fr; }
+  .pp-grid { grid-template-columns: 1fr; }
+  div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  div[style*="repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+}
+
 </style>
 </head>
 <body>

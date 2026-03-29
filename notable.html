@@ -250,6 +250,19 @@ footer { background: #000; }
 .section-dark h2 { color: #f5f2ee; }
 .section-dark p { color: rgba(255,255,255,.5); }
 
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nl { display: none; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+  div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+  .section-dark { padding: 3rem 1.5rem; }
+  div[style*="justify-content:center"] { flex-direction: column; align-items: center; }
+}
+
 </style>
 </head>
 <body>
