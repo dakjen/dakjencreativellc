@@ -108,6 +108,18 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .nl a:hover,.nl a.active{color:var(--m)}
 .ncta{background:#000;color:var(--w);padding:.55rem 1.4rem;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;border:none;font-family:'Syne',system-ui,sans-serif;text-decoration:none;display:inline-block;transition:background .2s}
 .ncta:hover{background:var(--m)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:0;z-index:201}
+.menu-toggle span{display:block;width:22px;height:2px;background:#111;margin:5px 0;transition:.3s}
+@media(max-width:768px){
+.menu-toggle{display:block}
+.nl.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1c2c;z-index:200;align-items:center;justify-content:center;gap:2rem}
+.nl.open a{color:#f5f2ee;font-size:1.1rem}
+.nl.open a:hover,.nl.open a.active{color:var(--m)}
+.menu-toggle.open span{background:#f5f2ee}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
 .pp{background:var(--bg);border:1.5px dashed rgba(30,59,87,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2rem;text-align:center;width:100%}
 .pp.dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15)}
 .pp-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);line-height:1.5}
@@ -194,6 +206,7 @@ footer{background:var(--n);padding:3rem 2.5rem}
 body { background: #0c1c2c; color: #f5f2ee; }
 nav { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
 .logo { color: #f5f2ee; }
+.menu-toggle span { background: #f5f2ee; }
 .nl a { color: rgba(255,255,255,.5); }
 .nl a:hover, .nl a.active { color: #f5f2ee; }
 .intro { background: #0c1c2c; border-bottom: 1px solid rgba(255,255,255,.08); }
@@ -323,6 +336,7 @@ footer { background: #000; }
     <li><a href="dakotah.html">Meet Dakotah</a></li>
   </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-hero">
@@ -389,5 +403,10 @@ footer { background: #000; }
     <a href="mailto:business@dakjencreative.com">business@dakjencreative.com</a>
   </div>
 </footer>
+<script>
+const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl');
+tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
+</script>
 </body>
 </html>
