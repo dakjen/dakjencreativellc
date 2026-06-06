@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="dark-djclogo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | DakJen Creative LLC</title>
+<meta name="description" content="Privacy Policy for DakJen Creative LLC — how we collect, use, and protect information when you visit dakjencreative.com or work with us.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dakjencreative.com/privacy-policy.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap' rel='stylesheet'>
+<style>
+:root {
+  --n: #1e3b57;
+  --m: #c07481;
+  --w: #f5f2ee;
+  --bg: #ede9e3;
+  --g: #555;
+  --border: rgba(0,0,0,0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family:'Fraunces',Georgia,serif; background: #f5f2ee; color: #111; line-height: 1.6; }
+h1,h2,h3,h4,.logo,.nav-cta,.ft-brand,.ft-col h4,.policy-eyebrow{font-family:'Syne',system-ui,sans-serif;}
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: #f5f2ee; z-index: 100;
+}
+.logo { font-size: .95rem; font-weight: 600; letter-spacing: .04em; color: #111; }
+.logo span { color: var(--m); }
+.nl { display: flex; gap: 2rem; list-style: none; }
+.nl a { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--g); transition: color .2s; }
+.nl a:hover, .nl a.active { color: #111; }
+.nav-cta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  background: #000; color: var(--w);
+  padding: .5rem 1.3rem; border: none; cursor: pointer;
+  font-family: 'Syne', sans-serif; transition: background .2s;
+}
+.nav-cta:hover { background: var(--m); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0; z-index: 201; }
+.menu-toggle span { display: block; width: 22px; height: 2px; background: #111; margin: 5px 0; transition: .3s; }
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nl { display: none; }
+  .nl.open { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0c1c2c; z-index: 200; align-items: center; justify-content: center; gap: 2rem; }
+  .nl.open a { color: #f5f2ee; font-size: 1.1rem; }
+  .nl.open a:hover, .nl.open a.active { color: var(--m); }
+  .menu-toggle.open span { background: #f5f2ee; }
+  .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+}
+
+/* HEADER */
+.policy-head {
+  background: var(--n);
+  padding: 5rem 3rem 4rem;
+  color: var(--w);
+}
+.policy-eyebrow { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--m); margin-bottom: 1.2rem; }
+.policy-head h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 1rem; }
+.policy-head p { font-size: .85rem; color: rgba(255,255,255,.45); max-width: 560px; }
+
+/* BODY */
+.policy {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+}
+.policy h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  margin: 2.6rem 0 .9rem;
+  color: var(--n);
+}
+.policy h2:first-child { margin-top: 0; }
+.policy p { font-size: .95rem; color: #2a2a2a; line-height: 1.85; margin-bottom: 1rem; }
+.policy ul { margin: 0 0 1rem 1.2rem; }
+.policy li { font-size: .95rem; color: #2a2a2a; line-height: 1.8; margin-bottom: .5rem; }
+.policy a { color: var(--m); border-bottom: 1px solid rgba(192,116,129,.4); }
+.policy a:hover { border-color: var(--m); }
+.policy strong { font-weight: 600; }
+
+/* FOOTER */
+footer { background: #111; padding: 3.5rem 3rem; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 2rem; }
+.ft-brand { font-size: .9rem; font-weight: 600; color: var(--w); margin-bottom: .5rem; }
+.ft-brand span { color: var(--m); }
+.ft-tagline { font-size: .8rem; color: rgba(255,255,255,.32); line-height: 1.75; margin-bottom: 1rem; }
+.ft-location { font-size: .75rem; color: rgba(255,255,255,.22); line-height: 1.7; }
+.ft-col h4 { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(192,116,129,.5); margin-bottom: 1.1rem; }
+.ft-col a { display: block; font-size: .8rem; color: rgba(255,255,255,.36); margin-bottom: .5rem; transition: color .2s; }
+.ft-col a:hover { color: var(--m); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .68rem; color: rgba(255,255,255,.2); }
+.footer-bottom a { font-size: .68rem; color: rgba(255,255,255,.2); }
+.footer-bottom a:hover { color: var(--m); }
+
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .policy-head { padding: 3.5rem 1.5rem 3rem; }
+  .policy-head h1 { font-size: 2rem; }
+  .policy { padding: 3rem 1.5rem 4rem; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">DakJen <span>Creative</span></a>
+  <ul class="nl">
+    <li><a href="fractional.html">Creative Consulting</a></li>
+    <li><a href="notable.html">Notable</a></li>
+    <li><a href="leaseup.html">Lease-Up</a></li>
+    <li><a href="dakotah.html">Meet Dakotah</a></li>
+  </ul>
+  <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="nav-cta">Book a Call</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="policy-head">
+  <div class="policy-eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p>This policy explains how DakJen Creative LLC collects, uses, and protects your information when you visit our website or work with us.</p>
+</header>
+
+<main class="policy">
+  <p><strong>Last updated:</strong> June 6, 2026</p>
+
+  <p>DakJen Creative LLC ("DakJen Creative," "we," "us," or "our") respects your privacy. This Privacy Policy describes how we handle information when you visit <a href="https://dakjencreative.com">dakjencreative.com</a> (the "Site"), contact us, or engage our services. By using the Site, you agree to the practices described here.</p>
+
+  <h2>1. Information We Collect</h2>
+  <p>We collect information you provide directly to us, such as when you fill out a contact form, book a call, or email us. This may include:</p>
+  <ul>
+    <li>Your name, email address, and phone number;</li>
+    <li>Your company or organization and role;</li>
+    <li>Any details you share about your project, goals, or inquiry.</li>
+  </ul>
+  <p>We may also automatically collect limited technical information when you visit the Site, such as your browser type, device, pages viewed, and general location derived from your IP address. This is collected through standard web analytics and server logs.</p>
+
+  <h2>2. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Respond to your inquiries and communicate with you;</li>
+    <li>Provide, manage, and improve our services;</li>
+    <li>Schedule calls, meetings, and consultations;</li>
+    <li>Send you information you have requested or that relates to active engagements;</li>
+    <li>Understand how visitors use the Site so we can improve it;</li>
+    <li>Comply with legal obligations and protect our rights.</li>
+  </ul>
+
+  <h2>3. Cookies & Analytics</h2>
+  <p>The Site may use cookies and similar technologies to remember preferences and measure traffic. You can disable cookies through your browser settings, though some features of the Site may not function as intended. We may use third-party analytics services that collect usage data on our behalf in accordance with their own privacy policies.</p>
+
+  <h2>4. How We Share Information</h2>
+  <p>We do not sell your personal information. We may share information with trusted third parties only as needed to operate our business, including:</p>
+  <ul>
+    <li>Service providers who support our website, scheduling, email, and analytics;</li>
+    <li>Professional advisors such as accountants and legal counsel;</li>
+    <li>Authorities when required by law or to protect our legal rights.</li>
+  </ul>
+
+  <h2>5. Data Retention</h2>
+  <p>We retain personal information for as long as necessary to fulfill the purposes described in this policy, to maintain our business records, and to comply with legal obligations. When information is no longer needed, we take reasonable steps to delete or anonymize it.</p>
+
+  <h2>6. Data Security</h2>
+  <p>We use reasonable administrative, technical, and physical safeguards to protect your information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+  <h2>7. Your Rights</h2>
+  <p>Depending on where you live, you may have the right to access, correct, or delete the personal information we hold about you, or to object to or restrict certain processing. To make a request, contact us using the details below. We will respond in accordance with applicable law.</p>
+
+  <h2>8. Third-Party Links</h2>
+  <p>The Site may link to other websites and platforms, including our affiliated brands and external services. We are not responsible for the privacy practices of those sites, and we encourage you to review their policies.</p>
+
+  <h2>9. Children's Privacy</h2>
+  <p>The Site is not directed to children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will take appropriate steps to remove it.</p>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date above. Your continued use of the Site after changes are posted constitutes acceptance of the updated policy.</p>
+
+  <h2>11. Contact Us</h2>
+  <p>If you have questions about this Privacy Policy or how we handle your information, contact us at <a href="mailto:business@dakjencreative.com">business@dakjencreative.com</a>.</p>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="ft-brand">DakJen <span>Creative</span></div>
+      <div class="ft-tagline">Brand strategy and marketing studio.<br>Strategy, storytelling, and execution — all under one roof.</div>
+      <div class="ft-location">New York, NY · Baltimore, MD<br>dakjencreative.com</div>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <a href="fractional.html">Creative Consulting</a>
+      <a href="fractional.html">Fractional Brand Management</a>
+      <a href="leaseup.html">Lease-Up Marketing</a>
+      <a href="notable.html">Notable</a>
+      <a href="dakotah.html">Meet Dakotah</a>
+    </div>
+    <div class="ft-col">
+      <h4>Other Brands</h4>
+      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="https://elitewiseescapes.com" target="_blank">Elitewise Escapes →</a>
+      <a href="https://badjr.com" target="_blank">Badjr →</a>
+      <a href="https://thewrenclub.com" target="_blank">The Wren Club →</a>
+      <a href="https://designdomainllc.com" target="_blank">Design Domain →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DakJen Creative LLC · All Rights Reserved</p>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="mailto:business@dakjencreative.com">business@dakjencreative.com</a>
+  </div>
+</footer>
+<script>
+const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl');
+tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
+</script>
+</body>
+</html>
