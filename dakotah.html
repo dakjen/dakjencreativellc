@@ -349,5 +349,38 @@ const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl'
 tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
 </script>
+
+<!-- MOTION & POLISH -->
+<style>
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+nav .nl a{position:relative}
+nav .nl a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--m,#c07481);transition:width .3s ease}
+nav .nl a:hover::after,nav .nl a.active::after{width:100%}
+.btn-w,.btn-o,.btn-primary,.btn-secondary,.nav-cta,.ncta,.btn-cta-w,.btn-cta-o,.btn-ew{transition:transform .2s ease,box-shadow .25s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn-w:hover,.btn-o:hover,.btn-primary:hover,.btn-secondary:hover,.nav-cta:hover,.ncta:hover,.btn-cta-w:hover,.btn-cta-o:hover,.btn-ew:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+.hoverlift{transition:transform .28s cubic-bezier(.22,.61,.36,1),box-shadow .28s ease}
+.hoverlift:hover{transform:translateY(-6px);box-shadow:0 22px 46px -18px rgba(0,0,0,.5)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none}.hoverlift:hover{transform:none;box-shadow:none}}
+</style>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver'in window){
+    var els=[].slice.call(document.querySelectorAll('body > div, body > section, body > main, body > header'));
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){el.classList.add('reveal');if(el.getBoundingClientRect().top<vh*0.9){el.classList.add('in');}else{io.observe(el);}});
+  }
+  var results=document.getElementById('results');
+  if(results&&!reduce&&'IntersectionObserver'in window){
+    var done=false;
+    function fmt(n,c){return c?n.toLocaleString('en-US'):String(n);}
+    function run(el){var raw=el.getAttribute('data-v')||el.textContent.trim();el.setAttribute('data-v',raw);var m=raw.match(/^([\d,]+)(.*)$/);if(!m)return;var t=parseInt(m[1].replace(/,/g,''),10),suf=m[2],c=m[1].indexOf(',')>-1,dur=1500,s=null;function step(ts){if(!s)s=ts;var p=Math.min((ts-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(t*e),c)+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+    var rio=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!done){done=true;[].forEach.call(results.querySelectorAll('.cs-cell strong'),run);rio.disconnect();}});},{threshold:0.2});
+    rio.observe(results);
+  }
+})();
+</script>
 </body>
 </html>
