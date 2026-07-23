@@ -45,6 +45,8 @@ h1{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:600;letter-spacin
   border:1px solid rgba(255,255,255,.09);transition:background .2s ease,border-color .2s ease,transform .15s ease;}
 .lk:active{transform:scale(.99);}
 .lk:hover{background:rgba(255,255,255,.08);border-color:rgba(192,116,129,.4);}
+.lk-ic{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:rgba(192,116,129,.15);color:var(--m);}
+.lk-ic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .lk-name{font-family:'Syne',sans-serif;font-size:.9rem;color:var(--w);}
 .lk-sub{font-size:.72rem;color:rgba(245,242,238,.5);margin-top:.15rem;}
 .lk-arrow{color:var(--m);font-size:1.1rem;flex-shrink:0;}
@@ -71,30 +73,37 @@ h1{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:600;letter-spacin
   <div class="sec-label">One-Pagers</div>
   <div class="links">
     <a class="lk" href="dcre-onepagers.html">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
       <div><div class="lk-name">Check Out Our Service Offerings</div><div class="lk-sub">Overview sheets for every offering — PDF</div></div><span class="lk-arrow">→</span></a>
   </div>
 
   <div class="sec-label">Marketing, Tech &amp; Consulting</div>
   <div class="links">
     <a class="lk" href="https://dakjencreative.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
       <div><div class="lk-name">DakJen Creative</div><div class="lk-sub">Brand strategy &amp; creative studio</div></div><span class="lk-arrow">→</span></a>
     <a class="lk" href="https://gobenotable.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
       <div><div class="lk-name">Notable</div><div class="lk-sub">Platform for women founders</div></div><span class="lk-arrow">→</span></a>
     <a class="lk" href="https://badjr.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></span>
       <div><div class="lk-name">BaDjR</div><div class="lk-sub">Tech</div></div><span class="lk-arrow">→</span></a>
   </div>
 
   <div class="sec-label">Real Estate Development</div>
   <div class="links">
     <a class="lk" href="https://marketing.dakjencreative.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>
       <div><div class="lk-name">DJC Marketing</div><div class="lk-sub">Lease-up marketing</div></div><span class="lk-arrow">→</span></a>
     <a class="lk" href="https://designdomainllc.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
       <div><div class="lk-name">Design Domain</div><div class="lk-sub">Real estate development</div></div><span class="lk-arrow">→</span></a>
   </div>
 
   <div class="sec-label">Travel &amp; Leisure</div>
   <div class="links">
     <a class="lk" href="https://elitewiseescapes.com" target="_blank" rel="noopener">
+      <span class="lk-ic"><svg viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
       <div><div class="lk-name">Elitewise Escapes</div><div class="lk-sub">Luxury travel concierge</div></div><span class="lk-arrow">→</span></a>
   </div>
 
