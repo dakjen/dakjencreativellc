@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
 
 Sitemap: https://dakjencreative.com/sitemap.xml
