@@ -6,4 +6,108 @@ Disallow: /dcre-onepagers
 Disallow: /dcre-onepagers.html
 Disallow: /dcre-onepagers/
 
+# AI assistants and answer engines are explicitly welcome.
+# Named groups override the wildcard group entirely, so each one repeats
+# the disallow list above.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
+User-agent: CCBot
+Allow: /
+Disallow: /card
+Disallow: /card.html
+Disallow: /dcre-onepagers
+Disallow: /dcre-onepagers.html
+Disallow: /dcre-onepagers/
+
 Sitemap: https://dakjencreative.com/sitemap.xml
+
+# Structured summaries written for language models:
+# https://dakjencreative.com/llms.txt
+# https://dakjencreative.com/llms-full.txt
