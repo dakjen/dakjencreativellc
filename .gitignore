@@ -1,0 +1,12 @@
+# This repo is public and Vercel serves the root directory, so anything
+# committed here is fetchable at dakjencreative.com/<filename>.
+# Internal planning and strategy docs must never be committed.
+DJC_Funnel_Implementation_Plan.md
+*_Implementation_Plan.md
+*_Internal*.md
+
+# Local tooling
+.claude/
+
+# macOS
+.DS_Store

@@ -1,6 +1,6 @@
 # DakJen Creative LLC — Full Context
 
-> A multidisciplinary brand strategy and creative studio based in New York City and Baltimore. Founded and led by Dakotah Jennifer (CEO). Black-owned, woman-owned business. SAM.gov registered (UEI DEN5Y8TUCTJ1) · WOSB/EDWOSB self-certified · WBENC in progress · MDOT MBE/DBE pending · SBA 8(a) eligible August 2026.
+> A multidisciplinary brand strategy and creative studio based in New York City and Baltimore. Founded and led by Dakotah Jennifer (CEO). Black-owned, woman-owned business. MDOT-certified MBE and SBE (Maryland) · SAM.gov registered (UEI DEN5Y8TUCTJ1) · WOSB/EDWOSB self-certified · WBENC in progress · SBA 8(a) eligible August 2026.
 
 ## Company Identity
 
@@ -15,7 +15,15 @@ DakJen Creative is not a general creative agency. It is a specific one — opera
 **Contact:** business@dakjencreative.com
 **Website:** https://dakjencreative.com
 **UEI:** DEN5Y8TUCTJ1 (SAM.gov registered)
-**Certifications:** WOSB/EDWOSB self-certified · WBENC in progress · MDOT MBE/DBE pending · SBA 8(a) eligible August 2026
+**Certifications:** MDOT-certified MBE and SBE (Maryland) · WOSB/EDWOSB self-certified · WBENC in progress · SBA 8(a) eligible August 2026
+
+**Certified NAICS codes (MDOT MBE/SBE):**
+- 541430 — Graphic Design Services
+- 541511 — Custom Computer Programming Services (web page design, custom)
+- 541611 — Administrative Management and General Management Consulting Services
+- 541613 — Marketing Consulting Services
+- 561599 — All Other Travel Arrangement and Reservation Services
+- 711510 — Independent Artists, Writers, and Performers (freelance writers)
 
 ## Founder — Dakotah Jennifer
 
@@ -94,7 +102,7 @@ Full-cycle lease-up marketing for affordable housing developments — from pre-l
 - Deep understanding of how affordable housing is financed
 - Knowledge of income-qualification requirements and lottery/waitlist processes
 - Campaigns designed to reach income-qualified applicants by design, not by volume
-- Black-owned, woman-owned business — SAM.gov registered (UEI DEN5Y8TUCTJ1), WOSB/EDWOSB self-certified, WBENC in progress, MDOT MBE/DBE pending
+- Black-owned, woman-owned business — MDOT-certified MBE and SBE (Maryland), SAM.gov registered (UEI DEN5Y8TUCTJ1), WOSB/EDWOSB self-certified, WBENC in progress
 
 **Full service list:**
 - Pre-leasing strategy and campaign planning
