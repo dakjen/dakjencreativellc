@@ -112,7 +112,7 @@ module.exports = async (req, res) => {
         '  1,645 to 5,543 connections.\n\n' +
         'MDOT-certified MBE and SBE (Maryland). SAM.gov registered, UEI DEN5Y8TUCTJ1.\n\n' +
         'GET TO KNOW US\n' +
-        '  One-pagers for every service — https://dakjencreative.com/dcre-onepagers.html\n' +
+        '  One-pagers for every service — https://www.dakjencreative.com/onepagers\n' +
         '  The Fractional Founder — https://substack.com/@dakjencreative\n' +
         '  LinkedIn — https://www.linkedin.com/in/dakotah-jennifer-mfa-a89857170/\n' +
         '  The site — https://dakjencreative.com\n\n' +
@@ -176,7 +176,7 @@ module.exports = async (req, res) => {
           sectionTitle('Get to know us, no commitment') +
           linkList([
             {
-              href: 'https://dakjencreative.com/dcre-onepagers.html',
+              href: 'https://www.dakjencreative.com/onepagers',
               label: 'One-pagers for every service',
               note: 'A single PDF per service line — the fastest way to see whether something fits, and easy to forward to whoever else needs to see it.',
             },

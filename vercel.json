@@ -1,3 +1,20 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/dcre-onepagers",
+      "destination": "/onepagers",
+      "permanent": true
+    },
+    {
+      "source": "/dcre-onepagers.html",
+      "destination": "/onepagers",
+      "permanent": true
+    },
+    {
+      "source": "/dcre-onepagers/:file*",
+      "destination": "/onepagers/:file*",
+      "permanent": true
+    }
+  ]
 }
