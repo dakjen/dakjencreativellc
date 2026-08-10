@@ -415,6 +415,7 @@ footer { background: #000; }
           <option value="Lease-up marketing">Lease-up marketing</option>
           <option value="Brand platform (Notable)">Brand platform — Notable</option>
           <option value="Done-for-you production (CMO Subscription)">Done-for-you production — CMO Subscription</option>
+          <option value="Virtual business card ($50)">Virtual business card — $50</option>
           <option value="Not sure yet">Not sure yet — help me figure it out</option>
         </select>
       </div>
@@ -587,7 +588,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   // Preselect the service from ?service= so page CTAs can arrive pre-filled
   var map={leaseup:'Lease-up marketing',fractional:'Fractional creative & business leadership',
            rfp:'RFP pipeline management',notable:'Brand platform (Notable)',
-           subscription:'Done-for-you production (CMO Subscription)'};
+           subscription:'Done-for-you production (CMO Subscription)',
+           card:'Virtual business card ($50)'};
   var want=map[new URLSearchParams(window.location.search).get('service')];
   if(want){
     var sel=document.getElementById('q-service');
