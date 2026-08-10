@@ -113,6 +113,75 @@ const button = (href, label) =>
        )}</a>
      </td></tr></table>`;
 
+/**
+ * A stack of "here's where to find us" links.
+ * @param {Array<{href:string,label:string,note:string}>} items
+ */
+const linkList = (items) =>
+  `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 4px;">` +
+  items
+    .map(
+      (it, i) => `
+      <tr><td style="padding:14px 0;${
+        i === 0 ? '' : 'border-top:1px solid rgba(30,59,87,0.10);'
+      }">
+        <a href="${it.href}" style="font-family:${SANS};font-size:15px;font-weight:600;color:${NAVY};text-decoration:none;">
+          ${esc(it.label)} <span style="color:${ROSE};">&rarr;</span>
+        </a>
+        <div style="font-family:${SERIF};font-size:14px;line-height:1.6;color:#5b6672;padding-top:4px;">${esc(
+          it.note
+        )}</div>
+      </td></tr>`
+    )
+    .join('') +
+  `</table>`;
+
+/**
+ * Stacked proof stats. Figures stay attributed to the campaign that produced
+ * them — never phrased as a capability guarantee.
+ * @param {Array<{figure:string,note:string}>} items
+ */
+const statList = (items) =>
+  `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${PAPER};margin:6px 0 4px;">` +
+  items
+    .map(
+      (it, i) => `
+      <tr><td style="padding:16px 20px;${
+        i === 0 ? '' : 'border-top:1px solid rgba(30,59,87,0.10);'
+      }">
+        <div style="font-family:${SANS};font-size:26px;font-weight:600;line-height:1;color:${ROSE};padding-bottom:6px;">${esc(
+          it.figure
+        )}</div>
+        <div style="font-family:${SERIF};font-size:14px;line-height:1.6;color:${INK};">${esc(
+          it.note
+        )}</div>
+      </td></tr>`
+    )
+    .join('') +
+  `</table>`;
+
+/** Small caps section heading inside the email body. */
+const sectionTitle = (text) =>
+  `<div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${ROSE};margin:30px 0 12px;">${esc(
+    text
+  )}</div>`;
+
+/** Three side-by-side contact actions. */
+const contactRow = ({ email, tel, book }) =>
+  `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:10px 0 4px;"><tr>
+     <td align="center" style="background:${ROSE};padding:0;">
+       <a href="mailto:${email}" style="display:block;padding:13px 8px;font-family:${SANS};font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#ffffff;text-decoration:none;">Email</a>
+     </td>
+     <td style="width:8px;font-size:0;">&nbsp;</td>
+     <td align="center" style="background:${NAVY};padding:0;">
+       <a href="sms:${tel}" style="display:block;padding:13px 8px;font-family:${SANS};font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#ffffff;text-decoration:none;">Text</a>
+     </td>
+     <td style="width:8px;font-size:0;">&nbsp;</td>
+     <td align="center" style="background:${INK};padding:0;">
+       <a href="${book}" style="display:block;padding:13px 8px;font-family:${SANS};font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#ffffff;text-decoration:none;">Book a Call</a>
+     </td>
+   </tr></table>`;
+
 async function sendEmail(payload) {
   const res = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
@@ -127,4 +196,7 @@ async function sendEmail(payload) {
   return res.json().catch(() => ({}));
 }
 
-module.exports = { sendEmail, layout, para, detailBlock, button, esc, escMultiline, NAVY, ROSE, CREAM, INK };
+module.exports = {
+  sendEmail, layout, para, detailBlock, button, linkList, statList, sectionTitle, contactRow,
+  esc, escMultiline, NAVY, ROSE, CREAM, INK,
+};
