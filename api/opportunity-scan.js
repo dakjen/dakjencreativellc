@@ -2,6 +2,7 @@
 // Requires BREVO_API_KEY. Optional: BREVO_SENDER (verified sender), SCAN_RECIPIENT.
 
 const { sendEmail, layout, para, detailBlock, button, esc } = require('./_email');
+const { addContact, splitName } = require('./_contacts');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
@@ -46,7 +47,11 @@ module.exports = async (req, res) => {
 
   const name = String(body.name).trim();
   const firm = String(body.firm).trim();
-  const pairs = FIELDS.map(([k, label]) => [label, String(body[k] || '').trim()]);
+  const { firstName, lastName } = splitName(name);
+  const stored = await addContact({ email, firstName, lastName, source: `opportunity scan — ${firm}` });
+
+  const pairs = FIELDS.map(([k, label]) => [label, String(body[k] || '').trim()])
+    .concat([['Saved to Brevo', stored ? 'Yes' : 'No — add them manually']]);
 
   const textLines = ['Opportunity Scan request', ''].concat(
     pairs.map(([l, v]) => `${l}: ${v}`)

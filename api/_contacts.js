@@ -1,7 +1,7 @@
 // Brevo contact storage.
-// Optional env: BREVO_LIST_ID — numeric id of the Brevo list to file contacts into.
-// Without it the contact is still created in Brevo, just unattached to a list,
-// and findable by its SOURCE attribute.
+// Contacts go to the Brevo list "DakJen Creative" (id 3) — everyone who has
+// shown interest in our services through any form on the site.
+// Override with BREVO_LIST_ID if the list is ever rebuilt.
 
 /**
  * Create or update a Brevo contact. Never throws — storing a contact is always
@@ -17,7 +17,8 @@ async function addContact({ email, firstName = '', lastName = '', source = 'webs
 
   const payload = { email, updateEnabled: true, attributes };
 
-  const listId = parseInt(process.env.BREVO_LIST_ID || '', 10);
+  // List 3 = "DakJen Creative" — people who may be interested in our services.
+  const listId = parseInt(process.env.BREVO_LIST_ID || '3', 10);
   if (Number.isInteger(listId)) payload.listIds = [listId];
 
   try {
