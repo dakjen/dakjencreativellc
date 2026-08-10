@@ -554,7 +554,7 @@ footer { background: #000; }
   <div style="max-width:1100px;margin:0 auto">
     <span class="ey">Start Here — No Cost, No Call Required</span>
     <h2>Run a free Opportunity Scan.</h2>
-    <p>Tell us what you hold and where you work. Within 48 hours we send back three to five live opportunities you are currently positioned to pursue — real solicitations with real deadlines, not a sample report.</p>
+    <p>Tell us what you hold and where you work. Within 48 hours we send back <strong style="color:rgba(255,255,255,.75);font-weight:normal">two live solicitations you are currently positioned to pursue</strong> — real opportunities with real deadlines, not a sample report.</p>
     <p style="font-size:.82rem;color:rgba(255,255,255,.35);font-style:italic">If nothing in the fit filter fits, we will tell you that instead. It saves you a call and it saves us one.</p>
 
     <form class="scan-form" id="scanForm">
@@ -698,7 +698,7 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
         if(r.ok){
           form.reset();
           btn.style.display='none';
-          say('Got it. Watch your inbox — three to five live opportunities within 48 hours.','#c07481');
+          say('Got it. Watch your inbox — two live solicitations within 48 hours.','#c07481');
           return;
         }
         if(r.body && r.body.error && String(r.body.error).indexOf('Missing')===0){

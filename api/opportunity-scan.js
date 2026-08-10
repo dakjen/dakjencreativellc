@@ -80,10 +80,11 @@ module.exports = async (req, res) => {
       subject: 'Your Opportunity Scan is underway',
       textContent:
         `Thanks — we have your Opportunity Scan request for ${firm}.\n\n` +
-        'Within 48 hours you will get back three to five live opportunities you are ' +
-        'currently positioned to pursue: real solicitations, real deadlines. If nothing ' +
-        'in our fit filter matches what you do, we will tell you that instead rather than ' +
-        'send you a padded list.\n\nNothing is required from you in the meantime.\n\n' +
+        'Within 48 hours you will get back two live solicitations you are currently ' +
+        'positioned to pursue: real opportunities, real deadlines. Two, not a long list — ' +
+        'the scan shows you how we work, it is not the service itself. If nothing in our ' +
+        'fit filter matches what you do, we will tell you that instead.\n\n' +
+        'Nothing is required from you in the meantime.\n\n' +
         '— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
         eyebrow: 'Opportunity Scan',
@@ -91,8 +92,8 @@ module.exports = async (req, res) => {
         preheader: 'Three to five live opportunities, coming within 48 hours.',
         body:
           para(`Thanks — we have your Opportunity Scan request for <strong>${esc(firm)}</strong>.`) +
-          para('Within 48 hours you will get back three to five live opportunities you are currently positioned to pursue. Real solicitations, real deadlines — not a sample report.') +
-          para('If nothing in our fit filter matches what you do, we will tell you that instead rather than send you a padded list.') +
+          para('Within 48 hours you will get back <strong>two live solicitations</strong> you are currently positioned to pursue. Real opportunities, real deadlines — not a sample report.') +
+          para('Two, not a long list. The scan shows you how we work; it is not the service itself. If nothing in our fit filter matches what you do, we will tell you that instead.') +
           para('Nothing is required from you in the meantime.') +
           button('https://dakjencreative.com/rfp.html', 'Review how the pipeline works'),
         footerNote: 'You are receiving this because you requested an Opportunity Scan at dakjencreative.com.',
