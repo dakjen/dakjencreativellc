@@ -175,6 +175,7 @@ Monthly RFP pipeline management for diverse-owned firms. DakJen Creative monitor
 - **Go Be Notable** (https://gobenotable.com) — brand platform for women founders
 - **Elitewise Escapes** (https://elitewiseescapes.com) — curated luxury travel concierge maximizing credit card points
 - **The Wren Club** (https://thewrenclub.com) — venture by DakJen Creative
+- **BaDjR Tech** (https://badjrtech.com) — custom software, web design, and digital tools; venture by DakJen Creative
 - **Design Domain** (https://designdomainllc.com) — venture by DakJen Creative
 
 ## Differentiators
