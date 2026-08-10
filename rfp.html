@@ -361,7 +361,7 @@ footer { background: #000; }
 .fit.no .fit-head{color:rgba(255,255,255,.35)}
 .fit p{font-size:.88rem;line-height:1.85;color:rgba(245,242,238,.6);margin-bottom:1rem}
 .fit p:last-child{margin-bottom:0}
-.scan-form{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;max-width:760px}
+.scan-form{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;max-width:760px}
 .scan-form label{display:block;font-family:'Syne',system-ui,sans-serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--m);margin-bottom:.5rem}
 .scan-form input,.scan-form select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:#f5f2ee;padding:.75rem .9rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem}
 .scan-form input:focus,.scan-form select:focus{outline:none;border-color:var(--m)}
@@ -609,9 +609,14 @@ footer { background: #000; }
           <option>Other — I'll explain</option>
         </select>
       </div>
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label for="sf-website">Website</label>
+        <input type="text" id="sf-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
       <div class="scan-full">
-        <button type="submit" class="btn-w" style="cursor:pointer">Send My Opportunity Scan Request</button>
-        <p style="font-size:.72rem;color:rgba(255,255,255,.3);margin-top:.9rem">This opens a pre-filled email to business@dakjencreative.com so you can see exactly what you're sending. Prefer to write it yourself? <a href="mailto:business@dakjencreative.com?subject=Opportunity%20Scan%20Request" style="color:var(--m)">Email us directly</a>.</p>
+        <button type="submit" class="btn-w" id="scanSubmit" style="cursor:pointer">Send My Opportunity Scan Request</button>
+        <p id="scanStatus" role="status" aria-live="polite" style="font-size:.85rem;margin-top:.9rem;display:none"></p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.3);margin-top:.9rem">We reply within 48 hours. Prefer to write it yourself? <a href="mailto:business@dakjencreative.com?subject=Opportunity%20Scan%20Request" style="color:var(--m)">Email us directly</a>.</p>
       </div>
     </form>
   </div>
@@ -659,25 +664,54 @@ const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl'
 tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
 
-document.getElementById('scanForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const v=id=>document.getElementById(id).value.trim();
-  const body=[
-    'Opportunity Scan request','',
-    'Name: '+v('sf-name'),
-    'Firm: '+v('sf-firm'),
-    'Email: '+v('sf-email'),
-    'Certifications held: '+v('sf-certs'),
-    'NAICS codes: '+v('sf-naics'),
-    'Geography: '+v('sf-geo'),
-    'Target contract size: '+v('sf-size'),
-    'Current bid capacity: '+v('sf-capacity'),
-    'Sector: '+v('sf-sector'),''
-  ].join('\n');
-  window.location.href='mailto:business@dakjencreative.com?subject='+
-    encodeURIComponent('Opportunity Scan Request — '+v('sf-firm'))+
-    '&body='+encodeURIComponent(body);
-});
+(function(){
+  var form=document.getElementById('scanForm'),
+      btn=document.getElementById('scanSubmit'),
+      status=document.getElementById('scanStatus');
+  var v=function(id){return document.getElementById(id).value.trim();};
+  function say(msg,color){status.textContent=msg;status.style.color=color;status.style.display='block';}
+  function mailtoFallback(d){
+    var lines=['Opportunity Scan request','',
+      'Name: '+d.name,'Firm: '+d.firm,'Email: '+d.email,
+      'Certifications held: '+d.certs,'NAICS codes: '+d.naics,
+      'Geography: '+d.geography,'Target contract size: '+d.size,
+      'Current bid capacity: '+d.capacity,'Sector: '+d.sector,''].join('\n');
+    window.location.href='mailto:business@dakjencreative.com?subject='+
+      encodeURIComponent('Opportunity Scan Request — '+d.firm)+
+      '&body='+encodeURIComponent(lines);
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data={name:v('sf-name'),firm:v('sf-firm'),email:v('sf-email'),
+      certs:v('sf-certs'),naics:v('sf-naics'),geography:v('sf-geo'),
+      size:v('sf-size'),capacity:v('sf-capacity'),sector:v('sf-sector'),
+      website:v('sf-website')};
+    btn.disabled=true;btn.textContent='Sending…';
+    say('','rgba(255,255,255,.5)');
+    fetch('/api/opportunity-scan',{method:'POST',
+      headers:{'content-type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,body:j};});})
+      .then(function(r){
+        if(r.ok){
+          form.reset();
+          btn.style.display='none';
+          say('Got it. Watch your inbox — three to five live opportunities within 48 hours.','#c07481');
+          return;
+        }
+        if(r.body && r.body.error && String(r.body.error).indexOf('Missing')===0){
+          btn.disabled=false;btn.textContent='Send My Opportunity Scan Request';
+          say(r.body.error,'#e0a0a8');
+          return;
+        }
+        throw new Error('send failed');
+      })
+      .catch(function(){
+        btn.disabled=false;btn.textContent='Send My Opportunity Scan Request';
+        say('Our form is having a moment — opening your email app instead.','rgba(255,255,255,.55)');
+        mailtoFallback(data);
+      });
+  });
+})();
 </script>
 
 <!-- MOTION & POLISH -->
