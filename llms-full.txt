@@ -1,6 +1,6 @@
 # DakJen Creative LLC — Full Context
 
-> A multidisciplinary brand strategy and creative studio based in New York City and Baltimore. Founded and led by Dakotah Jennifer (CEO). Black-owned, woman-owned business. MBE and WBE certification in progress.
+> A multidisciplinary brand strategy and creative studio based in New York City and Baltimore. Founded and led by Dakotah Jennifer (CEO). Black-owned, woman-owned business. SAM.gov registered (UEI DEN5Y8TUCTJ1) · WOSB/EDWOSB self-certified · WBENC in progress · MDOT MBE/DBE pending · SBA 8(a) eligible August 2026.
 
 ## Company Identity
 
@@ -14,6 +14,8 @@ DakJen Creative is not a general creative agency. It is a specific one — opera
 **Service Areas:** NYC, Baltimore, Washington D.C. metro, Maryland, Virginia, nationwide (lease-up marketing)
 **Contact:** business@dakjencreative.com
 **Website:** https://dakjencreative.com
+**UEI:** DEN5Y8TUCTJ1 (SAM.gov registered)
+**Certifications:** WOSB/EDWOSB self-certified · WBENC in progress · MDOT MBE/DBE pending · SBA 8(a) eligible August 2026
 
 ## Founder — Dakotah Jennifer
 
@@ -92,7 +94,7 @@ Full-cycle lease-up marketing for affordable housing developments — from pre-l
 - Deep understanding of how affordable housing is financed
 - Knowledge of income-qualification requirements and lottery/waitlist processes
 - Campaigns designed to reach income-qualified applicants by design, not by volume
-- Black-owned, woman-owned business (MBE/WBE certification in progress)
+- Black-owned, woman-owned business — SAM.gov registered (UEI DEN5Y8TUCTJ1), WOSB/EDWOSB self-certified, WBENC in progress, MDOT MBE/DBE pending
 
 **Full service list:**
 - Pre-leasing strategy and campaign planning
@@ -117,6 +119,28 @@ Full-cycle lease-up marketing for affordable housing developments — from pre-l
 
 **Page:** https://dakjencreative.com/leaseup.html
 **DJC Marketing site:** https://marketing.dakjencreative.com
+
+*Note on published figures: all performance numbers are results of specific campaigns, not capability guarantees. The canonical lease-up figure is "400+ qualified inquiries in the first 48 hours" on the 9410 Hough campaign.*
+
+### 4. RFP Pipeline (Government & Institutional Contracting)
+
+Monthly RFP pipeline management for diverse-owned firms. DakJen Creative monitors the procurement portals, flags opportunities that fit the client's certifications and NAICS codes, and delivers a finished Draft 1 plus a requirements and compliance checklist. The client reviews, finalizes, and submits.
+
+**Division of labor:**
+- DJC delivers: portal monitoring, weekly fit-scored digest, bid/no-bid recommendations, Draft 1 narrative written to the solicitation's evaluation criteria, requirements/compliance checklist, capability statement maintenance
+- The client keeps: pursuit decisions, pricing and cost narrative, technical claims, final review and approval, portal credentials, and the submission itself. DJC does not submit on a client's behalf.
+
+**Tiers:**
+1. Monitor — $750/mo · portal monitoring across your NAICS codes and target agencies, weekly fit-scored digest, bid/no-bid recommendation
+2. Monitor + Draft — $1,500/mo · everything above, plus one full Draft 1 per month and a requirements/compliance checklist
+3. Pipeline Partner — $2,500/mo · everything above, plus multiple drafts, capability statement maintenance, monthly strategy call
+
+**Entry point:** a free Opportunity Scan — three to five live matching opportunities emailed within 48 hours.
+
+**Sectors pursued:** community development, education, housing, economic development, arts, nonprofits, public interest work.
+**Sectors not pursued:** defense or military, tobacco, healthcare or pharma, gambling, firearms, fossil fuel extraction. Cannabis work is limited to public health, education, and harm reduction.
+
+**Page:** https://dakjencreative.com/rfp.html
 
 ## Proven Results
 
@@ -148,7 +172,6 @@ Full-cycle lease-up marketing for affordable housing developments — from pre-l
 
 - **Go Be Notable** (https://gobenotable.com) — brand platform for women founders
 - **Elitewise Escapes** (https://elitewiseescapes.com) — curated luxury travel concierge maximizing credit card points
-- **Badjr** (https://badjr.com) — venture by DakJen Creative
 - **The Wren Club** (https://thewrenclub.com) — venture by DakJen Creative
 - **Design Domain** (https://designdomainllc.com) — venture by DakJen Creative
 

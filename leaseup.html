@@ -375,15 +375,24 @@ footer { background: #000; }
   div[style*="repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
 }
 
+/* CERTIFICATIONS STRIP */
+.cert-strip{background:#111;padding:1.6rem 2.5rem;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.cert-label{font-family:'Syne',system-ui,sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);flex-shrink:0}
+.cert-list{display:flex;gap:2.2rem;flex-wrap:wrap;flex:1}
+.cert{display:flex;flex-direction:column;gap:.15rem}
+.cert-name{font-family:'Syne',system-ui,sans-serif;font-size:.78rem;color:#f5f2ee;letter-spacing:.02em}
+.cert-status{font-size:.68rem;color:rgba(255,255,255,.4)}
+@media(max-width:768px){.cert-strip{padding:1.4rem;gap:1.1rem}.cert-list{gap:1.2rem}}
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
-    <li><a href="fractional.html">Creative Consulting</a></li>
-    <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html" class="active">Lease-Up</a></li>
+    <li><a href="fractional.html">Fractional</a></li>
+    <li><a href="rfp.html">RFP Pipeline</a></li>
+    <li><a href="notable.html">Notable</a></li>
     <li><a href="dakotah.html">Meet Dakotah</a></li>
   </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
@@ -395,12 +404,24 @@ footer { background: #000; }
   <div class="hero-inner">
     <span class="ey">DJC Marketing — Lease-Up Marketing</span>
     <h1>Delayed lease-up is<br>delayed <em>revenue.</em></h1>
-    <p class="hero-p">That is where we come in. <strong>We build campaigns that move developments from launch to full occupancy</strong> — based in the D.C. metro and Baltimore, serving developers nationwide. We reach income-qualified applicants by design, not by volume, with the insider knowledge to back it up.</p>
+    <p class="hero-p"><strong>Full-cycle lease-up marketing for affordable housing developers.</strong> On our 9410 Hough campaign we saw a 36.2% applicant qualification rate — 13.7 points above the industry benchmark. Based in the D.C. metro and Baltimore, serving developers nationwide. We reach income-qualified applicants by design, not by volume.</p>
     <div class="btns">
-      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="btn-w">Get a Custom Quote</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="btn-w">Request a Lease-Up Plan for Your Property</a>
       <a href="#results" class="btn-o">See the Results →</a>
       <a href="https://marketing.dakjencreative.com" target="_blank" class="btn-o">DJC Marketing →</a>
     </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="cert-strip">
+  <div class="cert-label">Certifications &amp; Registrations</div>
+  <div class="cert-list">
+    <div class="cert"><span class="cert-name">SAM.gov Registered</span><span class="cert-status">UEI DEN5Y8TUCTJ1</span></div>
+    <div class="cert"><span class="cert-name">WOSB / EDWOSB</span><span class="cert-status">Self-certified</span></div>
+    <div class="cert"><span class="cert-name">WBENC</span><span class="cert-status">In progress</span></div>
+    <div class="cert"><span class="cert-name">MDOT MBE / DBE</span><span class="cert-status">Pending</span></div>
+    <div class="cert"><span class="cert-name">SBA 8(a)</span><span class="cert-status">Eligible August 2026</span></div>
   </div>
 </div>
 
@@ -417,15 +438,15 @@ footer { background: #000; }
   </div>
   <div class="stat-item">
     <div class="stat-num">36.2%</div>
-    <div class="stat-label">Applicant qualification rate<br>vs. 15–30% industry avg</div>
+    <div class="stat-label">Applicant qualification rate at<br>9410 Hough — vs. 15–30% industry avg</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">+13.7pts</div>
-    <div class="stat-label">Above industry<br>benchmark</div>
+    <div class="stat-label">Above industry benchmark<br>on that campaign</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">&gt;20%</div>
-    <div class="stat-label">Re-apply rate from<br>applicant follow-up</div>
+    <div class="stat-label">Re-apply rate at 9410 Hough<br>from applicant follow-up</div>
   </div>
 </div>
 
@@ -578,7 +599,7 @@ footer { background: #000; }
     <div class="side-card">
       <h4>Pricing</h4>
       <p>Every quote is custom — pricing scales with unit count, package selection, and add-ons. Contact us to discuss your property.</p>
-      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="cta">Get a Custom Quote →</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="cta">Request a Lease-Up Plan →</a>
     </div>
     <div class="side-card dark">
       <h4>Ready to Fill Your Building?</h4>
@@ -606,11 +627,37 @@ footer { background: #000; }
   </div>
 </div>
 
+<!-- HOW DEVELOPERS EVALUATE US -->
+<div style="background:#0c1c2c;padding:4.5rem 2.5rem;border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="ey" style="color:var(--m)">For the Person Who Has to Justify the Selection</span>
+    <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:#f5f2ee;margin-bottom:2.5rem;max-width:720px">How developers evaluate us.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)">
+      <div style="background:#111;padding:2.2rem 2rem">
+        <div style="font-family:'Syne',system-ui,sans-serif;font-size:.95rem;color:#f5f2ee;margin-bottom:.9rem">Budget</div>
+        <p style="font-size:.86rem;line-height:1.85;color:rgba(255,255,255,.55)">Every engagement is scoped to the development — unit count, income tiers, market, and channel mix. Before anything runs, you receive a written campaign strategy with the budget allocation laid out by channel, so the number you take to your partners is a number you can defend line by line.</p>
+      </div>
+      <div style="background:#111;padding:2.2rem 2rem">
+        <div style="font-family:'Syne',system-ui,sans-serif;font-size:.95rem;color:#f5f2ee;margin-bottom:.9rem">Timeline against your TCO date</div>
+        <p style="font-size:.86rem;line-height:1.85;color:rgba(255,255,255,.55)">We work backward from your certificate of occupancy. Phase 1 — listings, creative, media placement, model unit staging — runs ahead of launch so that day one has demand already waiting. Tell us your TCO date and we will tell you when we need to start.</p>
+      </div>
+      <div style="background:#111;padding:2.2rem 2rem">
+        <div style="font-family:'Syne',system-ui,sans-serif;font-size:.95rem;color:#f5f2ee;margin-bottom:.9rem">Compliance fluency</div>
+        <p style="font-size:.86rem;line-height:1.85;color:rgba(255,255,255,.55)">We know how affordable housing is financed, what income-qualifying means in practice, and how lottery and waitlist processes work. Our lead sits inside an affordable housing developer as Chief Creative Officer — this is not adjacent knowledge picked up from a client brief.</p>
+      </div>
+      <div style="background:#111;padding:2.2rem 2rem">
+        <div style="font-family:'Syne',system-ui,sans-serif;font-size:.95rem;color:#f5f2ee;margin-bottom:.9rem">Reporting cadence</div>
+        <p style="font-size:.86rem;line-height:1.85;color:rgba(255,255,255,.55)">Bi-weekly performance reports covering impressions, clicks, leads, and application volume, plus applicant tracking and qualification rate. Summaries are written to be forwarded directly to investors, lenders, or housing agencies without rework.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- TEAM -->
 <div class="team-section">
   <span class="ey" style="color:rgba(192,116,129,.55)">The Team</span>
   <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:var(--w);margin-bottom:.5rem">Every engagement is led by Dakotah — backed by a full team.</h2>
-  <p style="font-size:.85rem;color:rgba(255,255,255,.42);max-width:600px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder & Project Lead, supported by specialists across digital, communications, and coordination.</p>
+  <p style="font-size:.85rem;color:rgba(255,255,255,.42);max-width:600px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder &amp; Project Lead, supported by specialists across digital, communications, and coordination. She has worked inside affordable housing development since 2020 — today as Chief Creative Officer at Northern Real Estate Urban Ventures and as Senior Managing Director of Project Community Capital®, the award-winning platform connecting residents to workforce and entrepreneurship pathways. She reads a deal the way you do.</p>
   <div class="team-grid">
     <div class="team-member">
       <img src="dakotah-jennifer-headshot.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:center 15%;display:block;margin-bottom:1rem;">
@@ -662,7 +709,7 @@ footer { background: #000; }
   <h2>Tell us about your development.<br>We'll build a custom strategy to bring in tenants.</h2>
   <p>Every quote is custom. Every strategy is built around your property, your timeline, and your market. Let's talk.</p>
   <div class="btns" style="margin-top:2rem">
-    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="btn-w">Get a Custom Quote</a>
+    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="btn-w">Request a Lease-Up Plan for Your Property</a>
   </div>
 </div>
 
@@ -673,17 +720,17 @@ footer { background: #000; }
       <p>A multidisciplinary brand studio and creative ecosystem based in New York City and Baltimore, serving clients across the Washington D.C. metro, Maryland, and Virginia. Strategy, storytelling, and execution — all under one roof.</p>
     </div>
     <div class="ft-col">
-      <h4>Services</h4>
-      <a href="fractional.html">Creative Consulting</a>
-      <a href="notable.html">Notable</a>
+      <h4>Client Services</h4>
       <a href="leaseup.html">Lease-Up Marketing</a>
+      <a href="fractional.html">Fractional Creative Leadership</a>
+      <a href="rfp.html">RFP Pipeline</a>
+      <a href="notable.html">Notable</a>
+      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
       <a href="dakotah.html">Meet Dakotah</a>
     </div>
     <div class="ft-col">
-      <h4>Other Brands</h4>
-      <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <h4>Ventures</h4>
       <a href="https://elitewiseescapes.com" target="_blank">Elitewise Escapes →</a>
-      <a href="https://badjr.com" target="_blank">Badjr →</a>
       <a href="https://thewrenclub.com" target="_blank">The Wren Club →</a>
       <a href="https://designdomainllc.com" target="_blank">Design Domain →</a>
     </div>
