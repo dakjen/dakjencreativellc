@@ -631,6 +631,59 @@ footer { background: #000; }
 </div>
 
 <footer>
+  <!-- INTEREST SIGNUP -->
+  <style>
+  .ft-signup{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.09)}
+  .ft-signup-title{font-family:'Syne',system-ui,sans-serif;font-size:1.15rem;color:#f5f2ee;margin-bottom:.5rem;line-height:1.3}
+  .ft-signup-copy p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.42);margin:0;max-width:420px}
+  .ft-signup-form{position:relative;display:flex;gap:.6rem;flex-wrap:wrap}
+  .ft-signup-form input{flex:1 1 150px;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#f5f2ee;padding:.72rem .85rem;font-family:'Fraunces',Georgia,serif;font-size:.85rem}
+  .ft-signup-form input::placeholder{color:rgba(255,255,255,.35)}
+  .ft-signup-form input:focus{outline:none;border-color:#c07481}
+  .ft-signup-form button{flex:0 0 auto;background:#c07481;color:#fff;border:none;cursor:pointer;padding:.72rem 1.5rem;font-family:'Syne',system-ui,sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;transition:background .2s}
+  .ft-signup-form button:hover{background:#f5f2ee;color:#0c1c2c}
+  .ft-signup-form button:disabled{opacity:.55;cursor:default}
+  .fts-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .ft-signup-status{grid-column:1 / -1;font-size:.82rem;margin:0;display:none}
+  @media(max-width:768px){.ft-signup{grid-template-columns:1fr;gap:1.4rem}.ft-signup-form button{width:100%}}
+  </style>
+  <div class="ft-signup">
+    <div class="ft-signup-copy">
+      <div class="ft-signup-title">Interested in working with us?</div>
+      <p>Leave your name and we'll keep you posted — new openings, new services, and the occasional thing worth knowing. Not a newsletter.</p>
+    </div>
+    <form class="ft-signup-form" id="ftSignup">
+      <input type="text" id="fts-name" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" id="fts-email" placeholder="Email address" aria-label="Email address" required>
+      <div class="fts-hp" aria-hidden="true"><label for="fts-website">Website</label><input type="text" id="fts-website" tabindex="-1" autocomplete="off"></div>
+      <button type="submit" id="fts-btn">I'm Interested</button>
+    </form>
+    <p class="ft-signup-status" id="ftsStatus" role="status" aria-live="polite"></p>
+  </div>
+  <script>
+  (function(){
+    var f=document.getElementById('ftSignup');if(!f)return;
+    var btn=document.getElementById('fts-btn'),st=document.getElementById('ftsStatus');
+    function say(m,c){st.textContent=m;st.style.color=c;st.style.display='block';}
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var d={name:document.getElementById('fts-name').value.trim(),
+             email:document.getElementById('fts-email').value.trim(),
+             website:document.getElementById('fts-website').value.trim(),
+             source:document.title+' ('+location.pathname+')'};
+      if(!d.name||!d.email){say('Name and email, please.','#e0a0a8');return;}
+      btn.disabled=true;btn.textContent='Sending…';
+      fetch('/api/interest',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
+        .then(function(r){return r.ok?r.json():Promise.reject(r);})
+        .then(function(){f.style.display='none';say("You're on the list. We'll be in touch.",'#c07481');})
+        .catch(function(){
+          btn.disabled=false;btn.textContent="I'm Interested";
+          say('That did not go through — email business@dakjencreative.com and we will sort it.','rgba(255,255,255,.55)');
+        });
+    });
+  })();
+  </script>
+
   <div class="footer-top">
     <div class="ft-col">
       <span class="ft-brand">DakJen <span>Creative</span></span>
