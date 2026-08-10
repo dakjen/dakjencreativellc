@@ -182,6 +182,32 @@ const contactRow = ({ email, tel, book }) =>
      </td>
    </tr></table>`;
 
+/**
+ * Sign-off with headshot. Images are often blocked by default, so the block
+ * still reads correctly with nothing loaded — hence the alt text and the fact
+ * that no information lives only in the picture.
+ */
+const signature = ({ email, tel, book }) =>
+  `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:30px 0 4px;border-top:1px solid rgba(30,59,87,0.12);padding-top:24px;width:100%;">
+     <tr>
+       <td width="78" valign="top" style="width:78px;padding-right:18px;">
+         <img src="https://www.dakjencreative.com/dakotah-jennifer-headshot.jpg"
+              width="78" height="78" alt="Dakotah Jennifer"
+              style="display:block;width:78px;height:78px;border-radius:39px;object-fit:cover;border:2px solid ${ROSE};">
+       </td>
+       <td valign="top">
+         <div style="font-family:${SANS};font-size:16px;font-weight:600;color:${NAVY};padding-bottom:3px;">Dakotah Jennifer</div>
+         <div style="font-family:${SERIF};font-size:14px;color:#5b6672;padding-bottom:10px;">Founder &amp; CEO, DakJen Creative</div>
+         <div style="font-family:${SERIF};font-size:13px;line-height:1.75;color:#5b6672;">
+           <a href="mailto:${email}" style="color:${ROSE};text-decoration:none;">${esc(email)}</a><br>
+           <a href="tel:${tel}" style="color:${ROSE};text-decoration:none;">${esc(tel)}</a>
+           &nbsp;·&nbsp;
+           <a href="${book}" style="color:${ROSE};text-decoration:none;">Book a call</a>
+         </div>
+       </td>
+     </tr>
+   </table>`;
+
 async function sendEmail(payload) {
   const res = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
@@ -197,6 +223,6 @@ async function sendEmail(payload) {
 }
 
 module.exports = {
-  sendEmail, layout, para, detailBlock, button, linkList, statList, sectionTitle, contactRow,
+  sendEmail, layout, para, detailBlock, button, linkList, statList, sectionTitle, contactRow, signature,
   esc, escMultiline, NAVY, ROSE, CREAM, INK,
 };

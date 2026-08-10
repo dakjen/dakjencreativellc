@@ -5,7 +5,7 @@
 // Requires BREVO_API_KEY. Optional: BREVO_SENDER (verified sender), SCAN_RECIPIENT.
 
 const {
-  sendEmail, layout, para, detailBlock, linkList, statList, sectionTitle, contactRow, esc,
+  sendEmail, layout, para, detailBlock, linkList, statList, sectionTitle, contactRow, signature, esc,
 } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
 
@@ -194,7 +194,8 @@ module.exports = async (req, res) => {
 
           sectionTitle('Reach Dakotah directly') +
           contactRow({ email: CONTACT_EMAIL, tel: CONTACT_TEL, book: BOOKING }) +
-          para('<span style="font-size:14px;color:#5b6672;">Or just reply to this email — it reaches a person, not a queue.</span>'),
+          para('<span style="font-size:14px;color:#5b6672;">Or just reply to this email — it reaches a person, not a queue.</span>') +
+          signature({ email: CONTACT_EMAIL, tel: CONTACT_TEL, book: BOOKING }),
         footerNote: 'You are receiving this because you asked to be kept posted at dakjencreative.com. Reply with "remove" and you are off, no questions asked.',
       }),
     });

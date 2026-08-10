@@ -1,7 +1,7 @@
 // Quote request intake — emails the submission through Brevo.
 // Requires BREVO_API_KEY. Optional: BREVO_SENDER (verified sender), SCAN_RECIPIENT.
 
-const { sendEmail, layout, para, detailBlock, button, esc } = require('./_email');
+const { sendEmail, layout, para, detailBlock, button, signature, esc } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
@@ -102,7 +102,8 @@ module.exports = async (req, res) => {
           para(`Thanks — we have your request for <strong>${esc(org)}</strong>.`) +
           para('Dakotah reads every one of these personally and will come back to you within two business days, either with a scoped quote or with the two or three questions we need to build one honestly.') +
           para('If it turns out we are not the right fit, we will say so plainly and point you somewhere better. Bad fits cost you more than they cost us.') +
-          button('https://substack.com/@dakjencreative', 'Read The Fractional Founder'),
+          button('https://substack.com/@dakjencreative', 'Read The Fractional Founder') +
+          signature({ email: 'business@dakjencreative.com', tel: '+12026009741', book: 'https://calendar.app.google/bzcyGsRcNRLTGce18' }),
         footerNote: 'You are receiving this because you submitted a request at dakjencreative.com.',
       }),
     });
