@@ -152,6 +152,8 @@ Monthly RFP pipeline management for diverse-owned firms. DakJen Creative monitor
 
 **Page:** https://dakjencreative.com/rfp.html
 
+**Quote requests:** https://dakjencreative.com/quote.html — a form that takes the prospect's pain points, timeline, and budget and routes them to Dakotah directly. Response within two business days with a scoped quote or clarifying questions. No call required.
+
 ## Proven Results
 
 ### Brand Management (5-Year Engagement — Northern Real Estate Urban Ventures)

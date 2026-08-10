@@ -10,3 +10,8 @@ DJC_Funnel_Implementation_Plan.md
 
 # macOS
 .DS_Store
+
+# Secrets — never commit. Brevo key lives in Vercel env vars.
+.env
+.env.*
+!.env.example

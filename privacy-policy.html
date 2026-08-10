@@ -143,21 +143,23 @@ footer { background: #111; padding: 3.5rem 3rem; }
 
   <p>DakJen Creative LLC ("DakJen Creative," "we," "us," or "our") respects your privacy. This Privacy Policy describes how we handle information when you visit <a href="https://dakjencreative.com">dakjencreative.com</a> (the "Site"), contact us, or engage our services. By using the Site, you agree to the practices described here.</p>
 
-  <p>In plain terms: this website does not use advertising trackers, analytics pixels, or first-party cookies, and it has no contact forms. We only receive personal information when you choose to email us or book a call, and we use a small number of third-party services (described below) to run the Site.</p>
+  <p>In plain terms: this website does not use advertising trackers or cookies of any kind. We use a privacy-friendly, cookieless analytics tool that counts page views without identifying you or following you across other sites. We receive personal information only when you choose to submit one of our forms, email us, or book a call. A small number of third-party services (described below) run the Site.</p>
 
   <h2>1. Who We Are</h2>
   <p>DakJen Creative LLC is the controller responsible for the personal information described in this policy. You can reach us at <a href="mailto:business@dakjencreative.com">business@dakjencreative.com</a>. We operate from New York, NY and Baltimore, MD (United States).</p>
 
   <h2>2. Information We Collect</h2>
-  <p><strong>Information you give us directly.</strong> The Site does not have contact or sign-up forms. You share information with us only when you choose to:</p>
+  <p><strong>Information you give us directly.</strong> You share information with us only when you choose to:</p>
   <ul>
     <li><strong>Email us</strong> (for example, at <a href="mailto:business@dakjencreative.com">business@dakjencreative.com</a>) — we receive your name, email address, and anything you include in your message.</li>
     <li><strong>Book a call</strong> through our scheduling link — you provide your name, email address, and any details you add when scheduling. This booking is handled by Google Calendar (see Section 4).</li>
+    <li><strong>Submit a form</strong> — our "Get Customized Support" quote form and our Opportunity Scan form collect the details you enter, such as your name, organization, email address, phone number if you provide one, and the information you write about what you are trying to solve. Submissions are delivered to us by email through Brevo (see Section 4). We do not add you to a marketing list from these forms; we reply to the request you made.</li>
   </ul>
-  <p><strong>Information collected automatically.</strong> Like virtually all websites, when you visit the Site our hosting provider automatically records standard server-log data such as your IP address, browser type, device information, referring page, and the date and time of your visit. This is used for security and to keep the Site running. We do not run analytics software or advertising trackers on the Site.</p>
+  <p><strong>Information collected automatically.</strong> Like virtually all websites, when you visit the Site our hosting provider automatically records standard server-log data such as your IP address, browser type, device information, referring page, and the date and time of your visit. This is used for security and to keep the Site running.</p>
+  <p>We also use <strong>Vercel Web Analytics</strong>, a privacy-friendly analytics tool, to understand which pages people visit. It does not use cookies, does not store or share your IP address, does not build a profile of you, and cannot follow you to other websites. It records aggregate information such as the page path, the referring site, and general device and country information. We use this only to understand which parts of the Site are useful. We do not run advertising trackers on the Site.</p>
 
   <h2>3. Cookies</h2>
-  <p>The Site does <strong>not</strong> set cookies. We do not use first-party cookies, and we do not use analytics, advertising, or tracking cookies of any kind. The Site loads typefaces from Google Fonts, which transmits your IP address to Google but does not set cookies. A cookie would only come into play if you choose to click our "Book a Call" link and continue on Google's own scheduling site, where any cookies are set and controlled by Google. You can block or delete cookies through your browser settings at any time without affecting the content of the Site.</p>
+  <p>The Site does <strong>not</strong> set cookies. We do not use first-party cookies, and we do not use advertising or tracking cookies of any kind. Our analytics tool is deliberately cookieless — see Section 2. The Site loads typefaces from Google Fonts, which transmits your IP address to Google but does not set cookies. A cookie would only come into play if you choose to click our "Book a Call" link and continue on Google's own scheduling site, where any cookies are set and controlled by Google. You can block or delete cookies through your browser settings at any time without affecting the content of the Site.</p>
 
   <h2>4. Third-Party Services We Use</h2>
   <p>We rely on a small number of reputable providers to operate the Site. Each processes data under its own privacy policy:</p>
@@ -165,6 +167,8 @@ footer { background: #111; padding: 3.5rem 3rem; }
     <li><strong>Website hosting</strong> — our host stores the Site and maintains server logs (including IP addresses) for delivery and security.</li>
     <li><strong>Google Fonts</strong> — the Site loads typefaces from Google's font servers. When a page loads, your browser's IP address and request information are sent to Google so the fonts can be delivered. See Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
     <li><strong>Google Calendar (scheduling)</strong> — our "Book a Call" link opens Google's appointment scheduling. If you book, the name, email, and details you enter are processed by Google on our behalf. See Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+    <li><strong>Brevo (form delivery)</strong> — when you submit a form on the Site, Brevo delivers that submission to us by email and sends you a confirmation. Brevo processes the information you entered on our behalf. See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Brevo's Privacy Policy</a>.</li>
+    <li><strong>Vercel (hosting and analytics)</strong> — Vercel hosts the Site and provides the cookieless Web Analytics described in Section 2. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel's Privacy Policy</a>.</li>
   </ul>
   <p>We do <strong>not</strong> sell or rent your personal information, and we do not share it for cross-context behavioral advertising.</p>
 
@@ -225,6 +229,7 @@ footer { background: #111; padding: 3.5rem 3rem; }
       <a href="leaseup.html">Lease-Up Marketing</a>
       <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
       <a href="dakotah.html">Meet Dakotah</a>
+      <a href="quote.html">Get Customized Support →</a>
     </div>
     <div class="ft-col">
       <h4>Ventures</h4>
@@ -245,5 +250,6 @@ const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl'
 tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
