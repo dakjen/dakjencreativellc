@@ -51,7 +51,7 @@ DakJen Creative is a deliberately small studio. The founder leads every engageme
 - **Jarea Fang** — Marketing Coordinator. Campaign coordination, creative production, listings and content calendars.
 - **Brittni Hardie** — Communications Manager. Copy, outreach, and inbound communication.
 
-- Page: https://dakjencreative.com/team.html
+- Page: https://dakjencreative.com/dakotah.html#team
 
 ## Services
 
@@ -213,8 +213,7 @@ Monthly RFP pipeline management for diverse-owned firms. DakJen Creative monitor
 - Creative Consulting & The CMO Subscription: https://dakjencreative.com/fractional.html
 - Notable (brand platform for women founders): https://dakjencreative.com/notable.html
 - Lease-Up Marketing: https://dakjencreative.com/leaseup.html
-- The Team (studio team): https://dakjencreative.com/team.html
-- Meet Dakotah (founder bio): https://dakjencreative.com/dakotah.html
+- About the Founder & Team: https://dakjencreative.com/dakotah.html
 - Privacy Policy: https://dakjencreative.com/privacy-policy.html
 
 ## Content Currency
