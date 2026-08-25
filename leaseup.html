@@ -225,11 +225,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .phase{padding:1.5rem;border-left:3px solid var(--m)}
 .phase h4{font-size:.75rem;font-weight:bold;color:#000;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .phase p{font-size:.85rem;color:var(--g);line-height:1.7}
-.team-section{background:var(--n);padding:4rem 2.5rem}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);margin-top:2rem}
-.team-member{background:var(--n);padding:1.8rem 1.5rem}
-.tm-name{font-size:.82rem;color:var(--w);margin-bottom:.3rem;font-weight:normal}
-.tm-role{font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.5}
+.team-section{background:var(--n);padding:4.5rem 2.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:2.5rem;max-width:1080px}
+.team-member{background:var(--n);padding:0 0 1.7rem;display:flex;flex-direction:column}
+.team-member img{width:100%;height:320px;object-fit:cover;display:block;margin-bottom:1.3rem}
+.tm-name{font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:600;color:var(--w);margin-bottom:.4rem;padding:0 1.5rem}
+.tm-role{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--m);line-height:1.5;padding:0 1.5rem}
+.team-more{display:inline-block;margin-top:2.2rem;font-family:'Syne',system-ui,sans-serif;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--m);text-decoration:none;transition:color .2s}
+.team-more:hover{color:#f5f2ee}
 .section-dark{background:#000;padding:5rem 2.5rem}
 .section-dark .ey{color:rgba(192,116,129,.5)}
 .section-dark h2{font-family:'Syne',system-ui,sans-serif;font-size:2rem;font-weight:normal;color:var(--w);margin-bottom:1.5rem;line-height:1.25}
@@ -349,8 +352,8 @@ footer { background: #000; }
 .phase p { color: rgba(255,255,255,.5); }
 .team-section { background: #000; }
 .team-section h2 { color: #f5f2ee; }
+.team-member { background: #000; }
 .tm-name { color: #f5f2ee; }
-.tm-role { color: rgba(255,255,255,.4); }
 .vanguard-band { background: var(--n); }
 .section-dark { background: #000; }
 .section-dark h2 { color: #f5f2ee; }
@@ -364,7 +367,8 @@ footer { background: #000; }
 
   .two-col { padding: 3rem 1.5rem; }
   .svc-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: repeat(2,1fr); }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-member img { height: 300px; }
   .phase-grid { grid-template-columns: 1fr; }
   .cs-grid { grid-template-columns: 1fr; }
   .addon-grid { grid-template-columns: 1fr; }
@@ -395,10 +399,12 @@ footer { background: #000; }
 <nav>
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
+    <li><a href="index.html">Home</a></li>
     <li><a href="fractional.html">Fractional</a></li>
     <li><a href="rfp.html">RFP Pipeline</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html" class="active">Lease-Up</a></li>
+    <li><a href="team.html">Team</a></li>
     <li><a href="dakotah.html">Meet Dakotah</a></li>
   </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
@@ -668,21 +674,22 @@ footer { background: #000; }
   <p style="font-size:.85rem;color:rgba(255,255,255,.42);max-width:600px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder &amp; Project Lead, supported by specialists across digital, communications, and coordination. She has worked inside affordable housing development since 2020 — today as Chief Creative Officer at Northern Real Estate Urban Ventures and as Senior Managing Director of Project Community Capital®, the award-winning platform connecting residents to workforce and entrepreneurship pathways. She reads a deal the way you do.</p>
   <div class="team-grid">
     <div class="team-member">
-      <img src="dakotah-jennifer-headshot.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:center 15%;display:block;margin-bottom:1rem;">
+      <img src="dakotah-jennifer-headshot.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy" style="object-position:center 15%">
       <div class="tm-name">Dakotah Jennifer</div>
-      <div class="tm-role">Founder & Project Lead</div>
+      <div class="tm-role">Founder &amp; Project Lead</div>
     </div>
     <div class="team-member">
-      <img src="jarea-fang-marketing-coordinator.jpg" alt="Jarea Fang, Marketing Coordinator at DJC Marketing" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:center 15%;display:block;margin-bottom:1rem;">
+      <img src="jarea-fang-marketing-coordinator.jpg" alt="Jarea Fang, Marketing Coordinator at DJC Marketing" loading="lazy" style="object-position:center 15%">
       <div class="tm-name">Jarea Fang</div>
       <div class="tm-role">Marketing Coordinator</div>
     </div>
     <div class="team-member">
-      <img src="brittni-hardie-communications-manager.jpg" alt="Brittni Hardie, Communications Manager at DJC Marketing" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:center 10%;display:block;margin-bottom:1rem;">
+      <img src="brittni-hardie-communications-manager.jpg" alt="Brittni Hardie, Communications Manager at DJC Marketing" loading="lazy" style="object-position:center 10%">
       <div class="tm-name">Brittni Hardie</div>
       <div class="tm-role">Communications Manager</div>
     </div>
   </div>
+  <a href="team.html" class="team-more">Meet the full team →</a>
 </div>
 
 <!-- CLIENTS -->
@@ -788,6 +795,7 @@ footer { background: #000; }
       <a href="notable.html">Notable</a>
       <a href="leaseup.html">Lease-Up Marketing</a>
       <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="team.html">The Team</a>
       <a href="dakotah.html">Meet Dakotah</a>
       <a href="quote.html">Get Customized Support →</a>
     </div>
@@ -828,6 +836,23 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- NAV FIT (7 items) ---- */
+nav .nl{gap:1.6rem}
+@media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
+/* below 980px there is no longer room for 7 links + CTA — use the hamburger */
+@media(max-width:980px){
+  nav .nl{display:none}
+  .menu-toggle{display:block}
+  nav .nl.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1c2c;z-index:200;align-items:center;justify-content:center;gap:1.5rem}
+  nav .nl.open a{color:#f5f2ee;font-size:1.1rem;letter-spacing:.1em}
+  nav .nl.open a:hover,nav .nl.open a.active{color:var(--m,#c07481)}
+  .menu-toggle.open span{background:#f5f2ee}
+  .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+/* nav sits on a dark bar on every page — keep the hamburger visible */
+.menu-toggle span{background:#f5f2ee}
 nav .nl a{position:relative}
 nav .nl a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--m,#c07481);transition:width .3s ease}
 nav .nl a:hover::after,nav .nl a.active::after{width:100%}

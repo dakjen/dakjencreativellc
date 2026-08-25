@@ -187,10 +187,12 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
 <nav>
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
+    <li><a href="index.html">Home</a></li>
     <li><a href="fractional.html">Fractional</a></li>
     <li><a href="rfp.html">RFP Pipeline</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html">Lease-Up</a></li>
+    <li><a href="team.html">Team</a></li>
     <li><a href="dakotah.html" class="active">Meet Dakotah</a></li>
   </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
@@ -385,6 +387,7 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
       <a href="notable.html">Notable</a>
       <a href="leaseup.html">Lease-Up Marketing</a>
       <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="team.html">The Team</a>
       <a href="dakotah.html">Meet Dakotah</a>
       <a href="quote.html">Get Customized Support →</a>
     </div>
@@ -425,6 +428,23 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- NAV FIT (7 items) ---- */
+nav .nl{gap:1.6rem}
+@media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
+/* below 980px there is no longer room for 7 links + CTA — use the hamburger */
+@media(max-width:980px){
+  nav .nl{display:none}
+  .menu-toggle{display:block}
+  nav .nl.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1c2c;z-index:200;align-items:center;justify-content:center;gap:1.5rem}
+  nav .nl.open a{color:#f5f2ee;font-size:1.1rem;letter-spacing:.1em}
+  nav .nl.open a:hover,nav .nl.open a.active{color:var(--m,#c07481)}
+  .menu-toggle.open span{background:#f5f2ee}
+  .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+/* nav sits on a dark bar on every page — keep the hamburger visible */
+.menu-toggle span{background:#f5f2ee}
 nav .nl a{position:relative}
 nav .nl a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--m,#c07481);transition:width .3s ease}
 nav .nl a:hover::after,nav .nl a.active::after{width:100%}

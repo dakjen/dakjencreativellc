@@ -115,6 +115,24 @@ footer { background: #111; padding: 3.5rem 3rem; }
   footer { padding: 2rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
 }
+/* ---- NAV FIT (7 items) ---- */
+nav .nl{gap:1.6rem}
+@media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
+/* below 980px there is no longer room for 7 links + CTA — use the hamburger */
+@media(max-width:980px){
+  nav .nl{display:none}
+  .menu-toggle{display:block}
+  nav .nl.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1c2c;z-index:200;align-items:center;justify-content:center;gap:1.5rem}
+  nav .nl.open a{color:#f5f2ee;font-size:1.1rem;letter-spacing:.1em}
+  nav .nl.open a:hover,nav .nl.open a.active{color:var(--m,#c07481)}
+  .menu-toggle.open span{background:#f5f2ee}
+  .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+/* this page keeps the light nav bar, so the hamburger stays dark */
+.menu-toggle span{background:#111}
+.menu-toggle.open span{background:#f5f2ee}
 </style>
 </head>
 <body>
@@ -122,10 +140,12 @@ footer { background: #111; padding: 3.5rem 3rem; }
 <nav>
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
+    <li><a href="index.html">Home</a></li>
     <li><a href="fractional.html">Fractional</a></li>
     <li><a href="rfp.html">RFP Pipeline</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html">Lease-Up</a></li>
+    <li><a href="team.html">Team</a></li>
     <li><a href="dakotah.html">Meet Dakotah</a></li>
   </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="nav-cta">Book a Call</a>
@@ -282,6 +302,7 @@ footer { background: #111; padding: 3.5rem 3rem; }
       <a href="notable.html">Notable</a>
       <a href="leaseup.html">Lease-Up Marketing</a>
       <a href="https://gobenotable.com" target="_blank">Go Be Notable →</a>
+      <a href="team.html">The Team</a>
       <a href="dakotah.html">Meet Dakotah</a>
       <a href="quote.html">Get Customized Support →</a>
     </div>
