@@ -541,7 +541,7 @@ footer { background: #000; }
 </div>
 
 <!-- SERVICES -->
-<section id="services">
+<section id="services" class="shell-kids">
   <div class="services-header">
     <h2>Supporting and Scaling</h2>
     <p>Four service lines, four different buyers. Every engagement is scoped to your goals, your timeline, and your audience.</p>
@@ -632,7 +632,7 @@ footer { background: #000; }
 </div>
 
 <!-- PHOTO STRIP -->
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)">
+<div class="bleed" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)">
   <img src="9410-hough-staged-bedroom-detail.jpg" alt="9410 Hough staged model unit — DJC Marketing" loading="lazy" style="width:100%;height:440px;object-fit:cover;object-position:center;display:block;">
   <img src="9410-hough-model-unit-living-room.jpg" alt="9410 Hough model unit — staged living room" loading="lazy" style="width:100%;height:440px;object-fit:cover;display:block;">
 </div>
@@ -664,7 +664,7 @@ footer { background: #000; }
 </section>
 
 <!-- ABOUT -->
-<section class="about-strip" id="about">
+<section class="about-strip bleed" id="about">
   <div class="about-left">
     <span class="section-label">About</span>
     <h2>Led by Dakotah Jennifer — creative executive, strategist, and founder.</h2>
@@ -821,6 +821,28 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- PAGE SHELL ----
+   Sections used to run the full width of the screen, so on a wide monitor
+   everything read as pinned to the left. Content is now capped and centred
+   at 1100px — the width the site's own inner containers already use. */
+@media(min-width:1200px){
+  /* .bleed        — bands meant to touch the edges (split panels, image strips)
+     .self-shell   — sections that already cap and centre themselves
+     .shell-kids   — rows that keep full-width borders, contents aligned below */
+  body > nav:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > header:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > footer:not(.bleed):not(.self-shell):not(.shell-kids){
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+  body > .shell-kids > *{
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+}
+
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}

@@ -226,7 +226,7 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
 </div>
 
 <!-- BIO -->
-<div class="bio-section">
+<div class="bio-section bleed">
   <div class="bio-photo">
     <img src="dakotah-jennifer-columbia-portrait.jpg" alt="Dakotah Jennifer, Founder & CEO of DakJen Creative LLC" loading="lazy">
   </div>
@@ -271,7 +271,7 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
 </div>
 
 <!-- EXPERIENCE -->
-<div style="background:#0c1c2c;padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px;margin:0 auto">
+<div class="self-shell" style="background:#0c1c2c;padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px;margin:0 auto">
   <div>
     <span style="font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);display:block;margin-bottom:1.5rem">Education</span>
     <p style="font-size:1rem;line-height:2;color:rgba(245,242,238,.65);margin-bottom:1.5rem">Dakotah holds a Master of Fine Arts in Creative Writing from Columbia University, where she developed a deep understanding of narrative, language, audience, and communication. Her writing background influences every aspect of her creative leadership — shaping the way she approaches storytelling, design, and brand strategy.</p>
@@ -315,7 +315,7 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
 </div>
 
 <!-- PHOTO STRIP -->
-<div class="photo-strip">
+<div class="photo-strip bleed">
   <img src="dakotah-jennifer-founder.jpg" alt="Dakotah Jennifer — DakJen Creative LLC founder" loading="lazy" style="object-position:center center">
   <img src="dakotah-jennifer-columbia-smiling.jpg" alt="Dakotah Jennifer, CEO of DakJen Creative" loading="lazy" style="object-position:center center">
   <img src="IMG_0091.jpeg" alt="Dakotah Jennifer — brand strategist" loading="lazy" style="object-position:center center">
@@ -466,6 +466,28 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- PAGE SHELL ----
+   Sections used to run the full width of the screen, so on a wide monitor
+   everything read as pinned to the left. Content is now capped and centred
+   at 1100px — the width the site's own inner containers already use. */
+@media(min-width:1200px){
+  /* .bleed        — bands meant to touch the edges (split panels, image strips)
+     .self-shell   — sections that already cap and centre themselves
+     .shell-kids   — rows that keep full-width borders, contents aligned below */
+  body > nav:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > header:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > footer:not(.bleed):not(.self-shell):not(.shell-kids){
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+  body > .shell-kids > *{
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+}
+
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}

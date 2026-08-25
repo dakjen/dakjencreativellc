@@ -324,7 +324,7 @@ footer { background: #000; }
 </div>
 
 <!-- THE CMO SUBSCRIPTION -->
-<div style="background:var(--bg)">
+<div class="bleed" style="background:var(--bg)">
   <div style="height:5px;background:linear-gradient(90deg,var(--m),var(--n))"></div>
   <div style="padding:5.5rem 3rem">
   <div style="max-width:1100px;margin:0 auto">
@@ -392,7 +392,7 @@ footer { background: #000; }
 </div>
 
 <!-- PHOTO BREAK -->
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)">
+<div class="bleed" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)">
   <img src="pexels-rdne-10375944.jpg" alt="Creative strategy meeting" loading="lazy" style="width:100%;height:240px;object-fit:cover;object-position:center;display:block;">
   <img src="pexels-kindelmedia-7688336.jpg" alt="Marketing strategy session" loading="lazy" style="width:100%;height:240px;object-fit:cover;object-position:center;display:block;">
   <img src="pexels-ron-lach-9909069.jpg" alt="Creative team at work" loading="lazy" style="width:100%;height:240px;object-fit:cover;object-position:center;display:block;">
@@ -675,6 +675,28 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- PAGE SHELL ----
+   Sections used to run the full width of the screen, so on a wide monitor
+   everything read as pinned to the left. Content is now capped and centred
+   at 1100px — the width the site's own inner containers already use. */
+@media(min-width:1200px){
+  /* .bleed        — bands meant to touch the edges (split panels, image strips)
+     .self-shell   — sections that already cap and centre themselves
+     .shell-kids   — rows that keep full-width borders, contents aligned below */
+  body > nav:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > header:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > footer:not(.bleed):not(.self-shell):not(.shell-kids){
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+  body > .shell-kids > *{
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+}
+
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}

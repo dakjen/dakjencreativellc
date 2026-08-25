@@ -115,6 +115,28 @@ footer { background: #111; padding: 3.5rem 3rem; }
   footer { padding: 2rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
 }
+/* ---- PAGE SHELL ----
+   Sections used to run the full width of the screen, so on a wide monitor
+   everything read as pinned to the left. Content is now capped and centred
+   at 1100px — the width the site's own inner containers already use. */
+@media(min-width:1200px){
+  /* .bleed        — bands meant to touch the edges (split panels, image strips)
+     .self-shell   — sections that already cap and centre themselves
+     .shell-kids   — rows that keep full-width borders, contents aligned below */
+  body > nav:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > header:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids),
+  body > footer:not(.bleed):not(.self-shell):not(.shell-kids){
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+  body > .shell-kids > *{
+    padding-left:calc((100% - 1100px) / 2) !important;
+    padding-right:calc((100% - 1100px) / 2) !important;
+  }
+}
+
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
