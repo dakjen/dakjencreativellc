@@ -15,3 +15,4 @@ DJC_Funnel_Implementation_Plan.md
 .env
 .env.*
 !.env.example
+.vercel
