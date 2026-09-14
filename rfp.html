@@ -329,12 +329,23 @@ footer { background: #000; }
 </style>
 <style>
 /* RFP PAGE */
-.rfp-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
-.rfp-half{background:#111;padding:2.6rem 2.2rem}
-.rfp-half h3{font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:600;color:#f5f2ee;margin:0 0 1.2rem;letter-spacing:0;text-transform:none}
-.rfp-half ul{list-style:none;padding:0;margin:0}
-.rfp-half li{font-size:.87rem;line-height:1.7;color:rgba(245,242,238,.6);padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.rfp-half li:last-child{border-bottom:none}
+/* pipeline: five steps on a rail, then the hand-off band */
+.pipe{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-top:.5rem}
+.pipe::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:2.35rem;height:1px;background:rgba(192,116,129,.45);z-index:0}
+.pipe-step{position:relative;z-index:1;background:#111;border:1px solid rgba(255,255,255,.07);padding:1.5rem 1.35rem 1.6rem;display:flex;flex-direction:column;gap:.55rem;transition:transform .25s ease,border-color .25s ease}
+.pipe-step:hover{transform:translateY(-4px);border-color:rgba(192,116,129,.5)}
+.pipe-num{display:inline-block;align-self:flex-start;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--m);background:#111;padding:.35rem .55rem;border:1px solid rgba(192,116,129,.45);margin:-.2rem 0 .2rem -.2rem}
+.pipe-title{font-family:'Syne',system-ui,sans-serif;font-size:1.15rem;font-weight:600;color:#f5f2ee;line-height:1.2}
+.pipe-step p{font-size:.84rem;line-height:1.7;color:rgba(245,242,238,.58);margin:0}
+.pipe-you{display:grid;grid-template-columns:auto 1fr;gap:1.6rem 2.2rem;align-items:start;background:var(--m);color:#0c1c2c;padding:2.4rem 2.4rem 2.5rem;margin-top:1.25rem}
+.pipe-you-num{font-family:'Syne',system-ui,sans-serif;font-size:2.8rem;font-weight:700;line-height:1;color:#0c1c2c;opacity:.85}
+.pipe-you-title{font-family:'Syne',system-ui,sans-serif;font-size:1.55rem;font-weight:600;line-height:1.2;margin-bottom:.8rem;color:#0c1c2c}
+.pipe-you p{font-size:.98rem;line-height:1.85;color:rgba(12,28,44,.85);margin:0 0 1.5rem;max-width:760px}
+.pipe-you p strong{color:#0c1c2c;font-weight:600}
+.pipe-cta{display:inline-block;background:#0c1c2c;color:#f5f2ee;padding:.85rem 1.7rem;font-family:'Syne',system-ui,sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s}
+.pipe-cta:hover{background:#000;transform:translateY(-2px)}
+@media(max-width:1000px){.pipe{grid-template-columns:repeat(3,1fr)}.pipe::before{display:none}}
+@media(max-width:768px){.pipe{grid-template-columns:1fr}.pipe-you{grid-template-columns:1fr;padding:1.8rem 1.4rem}.pipe-you-num{font-size:2rem}}
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:2.5rem}
 .tier{background:#111;padding:2.5rem 2rem;display:flex;flex-direction:column}
 .tier.feat{background:var(--n);border-top:3px solid var(--m)}
@@ -352,13 +363,17 @@ footer { background: #000; }
 .fit.no .fit-head{color:rgba(255,255,255,.35)}
 .fit p{font-size:.88rem;line-height:1.85;color:rgba(245,242,238,.6);margin-bottom:1rem}
 .fit p:last-child{margin-bottom:0}
-.scan-form{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;max-width:760px}
+.scan-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem 5rem;align-items:start}
+.scan-copy{position:sticky;top:6rem}
+.scan-copy p{max-width:none}
+.scan-form{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0}
+@media(max-width:900px){.scan-layout{grid-template-columns:1fr;gap:2rem}.scan-copy{position:static}.scan-form{margin-top:.5rem}}
 .scan-form label{display:block;font-family:'Syne',system-ui,sans-serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--m);margin-bottom:.5rem}
 .scan-form input,.scan-form select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:#f5f2ee;padding:.75rem .9rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem}
 .scan-form input:focus,.scan-form select:focus{outline:none;border-color:var(--m)}
 .scan-form select option{background:#111;color:#f5f2ee}
 .scan-full{grid-column:1 / -1}
-@media(max-width:768px){.rfp-split,.fit-grid,.tier-grid,.scan-form{grid-template-columns:1fr}}
+@media(max-width:768px){.fit-grid,.tier-grid,.scan-form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -401,36 +416,55 @@ footer { background: #000; }
   </div>
 </div>
 
-<!-- WHAT YOU GET / WHAT YOU KEEP -->
+<!-- THE PIPELINE — WHO DOES WHAT -->
 <div style="background:#0c1c2c;padding:0 2.5rem 5rem">
   <div style="max-width:1100px;margin:0 auto">
-    <span class="ey" style="color:var(--m)">The Division of Labor — Stated Up Front</span>
-    <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:#f5f2ee;line-height:1.3;max-width:700px;margin-bottom:2rem">You keep the relationship, the pricing, and the signature. We do everything that happens before that.</h2>
-    <div class="rfp-split">
-      <div class="rfp-half">
-        <h3>What we deliver</h3>
-        <ul>
-          <li>Monitoring across the procurement portals that matter for your NAICS codes, certifications, and target agencies</li>
-          <li>A weekly digest of live opportunities, fit-scored against what you are actually positioned to win</li>
-          <li>A bid / no-bid recommendation on each one, with the reasoning written out</li>
-          <li>Draft 1 — a complete narrative response, written to the solicitation's own evaluation criteria</li>
-          <li>A requirements and compliance checklist covering every form, certification, attachment, and deadline</li>
-          <li>Your capability statement kept current as certifications land and past performance grows</li>
-        </ul>
+    <div class="sec-head">
+      <div>
+        <span class="ey" style="color:var(--m)">The Pipeline — Who Does What</span>
+        <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.9rem;font-weight:normal;color:#f5f2ee;line-height:1.25">You keep the relationship, the pricing, and the signature. <em style="color:var(--m);font-style:italic">We do everything before that.</em></h2>
       </div>
-      <div class="rfp-half">
-        <h3>What stays with you</h3>
-        <ul>
-          <li>The final call on which opportunities you pursue</li>
-          <li>Pricing, rates, and any cost narrative</li>
-          <li>Technical claims only your team can make, and the accuracy of every one of them</li>
-          <li>Review, revision, and final approval of the draft</li>
-          <li>Registration credentials and portal access — we never submit on your behalf</li>
-          <li>The submission itself, and the client relationship that follows it</li>
-        </ul>
+      <p style="font-size:.95rem;line-height:1.9;color:rgba(245,242,238,.6)">Five things happen before a proposal is ready to go out the door. We do all five, every week, on every opportunity that fits. Then it lands on your desk.</p>
+    </div>
+
+    <div class="pipe">
+      <div class="pipe-step">
+        <span class="pipe-num">01</span>
+        <div class="pipe-title">We monitor</div>
+        <p>The procurement portals that matter for your NAICS codes, certifications, and target agencies. Nothing slips past.</p>
+      </div>
+      <div class="pipe-step">
+        <span class="pipe-num">02</span>
+        <div class="pipe-title">We score</div>
+        <p>Every live opportunity, fit-checked against what you're actually positioned to win. A digest in your inbox weekly.</p>
+      </div>
+      <div class="pipe-step">
+        <span class="pipe-num">03</span>
+        <div class="pipe-title">We call it</div>
+        <p>Bid or no-bid on each one — with the reasoning written out, so you're never guessing why.</p>
+      </div>
+      <div class="pipe-step">
+        <span class="pipe-num">04</span>
+        <div class="pipe-title">We draft</div>
+        <p>Draft 1: a complete narrative response, written to the solicitation's own evaluation criteria. A real draft, not an outline.</p>
+      </div>
+      <div class="pipe-step">
+        <span class="pipe-num">05</span>
+        <div class="pipe-title">We check</div>
+        <p>A compliance checklist for every form, certification, attachment, and deadline. Your capability statement kept current.</p>
       </div>
     </div>
-    <p style="font-size:.82rem;font-style:italic;color:rgba(255,255,255,.4);margin-top:1.2rem;max-width:760px">We say this plainly because the wrong expectation is expensive for both of us. Draft 1 is a real draft — not an outline, and not the submitted document.</p>
+
+    <div class="pipe-you">
+      <div class="pipe-you-num">06</div>
+      <div>
+        <div class="pipe-you-title">Your call. Your price. Your signature.</div>
+        <p>You decide what to pursue. You set the pricing and the cost narrative. You make the technical claims only your team can make. You review, revise, and approve Draft 1 — and you submit it, from your own portal login. <strong>We never submit on your behalf.</strong></p>
+        <a href="#scan" class="pipe-cta">Run a free Opportunity Scan →</a>
+      </div>
+    </div>
+
+    <p style="font-size:.82rem;font-style:italic;color:rgba(255,255,255,.4);margin-top:1.6rem">We say this plainly because the wrong expectation is expensive for both of us. Draft 1 is a real draft — not an outline, and not the submitted document.</p>
   </div>
 </div>
 
@@ -497,7 +531,7 @@ footer { background: #000; }
       </div>
     </div>
 
-    <div style="margin-top:2.5rem;padding:2.2rem 2rem;border-left:3px solid var(--m);background:rgba(255,255,255,.03);max-width:900px">
+    <div style="margin-top:2.5rem;padding:2.2rem 2rem;border-left:3px solid var(--m);background:rgba(255,255,255,.03)">
       <div style="font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:1rem">The Fit Filter, Stated Plainly</div>
       <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin-bottom:1rem"><strong style="color:#f5f2ee;font-weight:normal">We pursue:</strong> community development, education, housing, economic development, arts, nonprofits, and public interest work.</p>
       <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin-bottom:1rem"><strong style="color:#f5f2ee;font-weight:normal">We do not pursue:</strong> defense or military, tobacco, healthcare or pharma, gambling, firearms, or fossil fuel extraction.</p>
@@ -530,11 +564,13 @@ footer { background: #000; }
 
 <!-- OPPORTUNITY SCAN -->
 <div id="scan" class="section-dark">
-  <div style="max-width:1100px;margin:0 auto">
+  <div class="scan-layout">
+   <div class="scan-copy">
     <span class="ey">Start Here — No Cost, No Call Required</span>
     <h2>Run a free Opportunity Scan.</h2>
     <p>Tell us what you hold and where you work. Within 48 hours we send back <strong style="color:rgba(255,255,255,.75);font-weight:normal">two live solicitations you are currently positioned to pursue</strong> — real opportunities with real deadlines, not a sample report.</p>
     <p style="font-size:.82rem;color:rgba(255,255,255,.35);font-style:italic">If nothing in the fit filter fits, we will tell you that instead. It saves you a call and it saves us one.</p>
+   </div>
 
     <form class="scan-form" id="scanForm">
       <div>
@@ -758,6 +794,14 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- SECTION HEAD ----
+   Heading on the left, intro copy on the right, so a section's opening row
+   spans the full content width instead of stacking on the left edge. */
+.sec-head{display:grid;grid-template-columns:1fr 1.25fr;gap:1.5rem 4rem;align-items:start;margin-bottom:2.8rem}
+.sec-head h2,.sec-head h3{margin-bottom:0}
+.sec-head > div > .ey,.sec-head > div > h3{margin-bottom:.9rem}
+.sec-head p{margin:0;max-width:none}
+@media(max-width:900px){.sec-head{grid-template-columns:1fr;gap:1.1rem}}
 /* ---- PAGE SHELL ----
    Sections used to run the full width of the screen, so on a wide monitor
    everything read as pinned to the left. Content is now capped and centred

@@ -228,7 +228,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .phase h4{font-size:.75rem;font-weight:bold;color:#000;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .phase p{font-size:.85rem;color:var(--g);line-height:1.7}
 .team-section{background:var(--n);padding:4.5rem 2.5rem}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:2.5rem;max-width:1080px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
 .team-member{background:var(--n);padding:0 0 1.7rem;display:flex;flex-direction:column}
 .team-member img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;display:block;margin-bottom:1.3rem}
 .tm-name{font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:600;color:var(--w);margin-bottom:.4rem;padding:0 1.5rem}
@@ -238,7 +238,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .section-dark{background:#000;padding:5rem 2.5rem}
 .section-dark .ey{color:rgba(192,116,129,.5)}
 .section-dark h2{font-family:'Syne',system-ui,sans-serif;font-size:2rem;font-weight:normal;color:var(--w);margin-bottom:1.5rem;line-height:1.25}
-.section-dark p{font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.5);max-width:600px;margin-bottom:1.2rem}
+.section-dark p{font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto 1.2rem}
 footer{background:var(--n);padding:3rem 2.5rem}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
 .ft-col h4{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(192,116,129,.6);margin-bottom:1.2rem}
@@ -673,9 +673,13 @@ footer { background: #000; }
 
 <!-- TEAM -->
 <div class="team-section">
-  <span class="ey" style="color:rgba(192,116,129,.55)">The Lease-Up Team</span>
-  <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:var(--w);margin-bottom:.5rem">Every engagement is led by Dakotah — backed by a full team.</h2>
-  <p style="font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.5);max-width:820px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder &amp; Project Lead, supported by specialists across digital, communications, and coordination. She has worked inside affordable housing development since 2020 — today as Chief Creative Officer at Northern Real Estate Urban Ventures and as Senior Managing Director of Project Community Capital®, the award-winning platform connecting residents to workforce and entrepreneurship pathways. She reads a deal the way you do.</p>
+  <div class="sec-head">
+    <div>
+      <span class="ey" style="color:rgba(192,116,129,.85)">The Lease-Up Team</span>
+      <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.7rem;font-weight:normal;color:var(--w);line-height:1.25">Every engagement is led by Dakotah — backed by a full team.</h2>
+    </div>
+    <p style="font-size:.92rem;line-height:1.9;color:rgba(255,255,255,.55)">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder &amp; Project Lead, supported by specialists across digital, communications, and coordination. She has worked inside affordable housing development since 2020 — today as Chief Creative Officer at Northern Real Estate Urban Ventures and as Senior Managing Director of Project Community Capital®, the award-winning platform connecting residents to workforce and entrepreneurship pathways. She reads a deal the way you do.</p>
+  </div>
   <div class="team-grid">
     <div class="team-member">
       <img src="images/dakotah-jennifer-headshot-bridge.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy">
@@ -723,11 +727,11 @@ footer { background: #000; }
   </div>
 </div>
 
-<div class="section-dark">
+<div class="section-dark" style="text-align:center">
   <span class="ey">Ready to Fill Your Building?</span>
   <h2>Tell us about your development.<br>We'll build a custom strategy to bring in tenants.</h2>
   <p>Campaigns start at $20,000, all in. Every strategy is built around your property, your timeline, and your market. Let's talk.</p>
-  <div class="btns" style="margin-top:2rem">
+  <div class="btns" style="margin-top:2rem;justify-content:center">
     <a href="quote.html?service=leaseup" class="btn-w">Request a Lease-Up Plan for Your Property</a>
   </div>
 </div>
@@ -839,6 +843,14 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- SECTION HEAD ----
+   Heading on the left, intro copy on the right, so a section's opening row
+   spans the full content width instead of stacking on the left edge. */
+.sec-head{display:grid;grid-template-columns:1fr 1.25fr;gap:1.5rem 4rem;align-items:start;margin-bottom:2.8rem}
+.sec-head h2,.sec-head h3{margin-bottom:0}
+.sec-head > div > .ey,.sec-head > div > h3{margin-bottom:.9rem}
+.sec-head p{margin:0;max-width:none}
+@media(max-width:900px){.sec-head{grid-template-columns:1fr;gap:1.1rem}}
 /* ---- PAGE SHELL ----
    Sections used to run the full width of the screen, so on a wide monitor
    everything read as pinned to the left. Content is now capped and centred
