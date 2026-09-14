@@ -129,7 +129,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .pp.dark .pp-sub{color:rgba(255,255,255,.22)}
 .cam{width:28px;height:28px}
 .page-hero{background:#000;padding:7.5rem 2.5rem 6rem;position:relative;overflow:hidden}
-.hero-accent{position:absolute;top:0;right:0;width:38%;height:100%;border-left:1px solid rgba(192,116,129,.08);background:rgba(192,116,129,.02)}
 .hero-inner{position:relative;z-index:1;max-width:800px}
 .ey{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,116,129,.55);margin-bottom:1.8rem;display:block}
 .page-hero h1{font-family:'Syne',system-ui,sans-serif;font-size:3.8rem;font-weight:normal;line-height:1.1;color:var(--w);margin-bottom:1.8rem}
@@ -343,7 +342,6 @@ footer { background: #000; }
 </nav>
 
 <div class="page-hero">
-  <div class="hero-accent"></div>
   <div class="hero-inner">
     <span class="ey">Notable — Brand Tools & Platform Strategy</span>
     <h1>Go Be <em>Notable.</em></h1>
@@ -495,8 +493,6 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   background-position:center 22%;
   background-repeat:no-repeat;
 }
-/* the tinted accent panel reads as a seam once there is a photo behind it */
-.page-hero .hero-accent{display:none}
 /* text spans the full width on small screens, so the side-to-side
    gradient would leave copy sitting on the bright half */
 @media(max-width:768px){
