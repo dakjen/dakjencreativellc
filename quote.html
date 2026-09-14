@@ -328,7 +328,7 @@ footer { background: #000; }
 .cert{display:flex;flex-direction:column;gap:.15rem}
 .cert-name{font-family:'Syne',system-ui,sans-serif;font-size:.78rem;color:#f5f2ee;letter-spacing:.02em}
 .cert-status{font-size:.68rem;color:rgba(255,255,255,.4)}
-@media(max-width:768px){.cert-strip{padding:1.4rem;gap:1.1rem}.cert-list{gap:1.2rem}}
+@media(max-width:768px){.cert-strip{flex-direction:column;align-items:flex-start;padding:1.5rem 1.25rem;gap:1rem}.cert-list{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.5rem;width:100%}.cert{min-width:0}.cert-name{white-space:nowrap}}
 </style>
 <style>
 /* QUOTE PAGE */
