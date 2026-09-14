@@ -527,15 +527,13 @@ footer { background: #000; }
         <div class="fit-head">This is not for you if</div>
         <p>You are looking for someone to submit on your behalf, or to sign anything. We draft; you submit.</p>
         <p>You need a win this month. Procurement cycles run on their own calendar, and anyone who promises otherwise is selling you something else.</p>
-        <p>Your work sits in a sector we do not pursue. That list is below, and it is not negotiable per-engagement.</p>
       </div>
     </div>
 
     <div style="margin-top:2.5rem;padding:2.2rem 2rem;border-left:3px solid var(--m);background:rgba(255,255,255,.03)">
-      <div style="font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:1rem">The Fit Filter, Stated Plainly</div>
-      <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin-bottom:1rem"><strong style="color:#f5f2ee;font-weight:normal">We pursue:</strong> community development, education, housing, economic development, arts, nonprofits, and public interest work.</p>
-      <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin-bottom:1rem"><strong style="color:#f5f2ee;font-weight:normal">We do not pursue:</strong> defense or military, tobacco, healthcare or pharma, gambling, firearms, or fossil fuel extraction.</p>
-      <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin:0"><strong style="color:#f5f2ee;font-weight:normal">Cannabis:</strong> limited to public health, education, and harm reduction work.</p>
+      <div style="font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:1rem">Sectors, Stated Plainly</div>
+      <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin-bottom:1rem"><strong style="color:#f5f2ee;font-weight:normal">We pursue work across sectors.</strong> Community development, education, housing, economic development, arts and culture, nonprofits, public interest — and plenty outside that list. If an agency buys it and your firm can deliver it, it belongs in the pipeline.</p>
+      <p style="font-size:.92rem;line-height:1.9;color:rgba(245,242,238,.7);margin:0">The fit filter is about <em>you</em>, not the sector: your certifications, your NAICS codes, your geography, and what you are actually positioned to win. That is what gets scored.</p>
     </div>
   </div>
 </div>
@@ -613,16 +611,7 @@ footer { background: #000; }
       </div>
       <div class="scan-full">
         <label for="sf-sector">Sector</label>
-        <select id="sf-sector" name="sector" required>
-          <option value="">Select…</option>
-          <option>Community development</option>
-          <option>Education</option>
-          <option>Housing</option>
-          <option>Economic development</option>
-          <option>Arts &amp; culture</option>
-          <option>Nonprofit / public interest</option>
-          <option>Other — I'll explain</option>
-        </select>
+        <input type="text" id="sf-sector" name="sector" placeholder="What kind of work do you do? Any sector." required>
       </div>
       <div style="position:absolute;left:-9999px" aria-hidden="true">
         <label for="sf-website">Website</label>
