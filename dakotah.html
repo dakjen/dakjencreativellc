@@ -101,7 +101,9 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 }
 
-.page-hero{background:#000;padding:9rem 2.5rem 7rem;position:relative;overflow:hidden;background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('images/dakotah-jennifer-skyline.jpg');background-size:cover;background-position:center 20%}
+.page-hero{background:#000;padding:9rem 2.5rem 7rem;position:relative;overflow:hidden;background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('images/dakotah-jennifer-skyline.jpg');background-size:cover;background-position:62% 57%}
+/* the image scales to the screen's width, so a wide monitor sees a short slice of it — keep the hero tall enough to hold her face */
+@media(min-width:900px){.page-hero{min-height:600px;display:flex;align-items:center}}
 .hero-inner{position:relative;z-index:1;max-width:800px}
 .ey{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,116,129,.7);margin-bottom:1.8rem;display:block}
 .page-hero h1{font-family:'Syne',system-ui,sans-serif;font-size:3.8rem;font-weight:normal;line-height:1.1;color:#f5f2ee;margin-bottom:1rem}
