@@ -191,6 +191,13 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
   .team-section { padding: 3rem 1.5rem; }
   .team-grid { grid-template-columns: 1fr; }
   .team-photo img { height: 260px; }
+  /* one-per-row: a full-width band cropped a portrait down to a forehead,
+     so each card becomes a square thumbnail with the text beside it */
+  .team-member { display: grid; grid-template-columns: 104px 1fr; column-gap: 1.1rem; align-items: start; padding: 1.25rem 1.1rem; }
+  .team-member img { grid-row: 1 / 4; width: 104px; height: 104px; object-fit: cover; object-position: center 22%; margin: 0; }
+  .tm-name, .tm-role, .tm-bio { padding: 0; }
+  .tm-name { margin-top: .1rem; }
+  .tm-role { margin-bottom: .55rem; }
   .photo-strip { grid-template-columns: 1fr; }
   .photo-strip img { height: 300px; }
   .photo-caption { padding: 1rem 1.5rem; }
@@ -339,7 +346,7 @@ footer{background:#000;padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255
   </figure>
   <div class="team-grid">
     <div class="team-member">
-      <img src="images/dakotah-jennifer-headshot-2026.jpg" alt="Dakotah Jennifer, Founder &amp; CEO of DakJen Creative LLC" loading="lazy" style="object-position:center 15%">
+      <img src="images/dakotah-jennifer-headshot-skyline.jpg" alt="Dakotah Jennifer, Founder &amp; CEO of DakJen Creative LLC" loading="lazy" style="object-position:center 15%">
       <div class="tm-name">Dakotah Jennifer</div>
       <div class="tm-role">Founder &amp; CEO</div>
       <p class="tm-bio">Strategy, positioning, and creative direction on every engagement.</p>

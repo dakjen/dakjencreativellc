@@ -368,7 +368,11 @@ footer { background: #000; }
   .two-col { padding: 3rem 1.5rem; }
   .svc-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
-  .team-member img { height: 300px; }
+  /* one-per-row: a full-width band cropped a portrait down to a forehead,
+     so each card becomes a square thumbnail with the text beside it */
+  .team-member { display: grid; grid-template-columns: 96px 1fr; column-gap: 1.1rem; align-items: center; padding: 1.1rem 1.1rem; }
+  .team-member img { grid-row: 1 / 3; width: 96px; height: 96px; object-fit: cover; object-position: center 22%; margin: 0; }
+  .tm-name, .tm-role { padding: 0; }
   .phase-grid { grid-template-columns: 1fr; }
   .cs-grid { grid-template-columns: 1fr; }
   .addon-grid { grid-template-columns: 1fr; }
@@ -673,7 +677,7 @@ footer { background: #000; }
   <p style="font-size:.85rem;color:rgba(255,255,255,.42);max-width:600px;margin-bottom:0">You're not getting handed off. Dakotah Jennifer leads every lease-up engagement as Founder &amp; Project Lead, supported by specialists across digital, communications, and coordination. She has worked inside affordable housing development since 2020 — today as Chief Creative Officer at Northern Real Estate Urban Ventures and as Senior Managing Director of Project Community Capital®, the award-winning platform connecting residents to workforce and entrepreneurship pathways. She reads a deal the way you do.</p>
   <div class="team-grid">
     <div class="team-member">
-      <img src="images/dakotah-jennifer-headshot-2026.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy" style="object-position:center 15%">
+      <img src="images/dakotah-jennifer-headshot-skyline.jpg" alt="Dakotah Jennifer, Founder & Project Lead at DJC Marketing" loading="lazy" style="object-position:center 15%">
       <div class="tm-name">Dakotah Jennifer</div>
       <div class="tm-role">Founder &amp; Project Lead</div>
     </div>

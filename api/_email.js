@@ -191,7 +191,7 @@ const signature = ({ email, tel, book }) =>
   `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:30px 0 4px;border-top:1px solid rgba(30,59,87,0.12);padding-top:24px;width:100%;">
      <tr>
        <td width="78" valign="top" style="width:78px;padding-right:18px;">
-         <img src="https://www.dakjencreative.com/images/dakotah-jennifer-headshot-2026.jpg"
+         <img src="https://www.dakjencreative.com/images/dakotah-jennifer-headshot-skyline.jpg"
               width="78" height="78" alt="Dakotah Jennifer"
               style="display:block;width:78px;height:78px;border-radius:39px;object-fit:cover;border:2px solid ${ROSE};">
        </td>
