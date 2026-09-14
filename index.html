@@ -463,9 +463,12 @@ footer { background: #000; }
   footer { padding: 2rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
 
-  .intro { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
-  .intro-left h1 { font-size: 2rem; }
-  .intro-right { margin: 0; padding: 1.5rem; }
+  .intro { grid-template-columns: 1fr; padding: 2.25rem 1.25rem 2.5rem; gap: 1.5rem; }
+  .intro-left h1 { font-size: 2.05rem; line-height: 1.12; margin-bottom: 1rem; }
+  .intro-left p { font-size: .95rem; line-height: 1.65; margin-bottom: 1.4rem; max-width: none; }
+  .intro-right { margin: 0; padding: 1rem; max-width: 440px; }
+  .intro-stat { padding: .9rem 0; gap: 1rem; }
+  .intro-stat strong { font-size: 1.6rem; }
   .services-header { flex-direction: column; gap: .5rem; padding: 1.5rem; }
   .svc { grid-template-columns: 40px 1fr; gap: 1rem; padding: 1.5rem; }
   .svc-tags, .svc-arrow { display: none; }
@@ -841,6 +844,30 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
     padding-left:calc((100% - 1100px) / 2) !important;
     padding-right:calc((100% - 1100px) / 2) !important;
   }
+}
+
+/* ---- MOBILE DENSITY ----
+   Heroes and button rows were desktop-sized on phones: a full screen of
+   headline, paragraph, and two stacked buttons before anything else. */
+@media(max-width:768px){
+  .page-hero{padding:3.25rem 1.25rem 2.75rem !important;min-height:0 !important}
+  .page-hero h1{font-size:2.05rem !important;line-height:1.12 !important;margin-bottom:1rem !important}
+  .page-hero .ey,.page-hero .eyebrow{margin-bottom:1rem !important}
+  .hero-sub{margin-bottom:1rem !important}
+  .hero-p{font-size:.95rem !important;line-height:1.65 !important;margin-bottom:1.5rem !important}
+  .btns{gap:.55rem !important}
+  .btns > a,.btn-w,.btn-o,.btn-primary,.btn-secondary,.btn-cta-w,.btn-cta-o{padding:.72rem 1.1rem !important;font-size:.68rem !important}
+  /* content sections: 5rem of vertical padding is a desktop number */
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids):not(.page-hero):not(.intro),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids){padding-top:2.75rem !important;padding-bottom:2.75rem !important}
+  body > div[style*="padding:0 "]{padding-top:0 !important}
+  .self-shell{padding-top:2.75rem !important;padding-bottom:2.75rem !important}
+  .ey,.eyebrow{margin-bottom:.9rem !important}
+  .sec-head{margin-bottom:1.6rem !important;gap:.8rem !important}
+  .divider{margin:1.5rem 0 !important}
+  .two-col > h3{margin:2.2rem 0 1rem !important}
+  .team-photo{margin-bottom:1.6rem !important}
+  .cta-section,.section-dark{padding-top:3rem !important;padding-bottom:3rem !important}
 }
 
 /* ---- NAV FIT (6 items) ---- */

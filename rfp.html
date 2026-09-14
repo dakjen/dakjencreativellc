@@ -824,6 +824,30 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   }
 }
 
+/* ---- MOBILE DENSITY ----
+   Heroes and button rows were desktop-sized on phones: a full screen of
+   headline, paragraph, and two stacked buttons before anything else. */
+@media(max-width:768px){
+  .page-hero{padding:3.25rem 1.25rem 2.75rem !important;min-height:0 !important}
+  .page-hero h1{font-size:2.05rem !important;line-height:1.12 !important;margin-bottom:1rem !important}
+  .page-hero .ey,.page-hero .eyebrow{margin-bottom:1rem !important}
+  .hero-sub{margin-bottom:1rem !important}
+  .hero-p{font-size:.95rem !important;line-height:1.65 !important;margin-bottom:1.5rem !important}
+  .btns{gap:.55rem !important}
+  .btns > a,.btn-w,.btn-o,.btn-primary,.btn-secondary,.btn-cta-w,.btn-cta-o{padding:.72rem 1.1rem !important;font-size:.68rem !important}
+  /* content sections: 5rem of vertical padding is a desktop number */
+  body > div:not(.bleed):not(.self-shell):not(.shell-kids):not(.page-hero):not(.intro),
+  body > section:not(.bleed):not(.self-shell):not(.shell-kids){padding-top:2.75rem !important;padding-bottom:2.75rem !important}
+  body > div[style*="padding:0 "]{padding-top:0 !important}
+  .self-shell{padding-top:2.75rem !important;padding-bottom:2.75rem !important}
+  .ey,.eyebrow{margin-bottom:.9rem !important}
+  .sec-head{margin-bottom:1.6rem !important;gap:.8rem !important}
+  .divider{margin:1.5rem 0 !important}
+  .two-col > h3{margin:2.2rem 0 1rem !important}
+  .team-photo{margin-bottom:1.6rem !important}
+  .cta-section,.section-dark{padding-top:3rem !important;padding-bottom:3rem !important}
+}
+
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
