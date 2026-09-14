@@ -171,7 +171,7 @@ module.exports = async (req, res) => {
               note: 'LinkedIn network growth over a five-year brand engagement — 1,645 to 5,543 connections.',
             },
           ]) +
-          para('<span style="font-size:14px;color:#5b6672;">MDOT-certified MBE and SBE in Maryland. SAM.gov registered, UEI DEN5Y8TUCTJ1. WOSB/EDWOSB self-certified.</span>') +
+          para('<span style="font-size:14px;color:#5b6672;">MDOT-certified MBE and SBE in Maryland. SAM.gov registered, UEI DEN5Y8TUCTJ1. WBENC-certified WBE and WOSB.</span>') +
 
           sectionTitle('Get to know us, no commitment') +
           linkList([
