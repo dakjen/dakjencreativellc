@@ -25,6 +25,21 @@
       "source": "/team.html",
       "destination": "/dakotah#team",
       "permanent": false
+    },
+    {
+      "source": "/ground-up",
+      "destination": "/groundup",
+      "permanent": true
+    },
+    {
+      "source": "/groundup.html",
+      "destination": "/groundup",
+      "permanent": true
+    },
+    {
+      "source": "/GroundUp",
+      "destination": "/groundup",
+      "permanent": true
     }
   ]
 }
