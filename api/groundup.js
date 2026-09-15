@@ -29,6 +29,7 @@ const OPTIONAL = [
   ['format', 'Deliverable format'],
   ['link', 'Link to the solicitation'],
   ['materials', 'Materials they can send'],
+  ['addons', 'Add-ons requested (theirs to keep)'],
   ['folder', 'Shared folder'],
   ['notes', 'Notes'],
 ];
@@ -62,6 +63,29 @@ function suggestQuote(f) {
     rec, low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days,
     parts: { base, add, draftAdd, subtotal: base + add + draftAdd, raw: Math.round(raw), capped: clamp(raw) !== Math.round(raw / 50) * 50 },
   };
+}
+
+// Add-on pricing: the site's published collateral rates, minus 10% for members.
+// One-pagers (bios, profiles, capability sheets) $350–$650 → $315–$585.
+// Proposal systems & templates $700–$1,400 → $630–$1,260.
+const ONE_PAGER = [315, 585], TEMPLATE = [630, 1260];
+const ADDON_PRICES = {
+  'Designed team résumés / bios': ONE_PAGER,
+  'Project profiles / past-performance sheets': ONE_PAGER,
+  'Company qualifications / capability statement': ONE_PAGER,
+  'Org chart / team structure graphic': ONE_PAGER,
+  'Cover letter template': ONE_PAGER,
+  'Proposal template we can reuse next time': TEMPLATE,
+};
+function addonQuote(list) {
+  const items = list.split(',').map((x) => x.trim()).filter(Boolean);
+  const lines = items.map((x) => {
+    const r = ADDON_PRICES[x];
+    return [x, r ? `${money(r[0])}–${money(r[1])}` : 'quote it'];
+  });
+  const low = items.reduce((t, x) => t + (ADDON_PRICES[x] ? ADDON_PRICES[x][0] : 0), 0);
+  const high = items.reduce((t, x) => t + (ADDON_PRICES[x] ? ADDON_PRICES[x][1] : 0), 0);
+  return { items, lines, low, high };
 }
 
 function daysUntil(iso) {
@@ -126,7 +150,9 @@ module.exports = async (req, res) => {
     ['Comes to', money(q.parts.raw) + (q.parts.capped ? ` → ${money(q.rec)} inside the $500–$1,500 member range` : '')],
     ['Same job at the standard rate', `about ${money(stdLow)}–${money(stdHigh)}`],
   ];
-  const quoteText = `What we think you should charge: ${money(q.rec)} (range ${money(q.low)}–${money(q.high)})`;
+  const ao = addonQuote(f.addons);
+  const quoteText = `What we think you should charge: ${money(q.rec)} for the proposal (range ${money(q.low)}–${money(q.high)})` +
+    (ao.items.length ? ` + ${money(ao.low)}–${money(ao.high)} in add-ons` : '');
 
   try {
     await sendEmail({
@@ -142,6 +168,10 @@ module.exports = async (req, res) => {
         body:
           para(`<span style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#c07481;">What we think you should charge</span><br><strong style="font-size:34px;line-height:1.1;color:#0c1c2c;">${money(q.rec)}</strong><br><span style="font-size:14px;color:#5b6672;">Working range ${money(q.low)}–${money(q.high)}. Your call — reply with whatever number you want.</span>`) +
           detailBlock(breakdown) +
+          (ao.items.length
+            ? sectionTitle('Add-ons they asked for — theirs to keep') +
+              detailBlock(ao.lines.concat([['Add-ons total', `${money(ao.low)}–${money(ao.high)} (10% off the published collateral rates)`], ['Proposal + add-ons', `${money(q.rec + ao.low)}–${money(q.rec + ao.high)}`]]))
+            : '') +
           sectionTitle('The brief') +
           detailBlock(pairs) +
           (f.link ? para(`<a href="${esc(f.link)}" style="color:#c07481;">Open the solicitation</a>`) : '') +
@@ -180,6 +210,7 @@ module.exports = async (req, res) => {
         preheader: `${f.rfp} — due ${f.due}. Dakotah will reply with member pricing.`,
         body:
           para(`Thanks, <strong>${esc(firstName || f.name)}</strong> — we have your brief for <strong>${esc(f.rfp)}</strong>, due ${esc(f.due)}.`) +
+          (f.addons ? para(`You also asked about: <strong>${esc(f.addons)}</strong>. Anything we build there is yours to reuse in every proposal after this one — we'll price it alongside the brief.`) : '') +
           para('Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day.') +
           sectionTitle('What to send us') +
           para('The proposal is only as complete as what we have to build it from. Reply to this email — or share a folder — with:') +

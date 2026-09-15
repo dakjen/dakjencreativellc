@@ -418,6 +418,7 @@ footer { background: #000; }
 .gu-checks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem;margin-top:.2rem}
 .gu-checks label{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem;letter-spacing:0;text-transform:none;color:rgba(245,242,238,.8);margin:0;cursor:pointer}
 .gu-checks input{width:auto;accent-color:var(--gu);margin:0}
+.gu-checks em{font-style:normal;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.08em;color:var(--m);margin-left:.35rem;white-space:nowrap}
 .gu-form .group{grid-column:1 / -1;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gu-taupe);padding-top:.6rem;border-top:1px solid rgba(255,255,255,.07)}
 .gu-form .group:first-child{border-top:none;padding-top:0}
 .gu-code{grid-column:1 / -1;background:rgba(209,19,21,.08);border:1px solid rgba(209,19,21,.35);padding:1.1rem 1.2rem}
@@ -508,6 +509,7 @@ footer { background: #000; }
         <li><strong>Formatted content</strong> — headings, tables, callouts, and résumés that read at a glance</li>
         <li><strong>A light edit</strong> — consistency, terminology, and the Sunday-night typos</li>
         <li><strong>Portal-ready PDF</strong>, plus editable source</li>
+        <li><strong>Optional add-ons you keep</strong> — designed bios, project profiles, a capability statement — reusable in every proposal after this one</li>
       </ul>
     </div>
   </div>
@@ -647,6 +649,18 @@ footer { background: #000; }
         <label><input type="checkbox" name="materials" value="Logo and brand guide"> Logo and brand guide</label>
         <label><input type="checkbox" name="materials" value="Org chart / team structure"> Org chart / team structure</label>
         <label><input type="checkbox" name="materials" value="Previous proposals"> Previous proposals we can build from</label>
+      </div>
+    </div>
+    <div class="group">Add-ons — yours to keep</div>
+    <div class="full">
+      <label>Want us to build any of these while we're in there? <small>designed once, yours to reuse in every proposal after this one — member pricing is 10% off our published rates</small></label>
+      <div class="gu-checks">
+        <label><input type="checkbox" name="addons" value="Designed team résumés / bios"> Designed team résumés / bios <em>from $315</em></label>
+        <label><input type="checkbox" name="addons" value="Project profiles / past-performance sheets"> Project profiles / past-performance sheets <em>from $315</em></label>
+        <label><input type="checkbox" name="addons" value="Company qualifications / capability statement"> Capability statement / qualifications sheet <em>from $315</em></label>
+        <label><input type="checkbox" name="addons" value="Org chart / team structure graphic"> Org chart / team structure graphic <em>from $315</em></label>
+        <label><input type="checkbox" name="addons" value="Cover letter template"> Cover letter template <em>from $315</em></label>
+        <label><input type="checkbox" name="addons" value="Proposal template we can reuse next time"> Reusable proposal template <em>from $630</em></label>
       </div>
     </div>
     <div class="full">
@@ -849,7 +863,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
       appendices:v('gu-appendices'),draft:v('gu-draft'),brand:v('gu-brand'),format:v('gu-format'),link:v('gu-link'),
       notes:v('gu-notes'),website:v('gu-website'),
       folder:v('gu-folder'),
-      materials:[].map.call(document.querySelectorAll('input[name=materials]:checked'),function(c){return c.value;}).join(', ')};
+      materials:[].map.call(document.querySelectorAll('input[name=materials]:checked'),function(c){return c.value;}).join(', '),
+      addons:[].map.call(document.querySelectorAll('input[name=addons]:checked'),function(c){return c.value;}).join(', ')};
     var need=[['name','your name'],['company','your company'],['email','your email'],['code','your Ground Up member code'],['rfp','the solicitation'],['due','the due date'],['length','the response length'],['appendices','appendices'],['draft','where the draft is']];
     for(var i=0;i<need.length;i++){if(!d[need[i][0]]){say('Please add '+need[i][1]+'.','#e0a0a8');document.getElementById('gu-'+need[i][0]).focus();return;}}
     btn.disabled=true;btn.textContent='Sending…';say('','rgba(255,255,255,.5)');
