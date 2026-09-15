@@ -18,7 +18,6 @@ const REQUIRED = [
   ['code', 'Ground Up member code'],
   ['rfp', 'Solicitation / RFP'],
   ['due', 'Submission due date'],
-  ['turnaround', 'Turnaround needed'],
   ['length', 'Response length'],
   ['appendices', 'Appendices'],
   ['draft', 'Draft status'],
@@ -48,21 +47,14 @@ function suggestQuote(f) {
     'Light — résumés, forms, a few attachments': 150,
     'Heavy — exhibits, multiple attachments, past-performance packets': 300,
   }[f.appendices] || 0;
-  const mult = {
-    'Standard — 5+ business days': 1.0,
-    'Rush — 3–4 business days': 1.15,
-    'Urgent — 1–2 business days': 1.3,
-    'Same day': 1.5,
-  }[f.turnaround] || 1.0;
   const draftAdd = {
     'Complete and compiled': 0,
     'Mostly there — a few sections still open': 100,
     'Still being written': 200,
   }[f.draft] || 0;
-  // a due date inside a week is urgent whatever turnaround they picked
+  // urgency comes from the due date alone: inside a week is urgent, inside 48 hours more so
   const days = daysUntil(f.due);
-  const dueMult = days === null ? 1.0 : days <= 2 ? 1.5 : days <= 7 ? 1.3 : 1.0;
-  const factor = Math.max(mult, dueMult);
+  const factor = days === null ? 1.0 : days <= 2 ? 1.5 : days <= 7 ? 1.3 : 1.0;
   const raw = (base + add + draftAdd) * factor;
   const clamp = (n) => Math.min(2000, Math.max(500, Math.round(n / 50) * 50));
   return { low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days };
@@ -135,10 +127,10 @@ module.exports = async (req, res) => {
       htmlContent: layout({
         eyebrow: 'Ground Up — Member Offer Used',
         heading: `${f.company} wants RFP design for a ${f.due} deadline`,
-        preheader: `${f.name} at ${f.company} · ${f.turnaround} · ${f.length}`,
+        preheader: `${f.name} at ${f.company} · due ${f.due} · ${f.length}`,
         body:
           para(`<strong style="color:#0c1c2c;">${esc(quoteText)}</strong>`) +
-          para('<span style="font-size:14px;color:#5b6672;">Rubric: base by length, plus appendices and draft state, times a turnaround factor, clamped to the $500–$2,000 member range. Your call — this is a starting point.</span>') +
+          para('<span style="font-size:14px;color:#5b6672;">Rubric: base by length, plus appendices and draft state, times an urgency factor from the due date, clamped to the $500–$2,000 member range. Your call — this is a starting point.</span>') +
           sectionTitle('The brief') +
           detailBlock(pairs) +
           (f.link ? para(`<a href="${esc(f.link)}" style="color:#c07481;">Open the solicitation</a>`) : '') +
