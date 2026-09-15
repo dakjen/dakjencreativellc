@@ -685,6 +685,9 @@ footer { background: #000; }
       <input type="url" id="gu-folder" name="folder" placeholder="https://">
     </div>
     <div class="full">
+      <label class="gu-addon-check" for="gu-meeting" style="margin:0;padding:.9rem 1rem;background:rgba(192,116,129,.08);border:1px solid rgba(192,116,129,.3)"><input type="checkbox" id="gu-meeting" name="meeting" value="yes"> I'd like a discovery meeting before we go further — a quick call to walk through the RFP and what you'd need from us.</label>
+    </div>
+    <div class="full">
       <label for="gu-notes">Anything else we should know <small>optional</small></label>
       <textarea id="gu-notes" name="notes" placeholder="Page limits, required forms, a format the agency insists on, who else is on the team…"></textarea>
     </div>
@@ -881,7 +884,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
       notes:v('gu-notes'),website:v('gu-website'),
       folder:v('gu-folder'),
       materials:[].map.call(document.querySelectorAll('input[name=materials]:checked'),function(c){return c.value;}).join(', '),
-      resumes:v('gu-resumes'),profiles:v('gu-profiles'),capability:document.getElementById('gu-capability').checked?'yes':''};
+      resumes:v('gu-resumes'),profiles:v('gu-profiles'),capability:document.getElementById('gu-capability').checked?'yes':'',
+      meeting:document.getElementById('gu-meeting').checked?'yes':''};
     var need=[['name','your name'],['company','your company'],['email','your email'],['code','your Ground Up member code'],['rfp','the solicitation'],['due','the due date'],['length','the response length'],['appendices','appendices'],['draft','where the draft is']];
     for(var i=0;i<need.length;i++){if(!d[need[i][0]]){say('Please add '+need[i][1]+'.','#e0a0a8');document.getElementById('gu-'+need[i][0]).focus();return;}}
     btn.disabled=true;btn.textContent='Sending…';say('','rgba(255,255,255,.5)');

@@ -32,6 +32,7 @@ const OPTIONAL = [
   ['resumes', 'Designed résumés (qty)'],
   ['profiles', 'Project profiles (qty)'],
   ['capability', 'Capability statement'],
+  ['meeting', 'Wants a discovery meeting'],
   ['folder', 'Shared folder'],
   ['notes', 'Notes'],
 ];
@@ -124,7 +125,7 @@ module.exports = async (req, res) => {
   const pairs = [
     ['Member code', codeLine],
     ...REQUIRED.filter(([k]) => k !== 'code').map(([k, l]) => [l, f[k]]),
-    ...OPTIONAL.filter(([k]) => f[k] && f[k] !== '0').map(([k, l]) => [l, k === 'capability' ? 'Yes' : f[k]]),
+    ...OPTIONAL.filter(([k]) => f[k] && f[k] !== '0').map(([k, l]) => [l, (k === 'capability' || k === 'meeting') ? 'Yes' : f[k]]),
     ['Saved to Brevo', stored ? 'Yes' : 'No — add them manually'],
   ];
 
@@ -150,7 +151,7 @@ module.exports = async (req, res) => {
       sender: { name: 'DakJen Creative — Site', email: SENDER },
       to: [{ email: RECIPIENT }],
       replyTo: { email: f.email, name: f.name },
-      subject: `Ground Up offer used — ${f.company} · due ${f.due}${q.days !== null && q.days <= 7 ? ' · URGENT' : ''}`,
+      subject: `Ground Up offer used — ${f.company} · due ${f.due}${q.days !== null && q.days <= 7 ? ' · URGENT' : ''}${f.meeting === 'yes' ? ' · wants a call' : ''}`,
       textContent: [`Someone used the Ground Up offer`, '', quoteText, ''].concat(breakdown.map(([l, v]) => `  ${l}: ${v}`)).concat(['', 'THE BRIEF']).concat(pairs.map(([l, v]) => `${l}: ${v}`)).join('\n'),
       htmlContent: layout({
         eyebrow: 'Ground Up — Member Offer Used',
@@ -159,6 +160,7 @@ module.exports = async (req, res) => {
         body:
           para(`<span style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#c07481;">What we think you should charge</span><br><strong style="font-size:34px;line-height:1.1;color:#0c1c2c;">${money(q.rec)}</strong><br><span style="font-size:14px;color:#5b6672;">Working range ${money(q.low)}–${money(q.high)}. Your call — reply with whatever number you want.</span>`) +
           detailBlock(breakdown) +
+          (f.meeting === 'yes' ? para(`<strong style="color:#0c1c2c;">${esc(f.name)} wants a discovery call before going further.</strong> <a href="https://calendar.app.google/bzcyGsRcNRLTGce18" style="color:#c07481;">Send them the booking link</a> with the quote.`) : '') +
           (ao.items
             ? sectionTitle('Add-ons they asked for — theirs to keep') +
               detailBlock(ao.lines.concat([['Add-ons total', money(ao.total)], ['Proposal + add-ons', money(q.rec + ao.total)]]))
@@ -201,6 +203,7 @@ module.exports = async (req, res) => {
         preheader: `${f.rfp} — due ${f.due}. Dakotah will reply with member pricing.`,
         body:
           para(`Thanks, <strong>${esc(firstName || f.name)}</strong> — we have your brief for <strong>${esc(f.rfp)}</strong>, due ${esc(f.due)}.`) +
+          (f.meeting === 'yes' ? para('You asked for a discovery call — Dakotah will include a booking link with your quote.') : '') +
           (ao.items ? para(`You also asked for: <strong>${esc(ao.lines.map((l) => l[0]).join(', '))}</strong>. Anything we build there is yours to reuse in every proposal after this one — it'll be on the quote.`) : '') +
           para('Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day.') +
           sectionTitle('What to send us') +
