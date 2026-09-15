@@ -75,7 +75,7 @@ function addonQuote(f) {
   const resumes = n(f.resumes), profiles = n(f.profiles), cap = f.capability === 'yes';
   const lines = []; let total = 0;
   if (resumes) { const c = resumes * 75; total += c; lines.push([`Designed résumés × ${resumes}`, `${money(c)} ($75 each)`]); }
-  if (profiles) { const c = 200 + Math.max(0, profiles - 5) * 50; total += c; lines.push([`Project profiles × ${profiles}`, `${money(c)} ($200 for up to five, then $50 each)`]); }
+  if (profiles) { const c = 200 + Math.max(0, profiles - 5) * 50; total += c; lines.push([`Project profiles × ${profiles}`, `${money(c)} ($200 for up to five, then $50 each — template included)`]); }
   if (cap) { total += 315; lines.push(['Capability statement', '$315']); }
   return { items: lines.length, lines, total };
 }
