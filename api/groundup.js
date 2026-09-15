@@ -29,7 +29,9 @@ const OPTIONAL = [
   ['format', 'Deliverable format'],
   ['link', 'Link to the solicitation'],
   ['materials', 'Materials they can send'],
-  ['addons', 'Add-ons requested (theirs to keep)'],
+  ['resumes', 'Designed résumés (qty)'],
+  ['profiles', 'Project profiles (qty)'],
+  ['capability', 'Capability statement'],
   ['folder', 'Shared folder'],
   ['notes', 'Notes'],
 ];
@@ -65,27 +67,16 @@ function suggestQuote(f) {
   };
 }
 
-// Add-on pricing: the site's published collateral rates, minus 10% for members.
-// One-pagers (bios, profiles, capability sheets) $350–$650 → $315–$585.
-// Proposal systems & templates $700–$1,400 → $630–$1,260.
-const ONE_PAGER = [315, 585], TEMPLATE = [630, 1260];
-const ADDON_PRICES = {
-  'Designed team résumés / bios': ONE_PAGER,
-  'Project profiles / past-performance sheets': ONE_PAGER,
-  'Company qualifications / capability statement': ONE_PAGER,
-  'Org chart / team structure graphic': ONE_PAGER,
-  'Cover letter template': ONE_PAGER,
-  'Proposal template we can reuse next time': TEMPLATE,
-};
-function addonQuote(list) {
-  const items = list.split(',').map((x) => x.trim()).filter(Boolean);
-  const lines = items.map((x) => {
-    const r = ADDON_PRICES[x];
-    return [x, r ? `${money(r[0])}–${money(r[1])}` : 'quote it'];
-  });
-  const low = items.reduce((t, x) => t + (ADDON_PRICES[x] ? ADDON_PRICES[x][0] : 0), 0);
-  const high = items.reduce((t, x) => t + (ADDON_PRICES[x] ? ADDON_PRICES[x][1] : 0), 0);
-  return { items, lines, low, high };
+// Add-on pricing (member): résumés $75 each; project profiles $200 for up to
+// five, then $50 each; capability statement $315 (published $350, less 10%).
+function addonQuote(f) {
+  const n = (x) => Math.max(0, Math.min(50, parseInt(x, 10) || 0));
+  const resumes = n(f.resumes), profiles = n(f.profiles), cap = f.capability === 'yes';
+  const lines = []; let total = 0;
+  if (resumes) { const c = resumes * 75; total += c; lines.push([`Designed résumés × ${resumes}`, `${money(c)} ($75 each)`]); }
+  if (profiles) { const c = 200 + Math.max(0, profiles - 5) * 50; total += c; lines.push([`Project profiles × ${profiles}`, `${money(c)} ($200 for up to five, then $50 each)`]); }
+  if (cap) { total += 315; lines.push(['Capability statement', '$315']); }
+  return { items: lines.length, lines, total };
 }
 
 function daysUntil(iso) {
@@ -133,7 +124,7 @@ module.exports = async (req, res) => {
   const pairs = [
     ['Member code', codeLine],
     ...REQUIRED.filter(([k]) => k !== 'code').map(([k, l]) => [l, f[k]]),
-    ...OPTIONAL.filter(([k]) => f[k]).map(([k, l]) => [l, f[k]]),
+    ...OPTIONAL.filter(([k]) => f[k] && f[k] !== '0').map(([k, l]) => [l, k === 'capability' ? 'Yes' : f[k]]),
     ['Saved to Brevo', stored ? 'Yes' : 'No — add them manually'],
   ];
 
@@ -150,9 +141,9 @@ module.exports = async (req, res) => {
     ['Comes to', money(q.parts.raw) + (q.parts.capped ? ` → ${money(q.rec)} inside the $500–$1,500 member range` : '')],
     ['Same job at the standard rate', `about ${money(stdLow)}–${money(stdHigh)}`],
   ];
-  const ao = addonQuote(f.addons);
+  const ao = addonQuote(f);
   const quoteText = `What we think you should charge: ${money(q.rec)} for the proposal (range ${money(q.low)}–${money(q.high)})` +
-    (ao.items.length ? ` + ${money(ao.low)}–${money(ao.high)} in add-ons` : '');
+    (ao.items ? ` + ${money(ao.total)} in add-ons = ${money(q.rec + ao.total)}` : '');
 
   try {
     await sendEmail({
@@ -168,9 +159,9 @@ module.exports = async (req, res) => {
         body:
           para(`<span style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#c07481;">What we think you should charge</span><br><strong style="font-size:34px;line-height:1.1;color:#0c1c2c;">${money(q.rec)}</strong><br><span style="font-size:14px;color:#5b6672;">Working range ${money(q.low)}–${money(q.high)}. Your call — reply with whatever number you want.</span>`) +
           detailBlock(breakdown) +
-          (ao.items.length
+          (ao.items
             ? sectionTitle('Add-ons they asked for — theirs to keep') +
-              detailBlock(ao.lines.concat([['Add-ons total', `${money(ao.low)}–${money(ao.high)} (10% off the published collateral rates)`], ['Proposal + add-ons', `${money(q.rec + ao.low)}–${money(q.rec + ao.high)}`]]))
+              detailBlock(ao.lines.concat([['Add-ons total', money(ao.total)], ['Proposal + add-ons', money(q.rec + ao.total)]]))
             : '') +
           sectionTitle('The brief') +
           detailBlock(pairs) +
@@ -210,7 +201,7 @@ module.exports = async (req, res) => {
         preheader: `${f.rfp} — due ${f.due}. Dakotah will reply with member pricing.`,
         body:
           para(`Thanks, <strong>${esc(firstName || f.name)}</strong> — we have your brief for <strong>${esc(f.rfp)}</strong>, due ${esc(f.due)}.`) +
-          (f.addons ? para(`You also asked about: <strong>${esc(f.addons)}</strong>. Anything we build there is yours to reuse in every proposal after this one — we'll price it alongside the brief.`) : '') +
+          (ao.items ? para(`You also asked for: <strong>${esc(ao.lines.map((l) => l[0]).join(', '))}</strong>. Anything we build there is yours to reuse in every proposal after this one — it'll be on the quote.`) : '') +
           para('Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day.') +
           sectionTitle('What to send us') +
           para('The proposal is only as complete as what we have to build it from. Reply to this email — or share a folder — with:') +

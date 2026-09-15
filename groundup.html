@@ -418,7 +418,14 @@ footer { background: #000; }
 .gu-checks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem;margin-top:.2rem}
 .gu-checks label{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem;letter-spacing:0;text-transform:none;color:rgba(245,242,238,.8);margin:0;cursor:pointer}
 .gu-checks input{width:auto;accent-color:var(--gu);margin:0}
-.gu-checks em{font-style:normal;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.08em;color:var(--m);margin-left:.35rem;white-space:nowrap}
+.gu-addons{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:.4rem}
+.gu-addon{background:#0c1c2c;padding:1.1rem 1.1rem 1.2rem}
+.gu-addon-name{font-family:'Fraunces',Georgia,serif;font-size:.9rem;color:#f5f2ee;line-height:1.5;margin-bottom:.7rem}
+.gu-addon-name em{display:block;font-style:normal;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.08em;color:var(--m);margin-top:.2rem}
+.gu-addon input[type=number]{max-width:110px}
+.gu-addon-check{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem;letter-spacing:0;text-transform:none;color:rgba(245,242,238,.8);margin:.6rem 0 0;cursor:pointer}
+.gu-addon-check input{width:auto;accent-color:var(--gu);margin:0}
+@media(max-width:900px){.gu-addons{grid-template-columns:1fr}}
 .gu-form .group{grid-column:1 / -1;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gu-taupe);padding-top:.6rem;border-top:1px solid rgba(255,255,255,.07)}
 .gu-form .group:first-child{border-top:none;padding-top:0}
 .gu-code{grid-column:1 / -1;background:rgba(209,19,21,.08);border:1px solid rgba(209,19,21,.35);padding:1.1rem 1.2rem}
@@ -509,7 +516,7 @@ footer { background: #000; }
         <li><strong>Formatted content</strong> — headings, tables, callouts, and résumés that read at a glance</li>
         <li><strong>A light edit</strong> — consistency, terminology, and the Sunday-night typos</li>
         <li><strong>Portal-ready PDF</strong>, plus editable source</li>
-        <li><strong>Optional add-ons you keep</strong> — designed bios, project profiles, a capability statement — reusable in every proposal after this one</li>
+        <li><strong>Optional add-ons you keep</strong> — designed résumés, project profiles, a capability statement — reusable in every proposal after this one</li>
       </ul>
     </div>
   </div>
@@ -653,14 +660,22 @@ footer { background: #000; }
     </div>
     <div class="group">Add-ons — yours to keep</div>
     <div class="full">
-      <label>Want us to build any of these while we're in there? <small>designed once, yours to reuse in every proposal after this one — member pricing is 10% off our published rates</small></label>
-      <div class="gu-checks">
-        <label><input type="checkbox" name="addons" value="Designed team résumés / bios"> Designed team résumés / bios <em>from $315</em></label>
-        <label><input type="checkbox" name="addons" value="Project profiles / past-performance sheets"> Project profiles / past-performance sheets <em>from $315</em></label>
-        <label><input type="checkbox" name="addons" value="Company qualifications / capability statement"> Capability statement / qualifications sheet <em>from $315</em></label>
-        <label><input type="checkbox" name="addons" value="Org chart / team structure graphic"> Org chart / team structure graphic <em>from $315</em></label>
-        <label><input type="checkbox" name="addons" value="Cover letter template"> Cover letter template <em>from $315</em></label>
-        <label><input type="checkbox" name="addons" value="Proposal template we can reuse next time"> Reusable proposal template <em>from $630</em></label>
+      <label>Want us to build any of these while we're in there? <small>designed once, yours to reuse in every proposal after this one</small></label>
+      <div class="gu-addons">
+        <div class="gu-addon">
+          <div class="gu-addon-name">Designed team résumés / bios <em>$75 each</em></div>
+          <label for="gu-resumes">How many?</label>
+          <input type="number" id="gu-resumes" name="resumes" min="0" max="50" step="1" placeholder="0" inputmode="numeric">
+        </div>
+        <div class="gu-addon">
+          <div class="gu-addon-name">Project profiles / past-performance sheets <em>$200 for up to five, then $50 each</em></div>
+          <label for="gu-profiles">How many?</label>
+          <input type="number" id="gu-profiles" name="profiles" min="0" max="50" step="1" placeholder="0" inputmode="numeric">
+        </div>
+        <div class="gu-addon">
+          <div class="gu-addon-name">Capability statement / qualifications sheet <em>$315</em></div>
+          <label class="gu-addon-check"><input type="checkbox" id="gu-capability" name="capability" value="yes"> Yes, build one</label>
+        </div>
       </div>
     </div>
     <div class="full">
@@ -864,7 +879,7 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
       notes:v('gu-notes'),website:v('gu-website'),
       folder:v('gu-folder'),
       materials:[].map.call(document.querySelectorAll('input[name=materials]:checked'),function(c){return c.value;}).join(', '),
-      addons:[].map.call(document.querySelectorAll('input[name=addons]:checked'),function(c){return c.value;}).join(', ')};
+      resumes:v('gu-resumes'),profiles:v('gu-profiles'),capability:document.getElementById('gu-capability').checked?'yes':''};
     var need=[['name','your name'],['company','your company'],['email','your email'],['code','your Ground Up member code'],['rfp','the solicitation'],['due','the due date'],['length','the response length'],['appendices','appendices'],['draft','where the draft is']];
     for(var i=0;i<need.length;i++){if(!d[need[i][0]]){say('Please add '+need[i][1]+'.','#e0a0a8');document.getElementById('gu-'+need[i][0]).focus();return;}}
     btn.disabled=true;btn.textContent='Sending…';say('','rgba(255,255,255,.5)');
