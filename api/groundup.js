@@ -57,7 +57,11 @@ function suggestQuote(f) {
   const factor = days === null ? 1.0 : days <= 2 ? 1.5 : days <= 7 ? 1.3 : 1.0;
   const raw = (base + add + draftAdd) * factor;
   const clamp = (n) => Math.min(1500, Math.max(500, Math.round(n / 50) * 50));
-  return { low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days };
+  const rec = clamp(raw);
+  return {
+    rec, low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days,
+    parts: { base, add, draftAdd, subtotal: base + add + draftAdd, raw: Math.round(raw), capped: clamp(raw) !== Math.round(raw / 50) * 50 },
+  };
 }
 
 function daysUntil(iso) {
@@ -109,13 +113,20 @@ module.exports = async (req, res) => {
     ['Saved to Brevo', stored ? 'Yes' : 'No — add them manually'],
   ];
 
-  const urgency = q.days !== null && q.days <= 7
-    ? ` — DUE IN ${q.days} DAY${q.days === 1 ? '' : 'S'}, urgency fee applies`
-    : '';
-  const quoteText =
-    `Suggested member quote: ${money(q.low)}–${money(q.high)}` +
-    (q.mult > 1 ? ` (includes a ${Math.round((q.mult - 1) * 100)}% urgency factor${urgency})` : '') +
-    ` — standard rate would be roughly ${money(Math.min(3000, q.low + 1000))}–${money(Math.min(3000, q.high + 1500))}.`;
+  const dueNote = q.days === null ? 'no urgency factor'
+    : q.days <= 2 ? `due in ${q.days} day${q.days === 1 ? '' : 's'} — ×1.5`
+    : q.days <= 7 ? `due in ${q.days} days — ×1.3`
+    : `due in ${q.days} days — none`;
+  const stdLow = Math.min(3000, q.rec + 1000), stdHigh = Math.min(3000, q.rec + 1500);
+  const breakdown = [
+    ['Base', `${money(q.parts.base)} — ${f.length}`],
+    ['Appendices', `${q.parts.add ? '+' + money(q.parts.add) : '$0'} — ${f.appendices}`],
+    ['Draft state', `${q.parts.draftAdd ? '+' + money(q.parts.draftAdd) : '$0'} — ${f.draft}`],
+    ['Urgency', dueNote],
+    ['Comes to', money(q.parts.raw) + (q.parts.capped ? ` → ${money(q.rec)} inside the $500–$1,500 member range` : '')],
+    ['Same job at the standard rate', `about ${money(stdLow)}–${money(stdHigh)}`],
+  ];
+  const quoteText = `What we think you should charge: ${money(q.rec)} (range ${money(q.low)}–${money(q.high)})`;
 
   try {
     await sendEmail({
@@ -123,14 +134,14 @@ module.exports = async (req, res) => {
       to: [{ email: RECIPIENT }],
       replyTo: { email: f.email, name: f.name },
       subject: `Ground Up offer used — ${f.company} · due ${f.due}${q.days !== null && q.days <= 7 ? ' · URGENT' : ''}`,
-      textContent: [`Someone used the Ground Up offer`, '', quoteText, ''].concat(pairs.map(([l, v]) => `${l}: ${v}`)).join('\n'),
+      textContent: [`Someone used the Ground Up offer`, '', quoteText, ''].concat(breakdown.map(([l, v]) => `  ${l}: ${v}`)).concat(['', 'THE BRIEF']).concat(pairs.map(([l, v]) => `${l}: ${v}`)).join('\n'),
       htmlContent: layout({
         eyebrow: 'Ground Up — Member Offer Used',
         heading: `${f.company} wants RFP design for a ${f.due} deadline`,
         preheader: `${f.name} at ${f.company} · due ${f.due} · ${f.length}`,
         body:
-          para(`<strong style="color:#0c1c2c;">${esc(quoteText)}</strong>`) +
-          para('<span style="font-size:14px;color:#5b6672;">Rubric: base by length, plus appendices and draft state, times an urgency factor from the due date, clamped to the $500–$1,500 member range. Your call — this is a starting point.</span>') +
+          para(`<span style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#c07481;">What we think you should charge</span><br><strong style="font-size:34px;line-height:1.1;color:#0c1c2c;">${money(q.rec)}</strong><br><span style="font-size:14px;color:#5b6672;">Working range ${money(q.low)}–${money(q.high)}. Your call — reply with whatever number you want.</span>`) +
+          detailBlock(breakdown) +
           sectionTitle('The brief') +
           detailBlock(pairs) +
           (f.link ? para(`<a href="${esc(f.link)}" style="color:#c07481;">Open the solicitation</a>`) : '') +
