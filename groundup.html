@@ -413,6 +413,11 @@ footer { background: #000; }
 .gu-form textarea{min-height:110px;resize:vertical}
 .gu-form input[type=date]{color-scheme:dark}
 .gu-form .full{grid-column:1 / -1}
+.gu-urgent{margin-top:.7rem;padding:.8rem .9rem;background:rgba(209,19,21,.12);border-left:3px solid var(--gu);font-size:.84rem;line-height:1.6;color:#f5f2ee}
+.gu-urgent strong{color:#fff;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:.25rem}
+.gu-checks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem;margin-top:.2rem}
+.gu-checks label{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',Georgia,serif;font-size:.88rem;letter-spacing:0;text-transform:none;color:rgba(245,242,238,.8);margin:0;cursor:pointer}
+.gu-checks input{width:auto;accent-color:var(--gu);margin:0}
 .gu-form .group{grid-column:1 / -1;font-family:'Syne',system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gu-taupe);padding-top:.6rem;border-top:1px solid rgba(255,255,255,.07)}
 .gu-form .group:first-child{border-top:none;padding-top:0}
 .gu-code{grid-column:1 / -1;background:rgba(209,19,21,.08);border:1px solid rgba(209,19,21,.35);padding:1.1rem 1.2rem}
@@ -426,7 +431,7 @@ footer { background: #000; }
 .gu-submit .alt a{color:var(--m);text-decoration:none}
 .gu-status{grid-column:1 / -1;font-size:.9rem;line-height:1.6;margin:0;display:none}
 .gu-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-@media(max-width:768px){.gu-form-wrap{padding:2.75rem 1.25rem}.gu-form{grid-template-columns:1fr;padding:1.4rem 1.1rem;gap:1rem}.gu-submit button{width:100%}}
+@media(max-width:768px){.gu-form-wrap{padding:2.75rem 1.25rem}.gu-form{grid-template-columns:1fr;padding:1.4rem 1.1rem;gap:1rem}.gu-checks{grid-template-columns:1fr}.gu-submit button{width:100%}}
 @media(max-width:900px){.gu-offer-inner{grid-template-columns:1fr}}
 @media(max-width:768px){
   .gu-band{padding:.75rem 1.25rem}.gu-band .tag{display:none}
@@ -492,8 +497,8 @@ footer { background: #000; }
       <ul>
         <li><strong>Your compiled draft</strong> — in whatever state it's in</li>
         <li><strong>The solicitation</strong> — so we format to its structure and limits</li>
-        <li><strong>Your logo</strong>, if you have one</li>
-        <li><strong>The deadline</strong></li>
+        <li><strong>Company materials and team résumés</strong> — so the proposal is complete, not just pretty</li>
+        <li><strong>Your logo</strong>, if you have one, and <strong>the deadline</strong></li>
       </ul>
     </div>
     <div class="gu-col get">
@@ -518,8 +523,7 @@ footer { background: #000; }
       <span class="ey">The Member Offer</span>
       <h2>$500–$2,000 per proposal. Members only.</h2>
       <p>Our standard rate for RFP design and light editing is <strong>$1,500–$2,500</strong> per response, depending on the size and complexity of the solicitation. Ground Up members pay <strong>$500–$2,000</strong> — up to $1,000 off every proposal, for as long as you're a member.</p>
-      <a href="#brief" class="gu-btn">Send Your RFP Brief →</a>
-      <a href="mailto:business@dakjencreative.com?subject=Ground%20Up%20member%20%E2%80%94%20RFP%20design" class="gu-btn-o">or just email Dakotah</a>
+      <a href="#brief" class="gu-btn" style="margin-right:0">Send Your RFP Brief →</a>
       <p class="fine" style="margin-top:1.4rem">Pricing is confirmed in writing before any work starts. One solicitation per engagement. Design and light editing only — you own the content, the claims, and the submission.</p>
     </div>
     <div class="gu-steps">
@@ -541,7 +545,7 @@ footer { background: #000; }
       <span class="ey">Send Your Brief</span>
       <h2>Tell us about the RFP. We'll send your member quote.</h2>
     </div>
-    <p>Three minutes. Length, appendices, and turnaround are what move the price, so the more precise you are here, the faster we can quote. Nothing is confirmed until you have a number in writing.</p>
+    <p>Three minutes. Length, appendices, and how soon it's due are what move the price, so the more precise you are here, the faster we can quote. Nothing is confirmed until you have a number in writing.</p>
   </div>
 
   <form class="gu-form" id="guForm" novalidate>
@@ -579,16 +583,7 @@ footer { background: #000; }
     <div>
       <label for="gu-due">Submission due date</label>
       <input type="date" id="gu-due" name="due" required>
-    </div>
-    <div>
-      <label for="gu-turnaround">When do you need it back?</label>
-      <select id="gu-turnaround" name="turnaround" required>
-        <option value="">Select…</option>
-        <option>Standard — 5+ business days</option>
-        <option>Rush — 3–4 business days</option>
-        <option>Urgent — 1–2 business days</option>
-        <option>Same day</option>
-      </select>
+      <div class="gu-urgent" id="guUrgent" role="alert" hidden></div>
     </div>
     <div>
       <label for="gu-length">How long is the response?</label>
@@ -640,6 +635,24 @@ footer { background: #000; }
       <label for="gu-link">Link to the solicitation <small>optional</small></label>
       <input type="url" id="gu-link" name="link" placeholder="https://">
     </div>
+    <div class="group">Materials</div>
+    <div class="full">
+      <label>What can you send us? <small>check everything you have — we'll ask for it by email after you submit</small></label>
+      <div class="gu-checks">
+        <label><input type="checkbox" name="materials" value="Team résumés / bios"> Team résumés / bios</label>
+        <label><input type="checkbox" name="materials" value="Capability statement"> Capability statement</label>
+        <label><input type="checkbox" name="materials" value="Past performance / project sheets"> Past performance / project sheets</label>
+        <label><input type="checkbox" name="materials" value="Certifications (MBE, WBE, DBE, 8(a)…)"> Certifications (MBE, WBE, DBE, 8(a)…)</label>
+        <label><input type="checkbox" name="materials" value="Company overview / about us"> Company overview / about us</label>
+        <label><input type="checkbox" name="materials" value="Logo and brand guide"> Logo and brand guide</label>
+        <label><input type="checkbox" name="materials" value="Org chart / team structure"> Org chart / team structure</label>
+        <label><input type="checkbox" name="materials" value="Previous proposals"> Previous proposals we can build from</label>
+      </div>
+    </div>
+    <div class="full">
+      <label for="gu-folder">Shared folder link <small>optional — Google Drive, Dropbox, or Box, if your materials are already in one place</small></label>
+      <input type="url" id="gu-folder" name="folder" placeholder="https://">
+    </div>
     <div class="full">
       <label for="gu-notes">Anything else we should know <small>optional</small></label>
       <textarea id="gu-notes" name="notes" placeholder="Page limits, required forms, a format the agency insists on, who else is on the team…"></textarea>
@@ -648,7 +661,7 @@ footer { background: #000; }
 
     <div class="gu-submit">
       <button type="submit" id="guSubmit">Send the Brief →</button>
-      <span class="alt">Prefer email? <a href="mailto:business@dakjencreative.com?subject=Ground%20Up%20member%20%E2%80%94%20RFP%20design">business@dakjencreative.com</a></span>
+      <span class="alt">You'll get a confirmation with what to send next.</span>
     </div>
     <p class="gu-status" id="guStatus" role="status" aria-live="polite"></p>
   </form>
@@ -817,14 +830,27 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   var form=document.getElementById('guForm'),btn=document.getElementById('guSubmit'),st=document.getElementById('guStatus');
   if(!form)return;
   var v=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  // due within a week → say so before they submit; the quote will carry an urgency fee
+  var due=document.getElementById('gu-due'),urg=document.getElementById('guUrgent');
+  function checkDue(){
+    if(!due.value){urg.hidden=true;return;}
+    var d=new Date(due.value+'T12:00:00'),now=new Date();now.setHours(12,0,0,0);
+    var days=Math.round((d-now)/86400000);
+    if(days<0){urg.innerHTML='<strong>Check the date</strong>That date has already passed.';urg.hidden=false;}
+    else if(days<=7){urg.innerHTML='<strong>Disclaimer</strong>Your due date is within a week, which means an urgency fee applies to your member quote. We will confirm the number in writing before any work starts.';urg.hidden=false;}
+    else{urg.hidden=true;}
+  }
+  due.addEventListener('change',checkDue);due.addEventListener('input',checkDue);
   function say(m,c){st.textContent=m;st.style.color=c;st.style.display='block';}
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var d={name:v('gu-name'),company:v('gu-company'),email:v('gu-email'),phone:v('gu-phone'),code:v('gu-code'),
-      rfp:v('gu-rfp'),agency:v('gu-agency'),due:v('gu-due'),turnaround:v('gu-turnaround'),length:v('gu-length'),
+      rfp:v('gu-rfp'),agency:v('gu-agency'),due:v('gu-due'),length:v('gu-length'),
       appendices:v('gu-appendices'),draft:v('gu-draft'),brand:v('gu-brand'),format:v('gu-format'),link:v('gu-link'),
-      notes:v('gu-notes'),website:v('gu-website')};
-    var need=[['name','your name'],['company','your company'],['email','your email'],['code','your Ground Up member code'],['rfp','the solicitation'],['due','the due date'],['turnaround','when you need it back'],['length','the response length'],['appendices','appendices'],['draft','where the draft is']];
+      notes:v('gu-notes'),website:v('gu-website'),
+      folder:v('gu-folder'),
+      materials:[].map.call(document.querySelectorAll('input[name=materials]:checked'),function(c){return c.value;}).join(', ')};
+    var need=[['name','your name'],['company','your company'],['email','your email'],['code','your Ground Up member code'],['rfp','the solicitation'],['due','the due date'],['length','the response length'],['appendices','appendices'],['draft','where the draft is']];
     for(var i=0;i<need.length;i++){if(!d[need[i][0]]){say('Please add '+need[i][1]+'.','#e0a0a8');document.getElementById('gu-'+need[i][0]).focus();return;}}
     btn.disabled=true;btn.textContent='Sending…';say('','rgba(255,255,255,.5)');
     fetch('/api/groundup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
@@ -901,6 +927,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   .cta-section,.section-dark{padding-top:3rem !important;padding-bottom:3rem !important}
 }
 
+/* anchor links land below the sticky nav instead of under it */
+html{scroll-padding-top:5.5rem}
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}

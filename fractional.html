@@ -735,6 +735,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   .cta-section,.section-dark{padding-top:3rem !important;padding-bottom:3rem !important}
 }
 
+/* anchor links land below the sticky nav instead of under it */
+html{scroll-padding-top:5.5rem}
 /* ---- NAV FIT (6 items) ---- */
 nav .nl{gap:1.6rem}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}

@@ -29,6 +29,8 @@ const OPTIONAL = [
   ['brand', 'Brand assets on hand'],
   ['format', 'Deliverable format'],
   ['link', 'Link to the solicitation'],
+  ['materials', 'Materials they can send'],
+  ['folder', 'Shared folder'],
   ['notes', 'Notes'],
 ];
 
@@ -57,9 +59,20 @@ function suggestQuote(f) {
     'Mostly there — a few sections still open': 100,
     'Still being written': 200,
   }[f.draft] || 0;
-  const raw = (base + add + draftAdd) * mult;
+  // a due date inside a week is urgent whatever turnaround they picked
+  const days = daysUntil(f.due);
+  const dueMult = days === null ? 1.0 : days <= 2 ? 1.5 : days <= 7 ? 1.3 : 1.0;
+  const factor = Math.max(mult, dueMult);
+  const raw = (base + add + draftAdd) * factor;
   const clamp = (n) => Math.min(2000, Math.max(500, Math.round(n / 50) * 50));
-  return { low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult };
+  return { low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days };
+}
+
+function daysUntil(iso) {
+  const d = new Date(`${iso}T12:00:00`);
+  if (isNaN(d)) return null;
+  const now = new Date(); now.setHours(12, 0, 0, 0);
+  return Math.round((d - now) / 86400000);
 }
 
 const money = (n) => '$' + n.toLocaleString('en-US');
@@ -104,9 +117,12 @@ module.exports = async (req, res) => {
     ['Saved to Brevo', stored ? 'Yes' : 'No — add them manually'],
   ];
 
+  const urgency = q.days !== null && q.days <= 7
+    ? ` — DUE IN ${q.days} DAY${q.days === 1 ? '' : 'S'}, urgency fee applies`
+    : '';
   const quoteText =
     `Suggested member quote: ${money(q.low)}–${money(q.high)}` +
-    (q.mult > 1 ? ` (includes a ${Math.round((q.mult - 1) * 100)}% rush factor for "${f.turnaround}")` : '') +
+    (q.mult > 1 ? ` (includes a ${Math.round((q.mult - 1) * 100)}% urgency factor${urgency})` : '') +
     ` — standard rate would be roughly ${money(Math.min(2500, q.low + 1000))}–${money(Math.min(2500, q.high + 1000))}.`;
 
   try {
@@ -114,7 +130,7 @@ module.exports = async (req, res) => {
       sender: { name: 'DakJen Creative — Site', email: SENDER },
       to: [{ email: RECIPIENT }],
       replyTo: { email: f.email, name: f.name },
-      subject: `Ground Up offer used — ${f.company} · due ${f.due}`,
+      subject: `Ground Up offer used — ${f.company} · due ${f.due}${q.days !== null && q.days <= 7 ? ' · URGENT' : ''}`,
       textContent: [`Someone used the Ground Up offer`, '', quoteText, ''].concat(pairs.map(([l, v]) => `${l}: ${v}`)).join('\n'),
       htmlContent: layout({
         eyebrow: 'Ground Up — Member Offer Used',
@@ -126,6 +142,7 @@ module.exports = async (req, res) => {
           sectionTitle('The brief') +
           detailBlock(pairs) +
           (f.link ? para(`<a href="${esc(f.link)}" style="color:#c07481;">Open the solicitation</a>`) : '') +
+          (f.folder ? para(`<a href="${esc(f.folder)}" style="color:#c07481;">Open their shared folder</a>`) : '') +
           para(`<a href="mailto:${esc(f.email)}?subject=${encodeURIComponent('Your Ground Up member quote — ' + f.rfp)}" style="color:#c07481;">Send ${esc(f.name)} the quote</a> — or just hit reply, this email is addressed to them.`),
         footerNote: 'Sent automatically from the Ground Up member form on dakjencreative.com/groundup',
       }),
@@ -143,9 +160,16 @@ module.exports = async (req, res) => {
       subject: `We have your RFP brief — ${f.rfp}`,
       textContent:
         `Thanks, ${firstName || f.name} — we have your brief for ${f.rfp}, due ${f.due}.\n\n` +
-        'Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day. ' +
-        'Nothing is required from you until then.\n\n' +
-        'When you are ready, send the compiled draft and any brand assets to business@dakjencreative.com.\n\n' +
+        'Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day.\n\n' +
+        'WHAT TO SEND US\n' +
+        'The proposal is only as complete as what we have to build it from. Reply to this email (or share a folder) with:\n' +
+        '  - The compiled draft\n' +
+        '  - Team résumés / bios for everyone named in the response\n' +
+        '  - Capability statement, company overview, and past-performance or project sheets\n' +
+        '  - Certifications and any required forms already filled\n' +
+        '  - Logo and brand guide, if you have them\n' +
+        '  - Previous proposals we can build from, if any\n\n' +
+        'A Google Drive, Dropbox, or Box link is easiest for anything large.\n\n' +
         '— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
         eyebrow: 'Ground Up Member Offer',
@@ -153,8 +177,16 @@ module.exports = async (req, res) => {
         preheader: `${f.rfp} — due ${f.due}. Dakotah will reply with member pricing.`,
         body:
           para(`Thanks, <strong>${esc(firstName || f.name)}</strong> — we have your brief for <strong>${esc(f.rfp)}</strong>, due ${esc(f.due)}.`) +
-          para('Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day. Nothing is required from you until then.') +
-          para('When you are ready, send the compiled draft and any brand assets to <a href="mailto:business@dakjencreative.com" style="color:#c07481;">business@dakjencreative.com</a>.') +
+          para('Dakotah will confirm scope and your Ground Up member pricing in writing, usually within one business day.') +
+          sectionTitle('What to send us') +
+          para('The proposal is only as complete as what we have to build it from. Reply to this email — or share a folder — with:') +
+          para('<strong>The compiled draft</strong><br>' +
+               '<strong>Team résumés / bios</strong> for everyone named in the response<br>' +
+               '<strong>Capability statement</strong>, company overview, and past-performance or project sheets<br>' +
+               '<strong>Certifications</strong> and any required forms already filled<br>' +
+               '<strong>Logo and brand guide</strong>, if you have them<br>' +
+               '<strong>Previous proposals</strong> we can build from, if any') +
+          para('<span style="font-size:14px;color:#5b6672;">A Google Drive, Dropbox, or Box link is easiest for anything large. Reply-to on this email goes straight to Dakotah.</span>') +
           button('https://dakjencreative.com/groundup', 'Review the member offer'),
         footerNote: 'You are receiving this because you submitted the Ground Up member form at dakjencreative.com/groundup.',
       }),
