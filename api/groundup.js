@@ -1,7 +1,7 @@
 // Ground Up member offer — RFP design & light editing intake.
 // Emails Dakotah a full brief with a suggested member quote, confirms to the
 // member, and saves them to Brevo. Requires BREVO_API_KEY.
-// Optional: GROUNDUP_CODE (the member code to check against), BREVO_SENDER, SCAN_RECIPIENT.
+// Optional: BREVO_SENDER, SCAN_RECIPIENT.
 
 const {
   sendEmail, layout, para, detailBlock, button, sectionTitle, esc,
@@ -10,7 +10,6 @@ const { addContact, splitName } = require('./_contacts');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
-const MEMBER_CODE = (process.env.GROUNDUP_CODE || '').trim();
 
 const REQUIRED = [
   ['name', 'Name'],
@@ -91,10 +90,8 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'That email address looks incomplete.' });
   }
 
-  const codeOk = MEMBER_CODE ? f.code.toLowerCase() === MEMBER_CODE.toLowerCase() : null;
-  const codeLine = codeOk === null ? f.code
-                 : codeOk ? `${f.code} ✓`
-                 : `${f.code} ✗ — not the member code; verify before quoting member pricing`;
+  // The code is shown as typed; Dakotah knows whether it's right.
+  const codeLine = f.code;
 
   const q = suggestQuote(f);
   const { firstName, lastName } = splitName(f.name);
