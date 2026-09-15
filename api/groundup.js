@@ -92,9 +92,9 @@ module.exports = async (req, res) => {
   }
 
   const codeOk = MEMBER_CODE ? f.code.toLowerCase() === MEMBER_CODE.toLowerCase() : null;
-  const codeLine = codeOk === null ? `${f.code} (no GROUNDUP_CODE set to check against)`
-                 : codeOk ? `${f.code} ✓ matches`
-                 : `${f.code} ✗ does not match — verify before quoting member pricing`;
+  const codeLine = codeOk === null ? f.code
+                 : codeOk ? `${f.code} ✓`
+                 : `${f.code} ✗ — not the member code; verify before quoting member pricing`;
 
   const q = suggestQuote(f);
   const { firstName, lastName } = splitName(f.name);
