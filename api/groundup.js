@@ -34,29 +34,29 @@ const OPTIONAL = [
 ];
 
 // Suggested member quote: a rubric, not a rule. Dakotah sends the real number.
-// Member range is $500–$2,000 (standard $1,500–$2,500).
+// Member range is $500–$1,500 (standard $1,500–$3,000).
 function suggestQuote(f) {
   const base = {
     'Under 15 pages': 500,
-    '15–30 pages': 850,
-    '30–60 pages': 1200,
-    '60+ pages': 1600,
-  }[f.length] || 850;
+    '15–30 pages': 700,
+    '30–60 pages': 950,
+    '60+ pages': 1200,
+  }[f.length] || 700;
   const add = {
     'No appendices': 0,
-    'Light — résumés, forms, a few attachments': 150,
-    'Heavy — exhibits, multiple attachments, past-performance packets': 300,
+    'Light — résumés, forms, a few attachments': 100,
+    'Heavy — exhibits, multiple attachments, past-performance packets': 200,
   }[f.appendices] || 0;
   const draftAdd = {
     'Complete and compiled': 0,
-    'Mostly there — a few sections still open': 100,
-    'Still being written': 200,
+    'Mostly there — a few sections still open': 75,
+    'Still being written': 150,
   }[f.draft] || 0;
   // urgency comes from the due date alone: inside a week is urgent, inside 48 hours more so
   const days = daysUntil(f.due);
   const factor = days === null ? 1.0 : days <= 2 ? 1.5 : days <= 7 ? 1.3 : 1.0;
   const raw = (base + add + draftAdd) * factor;
-  const clamp = (n) => Math.min(2000, Math.max(500, Math.round(n / 50) * 50));
+  const clamp = (n) => Math.min(1500, Math.max(500, Math.round(n / 50) * 50));
   return { low: clamp(raw * 0.9), high: clamp(raw * 1.1), mult: factor, days };
 }
 
@@ -115,7 +115,7 @@ module.exports = async (req, res) => {
   const quoteText =
     `Suggested member quote: ${money(q.low)}–${money(q.high)}` +
     (q.mult > 1 ? ` (includes a ${Math.round((q.mult - 1) * 100)}% urgency factor${urgency})` : '') +
-    ` — standard rate would be roughly ${money(Math.min(2500, q.low + 1000))}–${money(Math.min(2500, q.high + 1000))}.`;
+    ` — standard rate would be roughly ${money(Math.min(3000, q.low + 1000))}–${money(Math.min(3000, q.high + 1500))}.`;
 
   try {
     await sendEmail({
@@ -130,7 +130,7 @@ module.exports = async (req, res) => {
         preheader: `${f.name} at ${f.company} · due ${f.due} · ${f.length}`,
         body:
           para(`<strong style="color:#0c1c2c;">${esc(quoteText)}</strong>`) +
-          para('<span style="font-size:14px;color:#5b6672;">Rubric: base by length, plus appendices and draft state, times an urgency factor from the due date, clamped to the $500–$2,000 member range. Your call — this is a starting point.</span>') +
+          para('<span style="font-size:14px;color:#5b6672;">Rubric: base by length, plus appendices and draft state, times an urgency factor from the due date, clamped to the $500–$1,500 member range. Your call — this is a starting point.</span>') +
           sectionTitle('The brief') +
           detailBlock(pairs) +
           (f.link ? para(`<a href="${esc(f.link)}" style="color:#c07481;">Open the solicitation</a>`) : '') +
