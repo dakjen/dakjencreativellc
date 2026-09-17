@@ -13,7 +13,7 @@ DakJen Creative LLC is a boutique brand strategy and creative studio serving fou
 - **Locations:** New York, NY · Baltimore, MD
 - **Service Areas (Lease-Up Marketing):** Based in D.C. metro & Baltimore, serving developers nationwide
 - **Contact:** business@dakjencreative.com
-- **Website:** https://dakjencreative.com
+- **Website:** https://www.dakjencreative.com
 
 ## Services
 
@@ -32,7 +32,7 @@ The CMO Subscription (productized content & collateral retainer from DJC Marketi
 - Requests and pages are a monthly allowance (whichever cap is reached first); unused requests and pages roll over one month. Add-ons: website builds, photo & video, media buying. Pause anytime; annual option (pay 10 months, get 12 on the first two tiers).
 
 - Clients include: Northern Real Estate Urban Ventures (NREUV), Project Community Capital (PCC)
-- Page: https://dakjencreative.com/fractional.html
+- Page: https://www.dakjencreative.com/fractional.html
 
 ### RFP Pipeline (Government & Institutional Contracting)
 Monthly RFP pipeline management for diverse-owned firms. DakJen Creative monitors the procurement portals, flags the opportunities that fit a firm's certifications and NAICS codes, and delivers a finished Draft 1 plus a requirements/compliance checklist. The client reviews, finalizes, and submits — DJC does not submit on a client's behalf.
@@ -46,13 +46,13 @@ Entry point: a free Opportunity Scan — two live matching solicitations emailed
 
 Sectors: DakJen Creative pursues RFP work across sectors — community development, education, housing, economic development, arts, nonprofits, public interest, and beyond. Fit is scored on the firm's certifications, NAICS codes, geography, and positioning, not on sector.
 
-- Page: https://dakjencreative.com/rfp.html
+- Page: https://www.dakjencreative.com/rfp.html
 
-**Quote requests:** https://dakjencreative.com/quote.html — a form that takes the prospect's pain points, timeline, and budget and routes them to Dakotah directly. Response within two business days with a scoped quote or clarifying questions. No call required.
+**Quote requests:** https://www.dakjencreative.com/quote.html — a form that takes the prospect's pain points, timeline, and budget and routes them to Dakotah directly. Response within two business days with a scoped quote or clarifying questions. No call required.
 
 ### Notable — Brand Platform for Women Founders
 A tiered brand strategy platform built specifically for women founders. Offers visibility, positioning, and growth support at every stage. Includes access to the Vanguard Band community.
-- Page: https://dakjencreative.com/notable.html
+- Page: https://www.dakjencreative.com/notable.html
 
 ### Lease-Up Marketing (DJC Marketing)
 Full-cycle lease-up marketing for affordable housing developments — from pre-leasing through stabilization. Based in the D.C. metro and Baltimore, serving developers nationwide. DJC Marketing understands how affordable housing is financed, how income-qualification works, and what it takes to reach applicants by design, not by volume.
@@ -73,7 +73,7 @@ Pricing: campaigns start at $20,000 per engagement, all in (media spend, product
 
 Case study — 9410 Hough, Cleveland OH: 116-unit affordable housing development. 400+ inquiries in 48 hours. 36.2% applicant qualification rate (vs. 15–30% industry avg). >20% re-apply rate from application support.
 
-- Page: https://dakjencreative.com/leaseup.html
+- Page: https://www.dakjencreative.com/leaseup.html
 - DJC Marketing site: https://marketing.dakjencreative.com
 
 ## Clients & Partners
@@ -111,14 +111,14 @@ Case study — 9410 Hough, Cleveland OH: 116-unit affordable housing development
 
 ## Key Pages
 
-- Home: https://dakjencreative.com/
-- Creative Consulting & The CMO Subscription: https://dakjencreative.com/fractional.html
-- Notable (women founders): https://dakjencreative.com/notable.html
-- Lease-Up Marketing: https://dakjencreative.com/leaseup.html
-- About the Founder & Team: https://dakjencreative.com/dakotah.html
-- Privacy Policy: https://dakjencreative.com/privacy-policy.html
+- Home: https://www.dakjencreative.com/
+- Creative Consulting & The CMO Subscription: https://www.dakjencreative.com/fractional.html
+- Notable (women founders): https://www.dakjencreative.com/notable.html
+- Lease-Up Marketing: https://www.dakjencreative.com/leaseup.html
+- About the Founder & Team: https://www.dakjencreative.com/dakotah.html
+- Privacy Policy: https://www.dakjencreative.com/privacy-policy.html
 
 ## Optional
 
-- sitemap: https://dakjencreative.com/sitemap.xml
+- sitemap: https://www.dakjencreative.com/sitemap.xml
 - Content current as of July 2026.

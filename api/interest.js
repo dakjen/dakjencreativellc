@@ -8,6 +8,7 @@ const {
   sendEmail, layout, para, detailBlock, linkList, statList, sectionTitle, contactRow, signature, esc,
 } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
+const { guard } = require('./_guard');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const CONTACT_EMAIL = 'business@dakjencreative.com';
@@ -31,7 +32,8 @@ module.exports = async (req, res) => {
   }
   body = body || {};
 
-  if (body.website) return res.status(200).json({ ok: true });
+  const stopped = guard(req, res, body);
+  if (stopped) return stopped;
 
   const name = String(body.name || '').trim();
   const email = String(body.email || '').trim();
@@ -115,7 +117,7 @@ module.exports = async (req, res) => {
         '  One-pagers for every service — https://www.dakjencreative.com/onepagers\n' +
         '  The Fractional Founder — https://substack.com/@dakjencreative\n' +
         '  LinkedIn — https://www.linkedin.com/in/dakotah-jennifer-mfa-a89857170/\n' +
-        '  The site — https://dakjencreative.com\n\n' +
+        '  The site — https://www.dakjencreative.com\n\n' +
         'REACH DAKOTAH DIRECTLY\n' +
         `  Email ${CONTACT_EMAIL}  ·  Text ${CONTACT_TEL}  ·  Book a call ${BOOKING}\n\n` +
         '— DakJen Creative · dakjencreative.com',
@@ -130,27 +132,27 @@ module.exports = async (req, res) => {
           sectionTitle('What we do') +
           linkList([
             {
-              href: 'https://dakjencreative.com/fractional.html',
+              href: 'https://www.dakjencreative.com/fractional.html',
               label: 'Fractional creative & business leadership',
               note: 'A Brand Manager, Marketing Director, or Chief Creative Officer inside your business — brand direction plus the business management around it. From $2,000/mo.',
             },
             {
-              href: 'https://dakjencreative.com/rfp.html',
+              href: 'https://www.dakjencreative.com/rfp.html',
               label: 'RFP pipeline',
               note: 'We monitor the procurement portals, flag what fits your certifications, and hand you a finished Draft 1 plus a requirements checklist. From $750/mo.',
             },
             {
-              href: 'https://dakjencreative.com/fractional.html',
+              href: 'https://www.dakjencreative.com/fractional.html',
               label: 'Done-for-you production — The CMO Subscription',
               note: 'Content and collateral handled on a flat monthly rate. A marketing agency in your back pocket. From $1,500/mo.',
             },
             {
-              href: 'https://dakjencreative.com/notable.html',
+              href: 'https://www.dakjencreative.com/notable.html',
               label: 'Brand platforms — Notable',
               note: 'Positioning, websites, decks, and revenue streams for founders.',
             },
             {
-              href: 'https://dakjencreative.com/leaseup.html',
+              href: 'https://www.dakjencreative.com/leaseup.html',
               label: 'Lease-up marketing',
               note: 'Full-cycle campaigns for affordable housing developers, pre-leasing through stabilization. Campaigns start at $20,000, all in.',
             },

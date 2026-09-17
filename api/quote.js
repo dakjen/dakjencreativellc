@@ -3,6 +3,7 @@
 
 const { sendEmail, layout, para, detailBlock, button, signature, esc } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
+const { guard } = require('./_guard');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
@@ -39,7 +40,8 @@ module.exports = async (req, res) => {
   }
   body = body || {};
 
-  if (body.website) return res.status(200).json({ ok: true });
+  const stopped = guard(req, res, body);
+  if (stopped) return stopped;
 
   const missing = REQUIRED.filter(([k]) => !String(body[k] || '').trim()).map(([, l]) => l);
   if (missing.length) return res.status(400).json({ error: `Missing: ${missing.join(', ')}` });

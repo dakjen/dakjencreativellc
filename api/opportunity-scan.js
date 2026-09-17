@@ -3,6 +3,7 @@
 
 const { sendEmail, layout, para, detailBlock, button, esc } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
+const { guard } = require('./_guard');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
@@ -35,7 +36,8 @@ module.exports = async (req, res) => {
   }
   body = body || {};
 
-  if (body.website) return res.status(200).json({ ok: true });
+  const stopped = guard(req, res, body);
+  if (stopped) return stopped;
 
   const missing = FIELDS.filter(([k]) => !String(body[k] || '').trim()).map(([, l]) => l);
   if (missing.length) return res.status(400).json({ error: `Missing: ${missing.join(', ')}` });
@@ -100,7 +102,7 @@ module.exports = async (req, res) => {
           para('Within 48 hours you will get back <strong>two live solicitations</strong> you are currently positioned to pursue. Real opportunities, real deadlines — not a sample report.') +
           para('Two, not a long list. The scan shows you how we work; it is not the service itself. If nothing in our fit filter matches what you do, we will tell you that instead.') +
           para('Nothing is required from you in the meantime.') +
-          button('https://dakjencreative.com/rfp.html', 'Review how the pipeline works'),
+          button('https://www.dakjencreative.com/rfp.html', 'Review how the pipeline works'),
         footerNote: 'You are receiving this because you requested an Opportunity Scan at dakjencreative.com.',
       }),
     });

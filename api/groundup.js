@@ -7,6 +7,7 @@ const {
   sendEmail, layout, para, detailBlock, button, sectionTitle, esc,
 } = require('./_email');
 const { addContact, splitName } = require('./_contacts');
+const { guard } = require('./_guard');
 
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
@@ -104,7 +105,8 @@ module.exports = async (req, res) => {
     try { body = JSON.parse(body); } catch { return res.status(400).json({ error: 'Malformed request.' }); }
   }
   body = body || {};
-  if (body.website) return res.status(200).json({ ok: true }); // honeypot
+  const stopped = guard(req, res, body);
+  if (stopped) return stopped;
 
   const f = {};
   [...REQUIRED, ...OPTIONAL].forEach(([k]) => { f[k] = String(body[k] || '').trim().slice(0, 2000); });
@@ -215,7 +217,7 @@ module.exports = async (req, res) => {
                '<strong>Logo and brand guide</strong>, if you have them<br>' +
                '<strong>Previous proposals</strong> we can build from, if any') +
           para('<span style="font-size:14px;color:#5b6672;">A Google Drive, Dropbox, or Box link is easiest for anything large. Reply-to on this email goes straight to Dakotah.</span>') +
-          button('https://dakjencreative.com/groundup', 'Review the member offer'),
+          button('https://www.dakjencreative.com/groundup', 'Review the member offer'),
         footerNote: 'You are receiving this because you submitted the Ground Up member form at dakjencreative.com/groundup.',
       }),
     });

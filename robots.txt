@@ -106,8 +106,8 @@ Disallow: /onepagers
 Disallow: /onepagers.html
 Disallow: /onepagers/
 
-Sitemap: https://dakjencreative.com/sitemap.xml
+Sitemap: https://www.dakjencreative.com/sitemap.xml
 
 # Structured summaries written for language models:
-# https://dakjencreative.com/llms.txt
-# https://dakjencreative.com/llms-full.txt
+# https://www.dakjencreative.com/llms.txt
+# https://www.dakjencreative.com/llms-full.txt

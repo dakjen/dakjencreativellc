@@ -81,7 +81,7 @@ function layout({ eyebrow, heading, body, preheader = '', footerNote = '' }) {
         <div style="font-family:${SERIF};font-size:12px;line-height:1.7;color:rgba(245,242,238,0.62);">
           ${footerNote ? escMultiline(footerNote) + '<br><br>' : ''}
           DakJen Creative LLC · New York, NY · Baltimore, MD<br>
-          <a href="https://dakjencreative.com" style="color:${ROSE};text-decoration:none;">dakjencreative.com</a>
+          <a href="https://www.dakjencreative.com" style="color:${ROSE};text-decoration:none;">dakjencreative.com</a>
           &nbsp;·&nbsp;
           <a href="mailto:business@dakjencreative.com" style="color:${ROSE};text-decoration:none;">business@dakjencreative.com</a>
         </div>
