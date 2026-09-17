@@ -200,6 +200,7 @@ module.exports = async (req, res) => {
         'A Google Drive, Dropbox, or Box link is easiest for anything large.\n\n' +
         '— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
+        to: f.email,
         eyebrow: 'Ground Up Member Offer',
         heading: 'We have your brief. Your quote is on its way.',
         preheader: `${f.rfp} — due ${f.due}. Dakotah will reply with member pricing.`,

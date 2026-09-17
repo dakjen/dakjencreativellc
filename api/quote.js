@@ -97,6 +97,7 @@ module.exports = async (req, res) => {
         'If it turns out we are not the right fit, we will say so plainly and point you ' +
         'somewhere better.\n\n— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
+        to: email,
         eyebrow: 'Request Received',
         heading: 'We have it. Two business days.',
         preheader: 'Dakotah reads these personally — a scoped quote is coming.',

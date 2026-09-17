@@ -122,6 +122,7 @@ module.exports = async (req, res) => {
         `  Email ${CONTACT_EMAIL}  ·  Text ${CONTACT_TEL}  ·  Book a call ${BOOKING}\n\n` +
         '— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
+        to: email,
         eyebrow: 'Thanks for Reaching Out',
         heading: 'Thanks — we will be in touch.',
         preheader: 'Dakotah will get back to you. Here is everything we do in the meantime.',

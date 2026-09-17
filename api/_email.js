@@ -50,7 +50,12 @@ function detailRows(pairs) {
  * Wraps content in the branded shell.
  * @param {{eyebrow:string, heading:string, body:string, preheader?:string, footerNote?:string}} o
  */
-function layout({ eyebrow, heading, body, preheader = '', footerNote = '' }) {
+const { unsubscribeUrl } = require('./unsubscribe');
+
+// Emails to people (not the internal alerts) pass `to` so the footer carries a
+// working unsubscribe link and sendEmail() adds the List-Unsubscribe headers
+// that make Gmail and Apple Mail show their own Unsubscribe button.
+function layout({ eyebrow, heading, body, preheader = '', footerNote = '', to = '' }) {
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="x-apple-disable-message-reformatting"></head>
@@ -84,6 +89,7 @@ function layout({ eyebrow, heading, body, preheader = '', footerNote = '' }) {
           <a href="https://www.dakjencreative.com" style="color:${ROSE};text-decoration:none;">dakjencreative.com</a>
           &nbsp;·&nbsp;
           <a href="mailto:business@dakjencreative.com" style="color:${ROSE};text-decoration:none;">business@dakjencreative.com</a>
+          ${to ? `<br><br><a href="${unsubscribeUrl(to)}" style="color:rgba(245,242,238,0.62);text-decoration:underline;">Unsubscribe</a> — one click, no questions.` : ''}
         </div>
       </td></tr>
 
@@ -209,6 +215,14 @@ const signature = ({ email, tel, book }) =>
    </table>`;
 
 async function sendEmail(payload) {
+  // Recipient is a person (not the internal alert address) → RFC 8058 one-click headers
+  const first = payload.to && payload.to[0] && payload.to[0].email;
+  if (first && !/@dakjencreative\.com$/i.test(first)) {
+    payload.headers = Object.assign({}, payload.headers, {
+      'List-Unsubscribe': `<${unsubscribeUrl(first)}>`,
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    });
+  }
   const res = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
     headers: {

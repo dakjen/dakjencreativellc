@@ -94,6 +94,7 @@ module.exports = async (req, res) => {
         'Nothing is required from you in the meantime.\n\n' +
         '— DakJen Creative · dakjencreative.com',
       htmlContent: layout({
+        to: email,
         eyebrow: 'Opportunity Scan',
         heading: 'We have your request. Give us 48 hours.',
         preheader: 'Three to five live opportunities, coming within 48 hours.',
