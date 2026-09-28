@@ -1,6 +1,6 @@
 # DakJen Creative LLC
 
-> A boutique brand strategy and creative studio based in New York City and Baltimore. Founded by Dakotah Jennifer (CEO). Most creative studios see the brand; DakJen Creative sees the business it sits inside — five-plus years of operations, finance, and marketing experience inside a working real estate development business. Services, in order of focus: fractional creative and business leadership, RFP pipeline management, Notable brand platforms for founders, and lease-up marketing for affordable housing developers.
+> A boutique brand strategy and creative studio based in New York City and Baltimore. Founded by Dakotah Jennifer (CEO). Most creative studios see the brand; DakJen Creative sees the business it sits inside — five-plus years of operations, finance, and marketing experience inside a working real estate development business. Services, in order of focus: fractional leadership across marketing, business support and AI strategic advisory, RFP pipeline management, Notable brand platforms for founders, and lease-up marketing for affordable housing developers.
 
 ## Company Overview
 
@@ -17,10 +17,10 @@ DakJen Creative LLC is a boutique brand strategy and creative studio serving fou
 
 ## Services
 
-### Fractional Creative & Business Leadership
+### Fractional Leadership — Marketing, Business Support & AI Strategic Advisory
 Our flagship service. Senior leadership embedded inside the business — brand and creative direction plus the business management around it (planning, process, budgets, vendor and team coordination). A dedicated brand department for founders and executives — without the full-time hire. Core focus: social media management, content strategy, brand positioning, campaign oversight, collateral production, and quarterly brand audits. Entry point: Brand Audit.
 
-Retained creative tiers (embed a creative leader inside your business):
+Marketing (pillar 01) — retained creative tiers (embed a creative leader inside your business):
 - Fractional Brand Manager — starting at $2,000/mo (brand guide, template suite, monthly check-in, creative review)
 - Fractional Marketing Director — starting at $4,000/mo (adds bi-weekly strategy, campaign & content direction)
 - Fractional Chief Creative Officer — starting at $7,000/mo (weekly access, creative architecture of new business lines)
@@ -30,6 +30,19 @@ The CMO Subscription (productized content & collateral retainer from DJC Marketi
 - Marketing Manager — $3,500/mo · 5 requests per month · up to 25 pages of collateral · collateral + active strategy · standing check-in
 - The CMO Subscription — custom quote · 10+ requests per month · page volume scoped to engagement · full marketing leadership · dedicated creative pod · paid ad management included
 - Requests and pages are a monthly allowance (whichever cap is reached first); unused requests and pages roll over one month. Add-ons: website builds, photo & video, media buying. Pause anytime; annual option (pay 10 months, get 12 on the first two tiers).
+
+Business Support (pillar 02 — the operations underneath the brand; scoped per engagement, custom quote):
+- Operations Support — invoicing, AP/AR tracking and payment follow-up, vendor and contractor coordination, document and file systems, monthly check-in
+- Business Manager — adds budget building and monthly tracking, process design and written SOPs, bi-weekly working sessions, reporting partners and lenders can read
+- Fractional Operations Lead — adds weekly access, hiring/onboarding and team structure, systems selection and rollout, a seat in planning and partner conversations
+- Bookkeeping is handled alongside the client's accountant; DakJen Creative keeps the books usable and does not file taxes.
+
+AI Strategic Advisory (pillar 03 — where AI fits in how a team actually works):
+- Every engagement starts with an AI Fit Assessment — $1,500–$2,500 one-time. A review of workflows, tools and team, returning a short prioritized roadmap plus data, privacy and staff-adoption risks.
+- Advisory — $1,500–$2,500/mo (monthly strategy session, tool recommendations and vetting, a written AI use policy, email/Slack access between sessions)
+- Advisory + Setup — $3,000–$5,000/mo (adds hands-on setup of tools and custom assistants trained on client materials, prompt libraries and templates, quarterly team training)
+- Embedded AI Leadership — $5,500–$8,000/mo (adds automations built and maintained, done-for-you AI-assisted work to an agreed monthly cap, weekly access)
+- Tool and subscription costs are the client's or passed through at cost. Done-for-you hours are capped monthly, overages scoped separately. Every engagement includes a written data-handling clause.
 
 - Clients include: Northern Real Estate Urban Ventures (NREUV), Project Community Capital (PCC)
 - Page: https://www.dakjencreative.com/fractional.html

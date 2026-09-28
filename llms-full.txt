@@ -55,7 +55,7 @@ DakJen Creative is a deliberately small studio. The founder leads every engageme
 
 ## Services
 
-### 1. Fractional Creative & Business Leadership (Brand Management & Creative Consulting)
+### 1. Fractional Leadership — Marketing, Business Support & AI Strategic Advisory
 
 The flagship service. A dedicated brand department for founders and executives — without the full-time hire.
 
@@ -86,6 +86,20 @@ The flagship service. A dedicated brand department for founders and executives �
 **Who it's for:** Founders scaling past $500K, executives building personal brands, mission-driven organizations doing work that deserves to be seen clearly. Also founders just getting started — if the work is sharp and the vision is clear.
 
 **Page:** https://www.dakjencreative.com/fractional.html
+
+Business Support (pillar 02 — the operations underneath the brand; scoped per engagement, custom quote):
+- Operations Support — invoicing, AP/AR tracking and payment follow-up, vendor and contractor coordination, document and file systems, monthly check-in
+- Business Manager — adds budget building and monthly tracking, process design and written SOPs, bi-weekly working sessions, reporting partners and lenders can read
+- Fractional Operations Lead — adds weekly access, hiring/onboarding and team structure, systems selection and rollout, a seat in planning and partner conversations
+- Bookkeeping is handled alongside the client's accountant; DakJen Creative keeps the books usable and does not file taxes.
+
+AI Strategic Advisory (pillar 03 — where AI fits in how a team actually works):
+- Every engagement starts with an AI Fit Assessment — $1,500–$2,500 one-time. A review of workflows, tools and team, returning a short prioritized roadmap plus data, privacy and staff-adoption risks.
+- Advisory — $1,500–$2,500/mo (monthly strategy session, tool recommendations and vetting, a written AI use policy, email/Slack access between sessions)
+- Advisory + Setup — $3,000–$5,000/mo (adds hands-on setup of tools and custom assistants trained on client materials, prompt libraries and templates, quarterly team training)
+- Embedded AI Leadership — $5,500–$8,000/mo (adds automations built and maintained, done-for-you AI-assisted work to an agreed monthly cap, weekly access)
+- Tool and subscription costs are the client's or passed through at cost. Done-for-you hours are capped monthly, overages scoped separately. Every engagement includes a written data-handling clause.
+
 
 ### 2. Notable — Brand Platform for Women Founders
 
