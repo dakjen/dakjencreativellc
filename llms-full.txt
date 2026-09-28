@@ -87,11 +87,11 @@ The flagship service. A dedicated brand department for founders and executives �
 
 **Page:** https://www.dakjencreative.com/fractional.html
 
-Business Support (pillar 02 — the operations underneath the brand). Every tier begins with a one-time setup; catch-up bookkeeping is quoted separately:
-- Back Office — $1,750–$2,500/mo, plus $1,500–$2,500 one-time setup (QuickBooks build and the AP approval workflow). AP with a real approval workflow, AR and collections, bookkeeping and monthly reconciliation with a clean CPA handoff, inbox and calendar triage, vendor records and COI tracking, compliance calendar
-- Business Manager — $3,000–$4,000/mo, plus $2,500 one-time setup (banking architecture and the first 13-week cash forecast). Adds banking architecture and transfer rules, cash positioning, rolling cash flow and runway modeling, document architecture and written SOPs, tech stack audit
-- Fractional Operations Lead — $5,000–$7,500/mo, plus $2,500–$5,000 one-time setup (entity audit, current-state mapping, capital-readiness baseline). Adds entity structure and multi-entity administration, capital and credit readiness, government contracting readiness, revenue operations, quarterly planning and KPI scorecards
-- Bookkeeping is handled alongside the client's accountant; DakJen Creative keeps the books usable and does not file taxes.
+Business Infrastructure (pillar 02 — the infrastructure underneath the business). Every tier begins with a one-time setup. DakJen Creative does not keep books or file taxes; it coordinates clean handoffs to the client's bookkeeper and CPA:
+- Back Office — $1,750–$2,500/mo, plus $1,500–$2,500 one-time setup (AP approval workflow build and document architecture). AP with a real approval workflow, AR and collections, payroll processing, vendor records and COI tracking, compliance calendar, clean handoffs to the client's bookkeeper and CPA
+- Business Manager — $3,000–$4,000/mo, plus $2,500 one-time setup (banking architecture and the first 13-week cash forecast). Adds banking architecture and transfer rules, corporate accounts and cash positioning, rolling cash flow and runway modeling, financial statement review, document architecture and written SOPs
+- Fractional Chief of Business Infrastructure — $5,000–$7,500/mo, plus $2,500–$5,000 one-time setup (entity audit, current-state mapping, capital-readiness baseline). Adds entity structure, corporate separateness and intercompany balances, capital readiness (loan applications, financing packages, debt and equity submissions), pro forma review and financing scenario analysis, government contracting readiness, quarterly planning and KPI scorecards
+- Bright lines: DakJen Creative prepares and coordinates banking, insurance and certification filings but is not the account holder, broker or filing specialist. Anything touching client money runs under a separate signed authorization.
 
 AI Strategic Advisory (pillar 03 — where AI fits in how a team actually works):
 - Every engagement starts with an AI Fit Assessment — $1,500–$2,500 one-time. A review of workflows, tools and team, returning a short prioritized roadmap plus data, privacy and staff-adoption risks.
