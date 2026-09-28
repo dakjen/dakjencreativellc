@@ -87,10 +87,10 @@ The flagship service. A dedicated brand department for founders and executives �
 
 **Page:** https://www.dakjencreative.com/fractional.html
 
-Business Infrastructure (pillar 02 — the infrastructure underneath the business). Every tier begins with a one-time setup. DakJen Creative does not keep books or file taxes; it coordinates clean handoffs to the client's bookkeeper and CPA:
-- Back Office — $1,750–$2,500/mo, plus $1,500–$2,500 one-time setup (approval workflow build and document architecture). Bill approvals with a real trail, invoicing and receivables follow-up, inbox and calendar triage, vendor onboarding and COI tracking, compliance calendar (annual reports, licenses, permits, registered agent), clean handoffs to the client's bookkeeper and CPA
-- Business Manager — $3,000–$4,000/mo, plus $2,500 one-time setup (banking architecture and the first 13-week cash forecast). Adds document architecture and migration, written SOPs, project management and tech stack consolidation, people ops admin (onboarding, offer and contractor templates, org chart), banking architecture and cash positioning
-- Fractional Chief of Business Infrastructure — $5,000–$7,500/mo, plus $2,500–$5,000 one-time setup (entity audit, current-state mapping, readiness baseline). Adds entity structure, corporate separateness and multi-entity administration, government contracting readiness (SAM.gov, NAICS, vendor portals, prequalification), revenue operations (pipeline, CRM, proposal library, win/loss), quarterly planning and KPI scorecards, capital readiness (lender and financing packages)
+Business Infrastructure (pillar 02 — the infrastructure underneath the business). DakJen Creative does not keep books or file taxes; it coordinates clean handoffs to the client's bookkeeper and CPA:
+- Back Office — $1,500–$2,250/mo. Inbox and calendar management, meeting scheduling and follow-ups, vendor records/W-9s/insurance certificates, contract and renewal tracking, compliance calendar (annual reports, licenses, renewals)
+- Business Manager — $3,000–$4,000/mo. Everything in Tier 1, plus budgeting and spend tracking, financial health check and account setup, monthly plain-language financial summary, bookkeeper coordination, SOPs/file organization/tech stack cleanup
+- Fractional Chief of Business Infrastructure — $7,500–$12,000/mo. Everything in Tiers 1 & 2, plus oversight of core initiatives and projects, team and contractor management, loan and financing packages, banking relationships and payroll oversight, quarterly planning and board support
 - Bright lines: DakJen Creative prepares and coordinates banking, insurance and certification filings but is not the account holder, broker or filing specialist. Anything touching client money runs under a separate signed authorization.
 
 AI Strategic Advisory (pillar 03 — where AI fits in how a team actually works):
