@@ -87,10 +87,10 @@ The flagship service. A dedicated brand department for founders and executives �
 
 **Page:** https://www.dakjencreative.com/fractional.html
 
-Business Support (pillar 02 — the operations underneath the brand; scoped per engagement, custom quote):
-- Operations Support — invoicing, AP/AR tracking and payment follow-up, vendor and contractor coordination, document and file systems, monthly check-in
-- Business Manager — adds budget building and monthly tracking, process design and written SOPs, bi-weekly working sessions, reporting partners and lenders can read
-- Fractional Operations Lead — adds weekly access, hiring/onboarding and team structure, systems selection and rollout, a seat in planning and partner conversations
+Business Support (pillar 02 — the operations underneath the brand). Every tier begins with a one-time setup; catch-up bookkeeping is quoted separately:
+- Back Office — $1,750–$2,500/mo, plus $1,500–$2,500 one-time setup (QuickBooks build and the AP approval workflow). AP with a real approval workflow, AR and collections, bookkeeping and monthly reconciliation with a clean CPA handoff, inbox and calendar triage, vendor records and COI tracking, compliance calendar
+- Business Manager — $3,000–$4,000/mo, plus $2,500 one-time setup (banking architecture and the first 13-week cash forecast). Adds banking architecture and transfer rules, cash positioning, rolling cash flow and runway modeling, document architecture and written SOPs, tech stack audit
+- Fractional Operations Lead — $5,000–$7,500/mo, plus $2,500–$5,000 one-time setup (entity audit, current-state mapping, capital-readiness baseline). Adds entity structure and multi-entity administration, capital and credit readiness, government contracting readiness, revenue operations, quarterly planning and KPI scorecards
 - Bookkeeping is handled alongside the client's accountant; DakJen Creative keeps the books usable and does not file taxes.
 
 AI Strategic Advisory (pillar 03 — where AI fits in how a team actually works):
