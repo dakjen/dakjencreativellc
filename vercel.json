@@ -40,6 +40,21 @@
       "source": "/GroundUp",
       "destination": "/groundup",
       "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/consulting",
+      "permanent": true
+    },
+    {
+      "source": "/project-work",
+      "destination": "/consulting",
+      "permanent": true
+    },
+    {
+      "source": "/creative-consulting",
+      "destination": "/consulting",
+      "permanent": true
     }
   ],
   "headers": [

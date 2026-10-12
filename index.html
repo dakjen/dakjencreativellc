@@ -498,9 +498,9 @@ footer { background: #000; }
 <nav>
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="consulting.html">Creative Consulting</a></li>
     <li><a href="fractional.html">Fractional</a></li>
-    <li><a href="rfp.html">RFP Pipeline</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html">Lease-Up</a></li>
     <li><a href="dakotah.html">About</a></li>
@@ -551,11 +551,26 @@ footer { background: #000; }
 <section id="services" class="shell-kids">
   <div class="services-header">
     <h2>Supporting and Scaling</h2>
-    <p>Four service lines, four different buyers. Every engagement is scoped to your goals, your timeline, and your audience.</p>
+    <p>Five service lines, five different buyers. Every engagement is scoped to your goals, your timeline, and your audience.</p>
   </div>
 
-  <a href="fractional.html" class="svc">
+  <a href="consulting.html" class="svc">
     <div class="svc-num">01</div>
+    <div>
+      <div class="svc-name">Marketing &amp; Creative Consulting</div>
+      <div class="svc-desc"><strong style="font-weight:normal;color:#f5f2ee">Deliverables and creative work you can depend on.</strong> Brand identity, collateral and templates, reports, briefs and polished packages, campaigns, websites and decks &mdash; researched, designed and edited by one team. We support you creatively across every endeavor.</div>
+    </div>
+    <div class="svc-tags">
+      <span class="svc-tag">Branding</span>
+      <span class="svc-tag">Collateral</span>
+      <span class="svc-tag">Campaigns</span>
+      <span class="svc-tag">Reports &amp; Briefs</span>
+    </div>
+    <div class="svc-arrow">Explore →</div>
+  </a>
+
+  <a href="fractional.html" class="svc">
+    <div class="svc-num">02</div>
     <div>
       <div class="svc-name">Fractional Creative &amp; Business Leadership</div>
       <div class="svc-desc"><strong style="font-weight:normal;color:#f5f2ee">For executives and growing firms.</strong> A Brand Manager, Marketing Director, or Chief Creative Officer inside your business — owning brand direction and the business management around it, without the full-time hire. Done-for-you production is available alongside, from decks and newsletters to designed reports and impact stories.</div>
@@ -570,7 +585,7 @@ footer { background: #000; }
   </a>
 
   <a href="rfp.html" class="svc">
-    <div class="svc-num">02</div>
+    <div class="svc-num">03</div>
     <div>
       <div class="svc-name">RFP Pipeline</div>
       <div class="svc-desc"><strong style="font-weight:normal;color:#f5f2ee">For diverse-owned firms pursuing contracts.</strong> We monitor the procurement portals, flag the opportunities that fit your certifications, and hand you a finished Draft 1 plus a requirements checklist.</div>
@@ -585,7 +600,7 @@ footer { background: #000; }
   </a>
 
   <a href="notable.html" class="svc">
-    <div class="svc-num">03</div>
+    <div class="svc-num">04</div>
     <div>
       <div class="svc-name">Brand Platforms — Notable</div>
       <div class="svc-desc"><strong style="font-weight:normal;color:#f5f2ee">For founders and small business owners.</strong> Brand tools and platform strategy for women founders ready to be recognized for the work they're already doing. Qualifications packages, websites, decks, LinkedIn content, and revenue stream development.</div>
@@ -600,7 +615,7 @@ footer { background: #000; }
   </a>
 
   <a href="leaseup.html" class="svc">
-    <div class="svc-num">04</div>
+    <div class="svc-num">05</div>
     <div>
       <div class="svc-name">Lease-Up Marketing</div>
       <div class="svc-desc"><strong style="font-weight:normal;color:#f5f2ee">For affordable housing developers.</strong> Full-cycle campaigns built to fill buildings. Social, traditional media, community engagement, and application support — reaching income-qualified applicants by design, not by volume.</div>
@@ -790,6 +805,7 @@ footer { background: #000; }
     </div>
     <div class="ft-col">
       <h4>Client Services</h4>
+      <a href="consulting.html">Marketing &amp; Creative Consulting</a>
       <a href="fractional.html">Fractional Leadership</a>
       <a href="rfp.html">RFP Pipeline</a>
       <a href="notable.html">Notable</a>
@@ -885,8 +901,15 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 
 /* anchor links land below the sticky nav instead of under it */
 html{scroll-padding-top:5.5rem}
-/* ---- NAV FIT (6 items) ---- */
+/* ---- NAV FIT + CANONICAL BAR (6 items) ----
+   Identical on every page. Pages disagreed on link size (.84rem/.08em vs
+   .82rem/.1em), so the bar visibly shifted when you clicked through. These
+   rules outrank the per-page `.nl a` declarations and settle it. */
+nav{padding:1.1rem 2.5rem !important;background:#0c1c2c !important;border-bottom:1px solid rgba(255,255,255,.08) !important}
 nav .nl{gap:1.6rem}
+nav .nl a{font-family:'Syne',system-ui,sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none}
+nav .nl a:hover{color:#f5f2ee}
+nav .ncta{background:#000;color:#f5f2ee;font-size:.82rem;letter-spacing:.1em}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
 /* below 940px there is no longer room for 6 links + CTA — use the hamburger */
 @media(max-width:940px){

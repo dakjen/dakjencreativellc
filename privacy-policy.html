@@ -143,8 +143,15 @@ footer { background: #111; padding: 3.5rem 3rem; }
   }
 }
 
-/* ---- NAV FIT (6 items) ---- */
+/* ---- NAV FIT + CANONICAL BAR (6 items) ----
+   Identical on every page. Pages disagreed on link size (.84rem/.08em vs
+   .82rem/.1em), so the bar visibly shifted when you clicked through. These
+   rules outrank the per-page `.nl a` declarations and settle it. */
+nav{padding:1.1rem 2.5rem !important;background:#0c1c2c !important;border-bottom:1px solid rgba(255,255,255,.08) !important}
 nav .nl{gap:1.6rem}
+nav .nl a{font-family:'Syne',system-ui,sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none}
+nav .nl a:hover{color:#f5f2ee}
+nav .ncta{background:#000;color:#f5f2ee;font-size:.82rem;letter-spacing:.1em}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
 /* below 940px there is no longer room for 6 links + CTA — use the hamburger */
 @media(max-width:940px){
@@ -171,13 +178,13 @@ html{scroll-padding-top:5.5rem}
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
     <li><a href="index.html">Home</a></li>
+    <li><a href="consulting.html">Creative Consulting</a></li>
     <li><a href="fractional.html">Fractional</a></li>
-    <li><a href="rfp.html">RFP Pipeline</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html">Lease-Up</a></li>
     <li><a href="dakotah.html">About</a></li>
   </ul>
-  <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="nav-cta">Book a Call</a>
+  <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
   <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -327,6 +334,7 @@ html{scroll-padding-top:5.5rem}
     </div>
     <div class="ft-col">
       <h4>Client Services</h4>
+      <a href="consulting.html">Marketing &amp; Creative Consulting</a>
       <a href="fractional.html">Fractional Leadership</a>
       <a href="rfp.html">RFP Pipeline</a>
       <a href="notable.html">Notable</a>

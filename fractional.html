@@ -291,8 +291,8 @@ footer { background: #000; }
   <a href="index.html" class="logo">DakJen <span>Creative</span></a>
   <ul class="nl">
     <li><a href="index.html">Home</a></li>
-    <li><a href="fractional.html" class="active">Fractional</a></li>
-    <li><a href="rfp.html">RFP Pipeline</a></li>
+    <li><a href="consulting.html">Creative Consulting</a></li>
+    <li><a href="fractional.html">Fractional</a></li>
     <li><a href="notable.html">Notable</a></li>
     <li><a href="leaseup.html">Lease-Up</a></li>
     <li><a href="dakotah.html">About</a></li>
@@ -346,7 +346,7 @@ footer { background: #000; }
         <span style="font-size:.84rem;letter-spacing:.15em;font-weight:600;text-transform:uppercase;color:var(--m);font-family:'Syne',system-ui,sans-serif;margin-bottom:.8rem;display:block">How We Work With You</span>
         <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.9rem;font-weight:normal;color:#f5f2ee;line-height:1.25;margin-bottom:1rem">Three ways to put senior leadership <em style="color:var(--m);font-style:italic">inside your business.</em></h2>
       </div>
-      <p style="font-size:1rem;line-height:1.9;color:rgba(245,242,238,.65)">Retained, by the month, at the level you need. Take one, or combine them — most engagements start with a single pillar and grow into the others as the work compounds.</p>
+      <p style="font-size:1rem;line-height:1.9;color:rgba(245,242,238,.65)">Retained, by the month, at the level you need. Take one, or combine them — most engagements start with a single pillar and grow into the others as the work compounds. There is also a fourth retained program, RFP Pipeline Management, further down, and <a href="consulting.html" style="color:var(--m);text-decoration:none">marketing and creative consulting</a> for work scoped on its own.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)">
       <a href="#marketing" class="hoverlift" style="background:#0c1c2c;padding:2.2rem 1.9rem;border-top:2px solid var(--m);text-decoration:none;display:block">
@@ -611,6 +611,20 @@ footer { background: #000; }
   </div>
 </div>
 
+<!-- ALSO RETAINED: RFP PIPELINE -->
+<div style="background:#000;padding:4.5rem 3rem">
+  <div style="max-width:1100px;margin:0 auto">
+    <span style="font-size:.84rem;letter-spacing:.15em;font-weight:600;text-transform:uppercase;color:var(--m);font-family:'Syne',system-ui,sans-serif;margin-bottom:.8rem;display:block">Also Retained</span>
+    <h2 style="font-family:'Syne',system-ui,sans-serif;font-size:1.9rem;font-weight:normal;color:#f5f2ee;line-height:1.25;margin-bottom:1rem">RFP Pipeline Management</h2>
+    <p style="font-size:1rem;line-height:1.9;color:rgba(245,242,238,.65);max-width:760px;margin-bottom:1.8rem">A fourth retained program, for diverse-owned firms pursuing contracts. We watch the procurement portals, flag the opportunities that actually fit your certifications, and hand you a finished first draft with a requirements checklist &mdash; so bidding stops being the thing that never gets done.</p>
+    <div class="btns">
+      <a href="rfp.html" class="btn-w">See the RFP Pipeline</a>
+      <a href="quote.html?service=rfp" class="btn-o">Request a quote &rarr;</a>
+    </div>
+    <p style="font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.58);margin-top:1.4rem">Need a single proposal designed rather than a pipeline? That is <a href="consulting.html" style="color:var(--m);text-decoration:none">creative consulting</a>.</p>
+  </div>
+</div>
+
 <!-- PHOTO BREAK -->
 <div class="bleed" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)">
   <img src="images/dcre-conference-stage.jpg" alt="Honoree awards presentation at the 2026 National DCRE Conference" loading="lazy" style="width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;object-position:center 45%;display:block;">
@@ -797,6 +811,7 @@ footer { background: #000; }
     </div>
     <div class="ft-col">
       <h4>Client Services</h4>
+      <a href="consulting.html">Marketing &amp; Creative Consulting</a>
       <a href="fractional.html">Fractional Leadership</a>
       <a href="rfp.html">RFP Pipeline</a>
       <a href="notable.html">Notable</a>
@@ -907,8 +922,15 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 
 /* anchor links land below the sticky nav instead of under it */
 html{scroll-padding-top:5.5rem}
-/* ---- NAV FIT (6 items) ---- */
+/* ---- NAV FIT + CANONICAL BAR (6 items) ----
+   Identical on every page. Pages disagreed on link size (.84rem/.08em vs
+   .82rem/.1em), so the bar visibly shifted when you clicked through. These
+   rules outrank the per-page `.nl a` declarations and settle it. */
+nav{padding:1.1rem 2.5rem !important;background:#0c1c2c !important;border-bottom:1px solid rgba(255,255,255,.08) !important}
 nav .nl{gap:1.6rem}
+nav .nl a{font-family:'Syne',system-ui,sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none}
+nav .nl a:hover{color:#f5f2ee}
+nav .ncta{background:#000;color:#f5f2ee;font-size:.82rem;letter-spacing:.1em}
 @media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
 /* below 940px there is no longer room for 6 links + CTA — use the hamburger */
 @media(max-width:940px){

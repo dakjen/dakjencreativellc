@@ -35,12 +35,44 @@ p{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.6);margin-bottom:2.2re
 footer{padding:1.5rem 2.5rem;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:rgba(255,255,255,.58)}
 @media(max-width:600px){nav,main,footer{padding-left:1.25rem;padding-right:1.25rem}h1{font-size:2.2rem}.links{grid-template-columns:1fr}}
 html{scroll-padding-top:5.5rem}
+/* ---- NAV FIT + CANONICAL BAR (6 items) ---- */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem !important;background:#0c1c2c !important;border-bottom:1px solid rgba(255,255,255,.08) !important;position:sticky;top:0;z-index:100}
+nav .logo{font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;color:#f5f2ee;text-decoration:none;letter-spacing:.02em}
+nav .logo span{color:#c07481}
+nav .nl{display:flex;list-style:none;margin:0;padding:0;gap:1.6rem}
+nav .nl a{font-family:'Syne',system-ui,sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+nav .nl a:hover{color:#f5f2ee}
+nav .ncta{background:#000;color:#f5f2ee;padding:.55rem 1.4rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-family:'Syne',system-ui,sans-serif;text-decoration:none;display:inline-block}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:.3rem}
+.menu-toggle span{display:block;width:22px;height:2px;margin:4px 0;background:#f5f2ee;transition:transform .25s,opacity .25s}
+@media(max-width:1180px){nav .nl{gap:1.05rem}nav .nl a{letter-spacing:.06em}}
+/* match the site's page shell so the bar lines up with every other page */
+@media(min-width:1200px){body > nav{padding-left:calc((100% - 1100px) / 2) !important;padding-right:calc((100% - 1100px) / 2) !important}}
+@media(max-width:940px){
+  nav .nl{display:none}
+  .menu-toggle{display:block}
+  nav .nl.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1c2c;z-index:200;align-items:center;justify-content:center;gap:1.5rem}
+  nav .nl.open a{color:#f5f2ee;font-size:1.1rem;letter-spacing:.1em}
+  nav .nl.open a:hover{color:#c07481}
+  .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="/" class="logo">DakJen <span>Creative</span></a>
+  <a href="index.html" class="logo">DakJen <span>Creative</span></a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="consulting.html">Creative Consulting</a></li>
+    <li><a href="fractional.html">Fractional</a></li>
+    <li><a href="notable.html">Notable</a></li>
+    <li><a href="leaseup.html">Lease-Up</a></li>
+    <li><a href="dakotah.html">About</a></li>
+  </ul>
   <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_cD3khhCB0fzQgXUTrn87swZX8uofaAwLw_SuUHELApHXfHTOZgO7D-OyOTbgxcvnaOcGm-LG" target="_blank" class="ncta">Book a Call</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <main>
   <div class="inner">
@@ -59,5 +91,12 @@ html{scroll-padding-top:5.5rem}
 </main>
 <footer>© 2026 DakJen Creative LLC · <a href="mailto:business@dakjencreative.com" style="color:inherit">business@dakjencreative.com</a></footer>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+const tog=document.querySelector('.menu-toggle'),nl=document.querySelector('.nl');
+if(tog&&nl){
+  tog.addEventListener('click',()=>{nl.classList.toggle('open');tog.classList.toggle('open');});
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');tog.classList.remove('open');}));
+}
+</script>
 </body>
 </html>
