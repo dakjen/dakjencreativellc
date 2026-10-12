@@ -418,6 +418,7 @@ footer { background: #000; }
           <option value="Lease-up marketing">Lease-up marketing</option>
           <option value="Brand platform (Notable)">Brand platform — Notable</option>
           <option value="Done-for-you production (CMO Subscription)">Done-for-you production — CMO Subscription</option>
+          <option value="Reports, publications &amp; communications">Reports, publications &amp; communications</option>
           <option value="Not sure yet">Not sure yet — help me figure it out</option>
         </select>
       </div>
@@ -425,7 +426,13 @@ footer { background: #000; }
       <div class="qfull">
         <label for="q-challenge">What are you trying to solve?</label>
         <textarea id="q-challenge" name="challenge" required placeholder="What is actually going wrong, what you have already tried, and what it would look like if this were fixed."></textarea>
-        <p class="qhint">Write it the way you would say it out loud. The more specific the problem, the more specific the quote.</p>
+        <p class="qhint" id="q-challenge-hint">Write it the way you would say it out loud. The more specific the problem, the more specific the quote.</p>
+      </div>
+
+      <div class="qfull" id="q-doclink-wrap" hidden>
+        <label for="q-doclink">Link to a report or document you want us to work from <span class="opt">— optional</span></label>
+        <input type="url" id="q-doclink" name="doclink" placeholder="https://">
+        <p class="qhint">A link is easiest — no need to attach anything.</p>
       </div>
 
       <div>
@@ -446,6 +453,7 @@ footer { background: #000; }
           <option>$1,500 – $4,000/mo</option>
           <option>$4,000 – $7,000/mo</option>
           <option>$7,000+/mo</option>
+          <option>Project-based — under $5,000</option>
           <option>Project-based — under $20,000</option>
           <option>Project-based — $20,000+</option>
           <option>Not sure yet</option>
@@ -593,12 +601,28 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
   // Preselect the service from ?service= so page CTAs can arrive pre-filled
   var map={leaseup:'Lease-up marketing',fractional:'Fractional creative & business leadership',
            rfp:'RFP pipeline management',notable:'Brand platform (Notable)',
-           subscription:'Done-for-you production (CMO Subscription)'};
+           subscription:'Done-for-you production (CMO Subscription)',
+           publications:'Reports, publications & communications'};
   var want=map[new URLSearchParams(window.location.search).get('service')];
   if(want){
     var sel=document.getElementById('q-service');
     for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===want){sel.selectedIndex=i;break;}}
   }
+
+  // Publications: show the document-link field and a worked example
+  (function(){
+    var sel=document.getElementById('q-service'),
+        wrap=document.getElementById('q-doclink-wrap'),
+        hint=document.getElementById('q-challenge-hint'),
+        base=hint.textContent,
+        eg='For example: a 60-page evaluation report we need designed and turned into a two-page brief and a newsletter feature.';
+    function sync(){
+      var on=sel.value==='Reports, publications & communications';
+      wrap.hidden=!on;
+      hint.textContent=on?eg:base;
+    }
+    sel.addEventListener('change',sync); sync();
+  })();
 
   var form=document.getElementById('quoteForm'),
       btn=document.getElementById('quoteSubmit'),
@@ -618,7 +642,7 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
     e.preventDefault();
     var data={name:v('q-name'),organization:v('q-org'),email:v('q-email'),phone:v('q-phone'),
       service:v('q-service'),challenge:v('q-challenge'),timeline:v('q-timeline'),
-      budget:v('q-budget'),heard:v('q-heard'),notes:v('q-notes'),website:v('q-website'),started:window.__fs};
+      budget:v('q-budget'),heard:v('q-heard'),notes:v('q-notes'),doclink:v('q-doclink'),website:v('q-website'),started:window.__fs};
     btn.disabled=true;btn.textContent='Sending…';
     fetch('/api/quote',{method:'POST',headers:{'content-type':'application/json'},
       body:JSON.stringify(data)})

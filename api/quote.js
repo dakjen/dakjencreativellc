@@ -21,6 +21,7 @@ const OPTIONAL = [
   ['timeline', 'Timeline'],
   ['budget', 'Budget range'],
   ['heard', 'How they heard about us'],
+  ['doclink', 'Document link'],
   ['notes', 'Anything else'],
 ];
 
