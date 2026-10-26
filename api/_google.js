@@ -27,7 +27,7 @@ function b64url(input) {
 }
 
 function privateKey() {
-  const raw = process.env.GOOGLE_SA_PRIVATE_KEY || '';
+  const raw = (process.env.GOOGLE_SA_PRIVATE_KEY || '').trim();
   // Vercel stores the key as a single line with escaped newlines
   return raw.includes('\\n') ? raw.replace(/\\n/g, '\n') : raw;
 }
@@ -38,7 +38,10 @@ async function accessToken() {
   const now = Math.floor(Date.now() / 1000);
   if (cached.token && cached.exp - 60 > now) return cached.token;
 
-  const email = process.env.GOOGLE_SA_EMAIL;
+  // Trimmed on purpose: a value pasted into the Vercel dashboard picks up a
+  // trailing newline, which lands in the JWT's iss claim and makes Google
+  // answer "invalid_grant: account not found" with no useful detail.
+  const email = (process.env.GOOGLE_SA_EMAIL || '').trim();
   const key = privateKey();
   if (!email || !key) throw new Error('Google service account env vars are missing');
 

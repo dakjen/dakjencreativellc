@@ -8,7 +8,7 @@
 const { busyIntervals, zonedToUtc, partsInTz } = require('./_google');
 
 const TZ          = process.env.BOOKING_TZ || 'America/New_York';
-const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID || '';
+const CALENDAR_ID = (process.env.GOOGLE_CALENDAR_ID || '').trim();
 
 const SLOT_MIN    = Number(process.env.BOOKING_SLOT_MIN || 20);  // "20-minute fit call"
 const PAD_MIN     = Number(process.env.BOOKING_PAD_MIN  || 10);  // breathing room around meetings
