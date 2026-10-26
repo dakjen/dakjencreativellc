@@ -16,3 +16,14 @@ DJC_Funnel_Implementation_Plan.md
 .env.*
 !.env.example
 .vercel
+
+# Google service-account keys — NEVER commit. The booking key lives in
+# Vercel env vars (GOOGLE_SA_EMAIL / GOOGLE_SA_PRIVATE_KEY), not in files.
+*service-account*.json
+*-service-account*.json
+*credentials*.json
+*client_secret*.json
+optimum-spring-*.json
+gcp-*.json
+**/*.pem
+**/*.p12
