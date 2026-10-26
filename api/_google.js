@@ -127,23 +127,34 @@ function partsInTz(date, tz) {
 
 /* ---------------- calendar operations ---------------- */
 
-async function busyIntervals(calendarId, timeMin, timeMax) {
+// Accepts one calendar id or several. Busy time from ANY of them blocks a
+// slot — a meeting on a personal calendar has to make you just as
+// unavailable as one on the business calendar.
+async function busyIntervals(calendarIds, timeMin, timeMax) {
+  const ids = (Array.isArray(calendarIds) ? calendarIds : [calendarIds])
+    .map(s => String(s).trim()).filter(Boolean);
+
   const data = await calendar('/freeBusy', {
     method: 'POST',
     body: JSON.stringify({
       timeMin: timeMin.toISOString(),
       timeMax: timeMax.toISOString(),
-      items: [{ id: calendarId }],
+      items: ids.map(id => ({ id })),
     }),
   });
-  const cal = (data.calendars || {})[calendarId] || {};
-  if (cal.errors && cal.errors.length) {
-    throw new Error(`freeBusy: ${JSON.stringify(cal.errors)}`);
+
+  const out = [];
+  for (const id of ids) {
+    const cal = (data.calendars || {})[id] || {};
+    if (cal.errors && cal.errors.length) {
+      // One unreachable calendar must not silently widen availability.
+      throw new Error(`freeBusy[${id}]: ${JSON.stringify(cal.errors)}`);
+    }
+    for (const b of cal.busy || []) {
+      out.push({ start: new Date(b.start).getTime(), end: new Date(b.end).getTime() });
+    }
   }
-  return (cal.busy || []).map(b => ({
-    start: new Date(b.start).getTime(),
-    end: new Date(b.end).getTime(),
-  }));
+  return out;
 }
 
 async function createEvent(calendarId, event) {

@@ -51,7 +51,7 @@ function buildIcs({ startIso, endIso, name, uid }) {
     `DTSTART:${icsStamp(startIso)}`,
     `DTEND:${icsStamp(endIso)}`,
     `SUMMARY:${icsEscape(`Intro call — DakJen Creative & ${name}`)}`,
-    `DESCRIPTION:${icsEscape('A 20-minute intro call with Dakotah Jennifer of DakJen Creative LLC. Dakotah will reach out with a link or call you directly.')}`,
+    `DESCRIPTION:${icsEscape('A 30-minute intro call with Dakotah Jennifer of DakJen Creative LLC. Dakotah will reach out with a link or call you directly.')}`,
     'ORGANIZER;CN=Dakotah Jennifer:mailto:business@dakjencreative.com',
     'STATUS:CONFIRMED',
     'BEGIN:VALARM',
