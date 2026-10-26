@@ -21,6 +21,7 @@ const CALENDAR_IDS = [...new Set([CALENDAR_ID, ...EXTRA_BUSY])].filter(Boolean);
 
 const SLOT_MIN    = Number(process.env.BOOKING_SLOT_MIN || 30);  // meeting length
 const GAP_MIN     = Number(process.env.BOOKING_GAP_MIN  || 10);  // breathing room BETWEEN meetings
+const STEP_MIN    = Number(process.env.BOOKING_STEP_MIN || 15);  // how finely we look for a fit
 const LEAD_HOURS  = Number(process.env.BOOKING_LEAD_HRS || 12);  // no same-afternoon surprises
 const DAYS_OUT    = Number(process.env.BOOKING_DAYS_OUT || 21);
 const START_HOUR  = Number(process.env.BOOKING_START_HR || 10);  // first slot starts 10:00 local
@@ -53,8 +54,13 @@ async function openSlots() {
     const dayParts = partsInTz(new Date(now + i * 86400000), TZ);
     if (!WORK_DAYS.includes(dayParts.weekday)) continue;
 
-    // step by meeting + gap so consecutive bookings are never back to back
-    for (let min = START_HOUR * 60; min + SLOT_MIN <= END_HOUR * 60; min += SLOT_MIN + GAP_MIN) {
+    // Walk the day in small steps rather than on a fixed meeting-sized grid.
+    // A rigid grid throws away real openings: an hour free from 3:15 fits a
+    // 30-minute call easily, but grid points at 3:20 and 4:00 both collide
+    // with the buffers and the hour goes unoffered. Candidates may overlap
+    // each other — they are alternatives, and booking one re-filters the
+    // rest on the next read.
+    for (let min = START_HOUR * 60; min + SLOT_MIN <= END_HOUR * 60; min += STEP_MIN) {
       const isFirstOfDay = min === START_HOUR * 60;
       const start = zonedToUtc(
         dayParts.year, dayParts.month, dayParts.day,
@@ -101,5 +107,5 @@ function groupByDay(slots) {
 
 module.exports = {
   openSlots, groupByDay,
-  TZ, CALENDAR_ID, CALENDAR_IDS, EXTRA_BUSY, SLOT_MIN, GAP_MIN, LEAD_HOURS, DAYS_OUT,
+  TZ, CALENDAR_ID, CALENDAR_IDS, EXTRA_BUSY, SLOT_MIN, GAP_MIN, STEP_MIN, LEAD_HOURS, DAYS_OUT,
 };
