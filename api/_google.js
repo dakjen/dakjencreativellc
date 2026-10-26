@@ -9,10 +9,11 @@
 //   GOOGLE_SA_PRIVATE_KEY  its private_key (literal \n escapes are fine)
 //   GOOGLE_CALENDAR_ID     the calendar shared with that service account
 //
-// Note: a service account on a non-Workspace account cannot invite
-// attendees (Google requires domain-wide delegation for that), so the
-// booking event is written without an attendee list and the confirmation
-// is sent separately over Brevo.
+// Note: a service account acting as itself cannot invite attendees —
+// Google requires domain-wide delegation for that, which is a separate
+// Workspace admin grant on top of the calendar share. Until that is set
+// up the booking event is written without an attendee list and the
+// confirmation is sent separately over Brevo.
 
 const crypto = require('crypto');
 

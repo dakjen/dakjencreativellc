@@ -4,9 +4,9 @@
 // slots before anything is written, so a stale page, a double submit or a
 // hand-crafted POST cannot book a time that is not actually free.
 //
-// Google will not email the invitee from a service account on a non-
-// Workspace account, so both confirmations go out over Brevo with an .ics
-// attached for the visitor to add to their own calendar.
+// Google will not email the invitee unless the service account is granted
+// domain-wide delegation, so both confirmations go out over Brevo with an
+// .ics attached for the visitor to add to their own calendar.
 
 const { createEvent, partsInTz } = require('./_google');
 const { openSlots, TZ, CALENDAR_ID, SLOT_MIN } = require('./_booking');
