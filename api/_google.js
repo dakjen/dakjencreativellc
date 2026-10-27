@@ -81,6 +81,8 @@ async function calendar(path, options = {}) {
     },
   });
   if (!res.ok) throw new Error(`Calendar ${res.status}: ${await res.text()}`);
+  // A delete answers 204 with an empty body; .json() would throw on that.
+  if (res.status === 204) return {};
   return res.json();
 }
 

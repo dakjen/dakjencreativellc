@@ -27,3 +27,4 @@ optimum-spring-*.json
 gcp-*.json
 **/*.pem
 **/*.p12
+.env*.local

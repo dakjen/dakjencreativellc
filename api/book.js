@@ -38,6 +38,28 @@ function icsEscape(s) {
   return String(s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
 }
 
+// RFC 5545 caps a line at 75 octets; longer ones are folded onto a
+// continuation line beginning with a single space. A fold must never land
+// inside a multi-byte character, so the break backs off the UTF-8
+// continuation bytes. Most clients forgive an over-long line; Outlook has
+// been known not to.
+function foldIcsLine(line) {
+  const bytes = Buffer.from(line, 'utf8');
+  if (bytes.length <= 75) return line;
+
+  const parts = [];
+  let i = 0;
+  let limit = 75;
+  while (i < bytes.length) {
+    let take = Math.min(limit, bytes.length - i);
+    while (take > 1 && (bytes[i + take] & 0xc0) === 0x80) take--;
+    parts.push(bytes.subarray(i, i + take).toString('utf8'));
+    i += take;
+    limit = 74;   // continuation lines spend one octet on the leading space
+  }
+  return parts.join('\r\n ');
+}
+
 function buildIcs({ startIso, endIso, name, uid }) {
   return [
     'BEGIN:VCALENDAR',
@@ -61,7 +83,7 @@ function buildIcs({ startIso, endIso, name, uid }) {
     'END:VALARM',
     'END:VEVENT',
     'END:VCALENDAR',
-  ].join('\r\n');
+  ].map(foldIcsLine).join('\r\n');
 }
 
 module.exports = async (req, res) => {

@@ -162,7 +162,7 @@ module.exports = async (req, res) => {
         body:
           para(`<span style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#c07481;">What we think you should charge</span><br><strong style="font-size:34px;line-height:1.1;color:#0c1c2c;">${money(q.rec)}</strong><br><span style="font-size:14px;color:#5b6672;">Working range ${money(q.low)}–${money(q.high)}. Your call — reply with whatever number you want.</span>`) +
           detailBlock(breakdown) +
-          (f.meeting === 'yes' ? para(`<strong style="color:#0c1c2c;">${esc(f.name)} wants a discovery call before going further.</strong> <a href="https://calendar.app.google/bzcyGsRcNRLTGce18" style="color:#c07481;">Send them the booking link</a> with the quote.`) : '') +
+          (f.meeting === 'yes' ? para(`<strong style="color:#0c1c2c;">${esc(f.name)} wants a discovery call before going further.</strong> <a href="https://www.dakjencreative.com/book" style="color:#c07481;">Send them the booking link</a> with the quote.`) : '') +
           (ao.items
             ? sectionTitle('Add-ons they asked for — theirs to keep') +
               detailBlock(ao.lines.concat([['Add-ons total', money(ao.total)], ['Proposal + add-ons', money(q.rec + ao.total)]]))

@@ -107,7 +107,7 @@ module.exports = async (req, res) => {
           para('Dakotah reads every one of these personally and will come back to you within two business days, either with a scoped quote or with the two or three questions we need to build one honestly.') +
           para('If it turns out we are not the right fit, we will say so plainly and point you somewhere better. Bad fits cost you more than they cost us.') +
           button('https://substack.com/@dakjencreative', 'Read The Fractional Founder') +
-          signature({ email: 'business@dakjencreative.com', tel: '+12026009741', book: 'https://calendar.app.google/bzcyGsRcNRLTGce18' }),
+          signature({ email: 'business@dakjencreative.com', tel: '+12026009741', book: 'https://www.dakjencreative.com/book' }),
         footerNote: 'You are receiving this because you submitted a request at dakjencreative.com.',
       }),
     });

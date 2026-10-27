@@ -13,7 +13,7 @@ const { guard } = require('./_guard');
 const SENDER = process.env.BREVO_SENDER || 'business@dakjencreative.com';
 const CONTACT_EMAIL = 'business@dakjencreative.com';
 const CONTACT_TEL = '+12026009741';
-const BOOKING = 'https://calendar.app.google/bzcyGsRcNRLTGce18';
+const BOOKING = 'https://www.dakjencreative.com/book';
 const RECIPIENT = process.env.SCAN_RECIPIENT || 'business@dakjencreative.com';
 
 module.exports = async (req, res) => {
