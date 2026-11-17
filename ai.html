@@ -288,17 +288,6 @@ footer { background: #000; }
 </style>
 <link rel="stylesheet" href="/nav.css">
 <style>
-/* ---- HERO ----
-   The other section pages sit on a photograph. There is no AI photo worth
-   using yet, so this hero is the deck's own navy instead of a stock stand-in.
-   Swapping a picture in later means adding background-image here and nothing
-   else: the overlay, sizing and mobile rule already assume one. */
-.page-hero{
-  background-image:radial-gradient(120% 120% at 18% 0%,#24476a 0%,#15304a 42%,#0c1c2c 100%);
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-}
 /* capability grid: three groups, each a short list */
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
 .cap-col{background:#fff;border-left:3px solid var(--m);padding:2rem 1.8rem}
@@ -606,19 +595,20 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:none}
-/* ---- HERO IMAGE ----
+/* ---- HERO ----
    Set here rather than on the .page-hero rule above, because a later
-   `.page-hero{background:#000}` would reset a background shorthand. */
+   `.page-hero{background:#000}` would reset a background shorthand.
+
+   The other section pages sit on a photograph. Every photo on this site is
+   used on exactly one page and there is no AI photograph yet, so this hero
+   is the one-pager's own navy. To put a picture in later, add it to
+   background-image below and add back a flat-overlay mobile rule — the
+   sizing and the hero's text contrast already assume one. */
 .page-hero{
-  background-image:linear-gradient(90deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.86) 42%,rgba(0,0,0,.48) 100%),url('images/dcre-conference-reception.jpg');
+  background-image:radial-gradient(120% 120% at 18% 0%,#24476a 0%,#15304a 42%,#0c1c2c 100%);
   background-size:cover;
-  background-position:center 28%;
+  background-position:center;
   background-repeat:no-repeat;
-}
-/* text spans the full width on small screens, so the side-to-side
-   gradient would leave copy sitting on the bright half */
-@media(max-width:768px){
-  .page-hero{background-image:linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.88)),url('images/dcre-conference-reception.jpg')}
 }
 
 /* ---- PAGE SHELL ----
