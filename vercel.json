@@ -70,6 +70,21 @@
       "source": "/questions",
       "destination": "/faq",
       "permanent": true
+    },
+    {
+      "source": "/ai-advisory",
+      "destination": "/ai",
+      "permanent": true
+    },
+    {
+      "source": "/ai-strategic-advisory",
+      "destination": "/ai",
+      "permanent": true
+    },
+    {
+      "source": "/ai-strategy",
+      "destination": "/ai",
+      "permanent": true
     }
   ],
   "headers": [
