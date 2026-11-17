@@ -55,6 +55,21 @@
       "source": "/creative-consulting",
       "destination": "/consulting",
       "permanent": true
+    },
+    {
+      "source": "/faqs",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/frequently-asked-questions",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/questions",
+      "destination": "/faq",
+      "permanent": true
     }
   ],
   "headers": [
