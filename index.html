@@ -218,11 +218,13 @@ nav {
   background: var(--n);
 }
 .services-header h2 { font-size:.84rem; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; }
-.services-header p { font-size:1rem; color:rgba(255,255,255,.58); max-width: 340px; text-align: right; }
+.services-header p { font-size:1rem; color:rgba(255,255,255,.58); max-width: 520px; text-align: right; }
 
 .svc {
   display: grid;
-  grid-template-columns: 56px 1fr 1fr 72px;
+  /* the description earns more of the row than the tag chips do: an even
+     split wrapped the copy at 37 characters on a ~1000px window */
+  grid-template-columns: 56px 1.7fr 1fr 72px;
   gap: 2.5rem;
   padding: 2.2rem 3rem;
   border-bottom: 1px solid var(--border);
@@ -344,13 +346,18 @@ footer { background: #111; padding: 3.5rem 3rem; }
 .footer-bottom .ft-note a{font-size:inherit;color:var(--m);text-decoration:none}
 
 /* CERTIFICATIONS STRIP */
-.cert-strip { background:#111; padding:1.6rem 3rem; border-top:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; }
-.cert-label { font-family:'Syne',system-ui,sans-serif; font-size:1rem; letter-spacing:.2em; text-transform:uppercase; color:var(--m); flex-shrink:0; }
-.cert-list { display:flex; gap:2.2rem; flex-wrap:wrap; flex:1; }
+/* A grid, not flex: packed from the left the five items left a ragged right
+   edge and a hole in the band. Even columns make the wrap read as a matrix. */
+.cert-strip { background:#111; padding:1.6rem 3rem; border-top:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); display:grid; grid-template-columns:170px 1fr; gap:2rem; align-items:center; }
+.cert-label { font-family:'Syne',system-ui,sans-serif; font-size:1rem; letter-spacing:.2em; text-transform:uppercase; color:var(--m); flex-shrink:0; line-height:1.5; }
+.cert-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1.3rem 2rem; }
+/* the SWaM status runs far longer than the rest — two cells, so it does not
+   wrap four deep and drag the whole band taller */
+.cert-list > :last-child { grid-column:span 2; }
 .cert { display:flex; flex-direction:column; gap:.15rem; }
 .cert-name { font-family:'Syne',system-ui,sans-serif; font-size:1rem; color:#f5f2ee; letter-spacing:.02em; }
 .cert-status { font-size:1.04rem; color:rgba(255,255,255,.58); }
-@media(max-width:768px){.cert-strip{flex-direction:column;align-items:flex-start;padding:1.5rem 1.25rem;gap:1rem}.cert-list{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.5rem;width:100%}.cert-list > :last-child:nth-child(odd){grid-column:1 / -1}.cert{min-width:0}.cert-name{white-space:nowrap}}
+@media(max-width:768px){.cert-strip{display:flex;flex-direction:column;align-items:flex-start;padding:1.5rem 1.25rem;gap:1rem}.cert-list{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.5rem;width:100%}.cert-list > :last-child:nth-child(odd){grid-column:1 / -1}.cert{min-width:0}.cert-name{white-space:nowrap}}
 
 /* ── GLOBAL COLOR OVERRIDES ── */
 body { background: #0c1c2c; color: #f5f2ee; }
